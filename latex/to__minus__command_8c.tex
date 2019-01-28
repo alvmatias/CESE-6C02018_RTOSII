@@ -1,0 +1,59 @@
+\hypertarget{to__minus__command_8c}{}\section{src/to\+\_\+minus\+\_\+command.c File Reference}
+\label{to__minus__command_8c}\index{src/to\+\_\+minus\+\_\+command.\+c@{src/to\+\_\+minus\+\_\+command.\+c}}
+
+
+Implementacion del procesador del comando \char`\"{}\+To Minus\char`\"{}.  
+
+
+{\ttfamily \#include $<$string.\+h$>$}\\*
+{\ttfamily \#include \char`\"{}to\+\_\+minus\+\_\+command.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}Free\+R\+T\+O\+S.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}Free\+R\+T\+O\+S\+Config.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}task.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}semphr.\+h\char`\"{}}\\*
+Include dependency graph for to\+\_\+minus\+\_\+command.\+c\+:
+% FIG 0
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define {\bfseries T\+O\+\_\+\+M\+I\+N\+U\+S\+\_\+\+C\+O\+N\+S\+T\+A\+NT}~(\textquotesingle{}a\textquotesingle{} -\/ \textquotesingle{}A\textquotesingle{})\hypertarget{to__minus__command_8c_afb7e18c90702b328bfe86dc58e40eb33}{}\label{to__minus__command_8c_afb7e18c90702b328bfe86dc58e40eb33}
+
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool\+\_\+t \hyperlink{to__minus__command_8c_a6d2bcad124bc9e9dd54937b47e9ebd6f}{to\+Minus\+Command\+\_\+init} (void)
+\begin{DoxyCompactList}\small\item\em Inicializacion de la tarea del comando y cola de recepcion. \end{DoxyCompactList}\item 
+void {\bfseries to\+Minus\+Command\+\_\+data\+Push} (const \hyperlink{structframe__t}{practica3\+Frame\+\_\+t} $\ast$frame)\hypertarget{to__minus__command_8c_af79e6a0a8e3f99a145f06cd16aae1f4f}{}\label{to__minus__command_8c_af79e6a0a8e3f99a145f06cd16aae1f4f}
+
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Implementacion del procesador del comando \char`\"{}\+To Minus\char`\"{}. 
+
+\begin{DoxyNote}{Note}
+Autores\+: Alvarez Matias -\/ Santarcangelo Marco -\/ Tirapegui Rodrigo Licencia\+: Fecha\+: 17/10/2018 
+\end{DoxyNote}
+
+
+\subsection{Function Documentation}
+\index{to\+\_\+minus\+\_\+command.\+c@{to\+\_\+minus\+\_\+command.\+c}!to\+Minus\+Command\+\_\+init@{to\+Minus\+Command\+\_\+init}}
+\index{to\+Minus\+Command\+\_\+init@{to\+Minus\+Command\+\_\+init}!to\+\_\+minus\+\_\+command.\+c@{to\+\_\+minus\+\_\+command.\+c}}
+\subsubsection[{\texorpdfstring{to\+Minus\+Command\+\_\+init(void)}{toMinusCommand_init(void)}}]{\setlength{\rightskip}{0pt plus 5cm}bool\+\_\+t to\+Minus\+Command\+\_\+init (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\hypertarget{to__minus__command_8c_a6d2bcad124bc9e9dd54937b47e9ebd6f}{}\label{to__minus__command_8c_a6d2bcad124bc9e9dd54937b47e9ebd6f}
+
+
+Inicializacion de la tarea del comando y cola de recepcion. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Ninguno} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+bool\+\_\+t T\+R\+UE si la inicializacion fue correcta, F\+A\+L\+SE caso contrario. 
+\end{DoxyReturn}

@@ -1,0 +1,114 @@
+\hypertarget{timer__service_8h}{}\section{inc/timer\+\_\+service.h File Reference}
+\label{timer__service_8h}\index{inc/timer\+\_\+service.\+h@{inc/timer\+\_\+service.\+h}}
+
+
+Manejo de timer de hardware del lpc4337 y timers de software.  
+
+
+{\ttfamily \#include \char`\"{}sapi\+\_\+peripheral\+\_\+map.\+h\char`\"{}}\\*
+Include dependency graph for timer\+\_\+service.\+h\+:
+% FIG 0
+This graph shows which files directly or indirectly include this file\+:
+% FIG 1
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool\+\_\+t \hyperlink{timer__service_8h_a30dc38b509ebaffab17436a915675651}{timer\+Service\+\_\+init\+Hw} (void)
+\begin{DoxyCompactList}\small\item\em Inicializacion del timer de hardware y su estructura de datos interna. \end{DoxyCompactList}\item 
+bool\+\_\+t {\bfseries timer\+Service\+\_\+read\+Hw\+Counter\+Value} (uint64\+\_\+t $\ast$timer\+Us)\hypertarget{timer__service_8h_ac07d9cd9e4f4729edf3fd5469b4e6bbb}{}\label{timer__service_8h_ac07d9cd9e4f4729edf3fd5469b4e6bbb}
+
+\item 
+bool\+\_\+t \hyperlink{timer__service_8h_a7161eb04b0112c0dc2fa388cd9166605}{timer\+Service\+\_\+create\+Sw\+Timer\+One\+S\+Hot} (void $\ast$receptor, uint32\+\_\+t timeout\+Ms)
+\begin{DoxyCompactList}\small\item\em Creacion de timer de software. \end{DoxyCompactList}\item 
+bool\+\_\+t \hyperlink{timer__service_8h_a5a6e0b327a39c305431f7b3a31906504}{timer\+Service\+\_\+create\+Sw\+Timer\+Periodic} (void $\ast$receptor, uint32\+\_\+t timeout\+Ms)
+\begin{DoxyCompactList}\small\item\em Creacion de timer de software. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Manejo de timer de hardware del lpc4337 y timers de software. 
+
+\begin{DoxyNote}{Note}
+Autores\+: Alvarez Matias -\/ Santarcangelo Marco -\/ Tirapegui Rodrigo Licencia\+: Fecha\+: 17/10/2018 
+\end{DoxyNote}
+
+
+\subsection{Function Documentation}
+\index{timer\+\_\+service.\+h@{timer\+\_\+service.\+h}!timer\+Service\+\_\+create\+Sw\+Timer\+One\+S\+Hot@{timer\+Service\+\_\+create\+Sw\+Timer\+One\+S\+Hot}}
+\index{timer\+Service\+\_\+create\+Sw\+Timer\+One\+S\+Hot@{timer\+Service\+\_\+create\+Sw\+Timer\+One\+S\+Hot}!timer\+\_\+service.\+h@{timer\+\_\+service.\+h}}
+\subsubsection[{\texorpdfstring{timer\+Service\+\_\+create\+Sw\+Timer\+One\+S\+Hot(void $\ast$receptor, uint32\+\_\+t timeout\+Ms)}{timerService_createSwTimerOneSHot(void *receptor, uint32_t timeoutMs)}}]{\setlength{\rightskip}{0pt plus 5cm}bool\+\_\+t timer\+Service\+\_\+create\+Sw\+Timer\+One\+S\+Hot (
+\begin{DoxyParamCaption}
+\item[{void $\ast$}]{receptor, }
+\item[{uint32\+\_\+t}]{timeout\+Ms}
+\end{DoxyParamCaption}
+)}\hypertarget{timer__service_8h_a7161eb04b0112c0dc2fa388cd9166605}{}\label{timer__service_8h_a7161eb04b0112c0dc2fa388cd9166605}
+
+
+Creacion de timer de software. 
+
+Destruccion de timer de software.
+
+
+\begin{DoxyParams}{Parameters}
+{\em receptor} & \+: Modulo que recibe los eventos de timeout del timer de software \\
+\hline
+{\em timeout\+Ms} & \+: Tiempo que debe transcurrir hasta el timeout \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+bool\+\_\+t T\+R\+UE si la creacion fue correcta, F\+A\+L\+SE caso contrario 
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+El timeout se dispara una unica vez
+\end{DoxyNote}
+
+\begin{DoxyParams}{Parameters}
+{\em receptor} & \+: Modulo que recibe los eventos de timeout del timer de software \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Nada 
+\end{DoxyReturn}
+\index{timer\+\_\+service.\+h@{timer\+\_\+service.\+h}!timer\+Service\+\_\+create\+Sw\+Timer\+Periodic@{timer\+Service\+\_\+create\+Sw\+Timer\+Periodic}}
+\index{timer\+Service\+\_\+create\+Sw\+Timer\+Periodic@{timer\+Service\+\_\+create\+Sw\+Timer\+Periodic}!timer\+\_\+service.\+h@{timer\+\_\+service.\+h}}
+\subsubsection[{\texorpdfstring{timer\+Service\+\_\+create\+Sw\+Timer\+Periodic(void $\ast$receptor, uint32\+\_\+t timeout\+Ms)}{timerService_createSwTimerPeriodic(void *receptor, uint32_t timeoutMs)}}]{\setlength{\rightskip}{0pt plus 5cm}bool\+\_\+t timer\+Service\+\_\+create\+Sw\+Timer\+Periodic (
+\begin{DoxyParamCaption}
+\item[{void $\ast$}]{receptor, }
+\item[{uint32\+\_\+t}]{timeout\+Ms}
+\end{DoxyParamCaption}
+)}\hypertarget{timer__service_8h_a5a6e0b327a39c305431f7b3a31906504}{}\label{timer__service_8h_a5a6e0b327a39c305431f7b3a31906504}
+
+
+Creacion de timer de software. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em receptor} & \+: Modulo que recibe los eventos de timeout del timer de software \\
+\hline
+{\em timeout\+Ms} & \+: Tiempo que debe transcurrir hasta el timeout \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+bool\+\_\+t T\+R\+UE si la creacion fue correcta, F\+A\+L\+SE caso contrario 
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+El timeout se periodicamente cada timeout\+Ms 
+\end{DoxyNote}
+\index{timer\+\_\+service.\+h@{timer\+\_\+service.\+h}!timer\+Service\+\_\+init\+Hw@{timer\+Service\+\_\+init\+Hw}}
+\index{timer\+Service\+\_\+init\+Hw@{timer\+Service\+\_\+init\+Hw}!timer\+\_\+service.\+h@{timer\+\_\+service.\+h}}
+\subsubsection[{\texorpdfstring{timer\+Service\+\_\+init\+Hw(void)}{timerService_initHw(void)}}]{\setlength{\rightskip}{0pt plus 5cm}bool\+\_\+t timer\+Service\+\_\+init\+Hw (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\hypertarget{timer__service_8h_a30dc38b509ebaffab17436a915675651}{}\label{timer__service_8h_a30dc38b509ebaffab17436a915675651}
+
+
+Inicializacion del timer de hardware y su estructura de datos interna. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Ninguno} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+bool\+\_\+t T\+R\+UE si la inicializacion fue correcta, F\+A\+L\+SE caso contrario 
+\end{DoxyReturn}

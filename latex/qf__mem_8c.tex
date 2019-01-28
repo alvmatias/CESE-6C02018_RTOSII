@@ -1,0 +1,146 @@
+\hypertarget{qf__mem_8c}{}\section{src/qf\+\_\+mem.c File Reference}
+\label{qf__mem_8c}\index{src/qf\+\_\+mem.\+c@{src/qf\+\_\+mem.\+c}}
+
+
+\hyperlink{structQMPool}{Q\+M\+Pool} implementatin (Memory Pool)  
+
+
+{\ttfamily \#include \char`\"{}Free\+R\+T\+O\+S.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}qmpool.\+h\char`\"{}}\\*
+Include dependency graph for qf\+\_\+mem.\+c\+:
+% FIG 0
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{qf__mem_8c_a19ce0f12f82dcf6825628ace98e980dc}{Q\+M\+Pool\+\_\+init} (\hyperlink{structQMPool}{Q\+M\+Pool} $\ast$const me, void $\ast$const pool\+Sto, uint\+\_\+fast32\+\_\+t pool\+Size, uint\+\_\+fast16\+\_\+t block\+Size)
+\item 
+void \hyperlink{qf__mem_8c_aa4a2037d4843f9d1eab63c0ebd7fe302}{Q\+M\+Pool\+\_\+put} (\hyperlink{structQMPool}{Q\+M\+Pool} $\ast$const me, void $\ast$b)
+\item 
+void $\ast$ \hyperlink{qf__mem_8c_a76cbc3e7493ea05d944799c126b819a9}{Q\+M\+Pool\+\_\+get} (\hyperlink{structQMPool}{Q\+M\+Pool} $\ast$const me, uint\+\_\+fast16\+\_\+t const margin)
+\item 
+uint\+\_\+fast16\+\_\+t \hyperlink{qf__mem_8c_a5e78f7818d22382464cd6124fecd5810}{Q\+M\+Pool\+\_\+get\+Min} (\hyperlink{structQMPool}{Q\+M\+Pool} $\ast$const me)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\hyperlink{structQMPool}{Q\+M\+Pool} implementatin (Memory Pool) 
+
+
+
+\subsection{Function Documentation}
+\index{qf\+\_\+mem.\+c@{qf\+\_\+mem.\+c}!Q\+M\+Pool\+\_\+get@{Q\+M\+Pool\+\_\+get}}
+\index{Q\+M\+Pool\+\_\+get@{Q\+M\+Pool\+\_\+get}!qf\+\_\+mem.\+c@{qf\+\_\+mem.\+c}}
+\subsubsection[{\texorpdfstring{Q\+M\+Pool\+\_\+get(\+Q\+M\+Pool $\ast$const me, uint\+\_\+fast16\+\_\+t const margin)}{QMPool_get(QMPool *const me, uint_fast16_t const margin)}}]{\setlength{\rightskip}{0pt plus 5cm}void$\ast$ Q\+M\+Pool\+\_\+get (
+\begin{DoxyParamCaption}
+\item[{{\bf Q\+M\+Pool} $\ast$const}]{me, }
+\item[{uint\+\_\+fast16\+\_\+t const}]{margin}
+\end{DoxyParamCaption}
+)}\hypertarget{qf__mem_8c_a76cbc3e7493ea05d944799c126b819a9}{}\label{qf__mem_8c_a76cbc3e7493ea05d944799c126b819a9}
+The function allocates a memory block from the pool and returns a pointer to the block back to the caller.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in,out}  & {\em me} & pointer (see oop) \\
+\hline
+\mbox{\tt in}  & {\em margin} & the minimum number of unused blocks still available in the pool after the allocation.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+This function can be called from any task level or I\+SR level.
+
+The memory pool {\ttfamily me} must be initialized before any events can be requested from it. Also, the \hyperlink{qf__mem_8c_a76cbc3e7493ea05d944799c126b819a9}{Q\+M\+Pool\+\_\+get()} function uses internally a QF critical section, so you should be careful not to call it from within a critical section when nesting of critical section is not supported.
+\end{DoxyNote}
+\begin{DoxyAttention}{Attention}
+An allocated block must be later returned back to the same pool from which it has been allocated.
+\end{DoxyAttention}
+\begin{DoxySeeAlso}{See also}
+\hyperlink{qf__mem_8c_aa4a2037d4843f9d1eab63c0ebd7fe302}{Q\+M\+Pool\+\_\+put()}
+\end{DoxySeeAlso}
+The following example illustrates how to use \hyperlink{qf__mem_8c_a76cbc3e7493ea05d944799c126b819a9}{Q\+M\+Pool\+\_\+get()}\+: 
+\begin{DoxyCodeInclude}
+\end{DoxyCodeInclude}
+ \index{qf\+\_\+mem.\+c@{qf\+\_\+mem.\+c}!Q\+M\+Pool\+\_\+get\+Min@{Q\+M\+Pool\+\_\+get\+Min}}
+\index{Q\+M\+Pool\+\_\+get\+Min@{Q\+M\+Pool\+\_\+get\+Min}!qf\+\_\+mem.\+c@{qf\+\_\+mem.\+c}}
+\subsubsection[{\texorpdfstring{Q\+M\+Pool\+\_\+get\+Min(\+Q\+M\+Pool $\ast$const me)}{QMPool_getMin(QMPool *const me)}}]{\setlength{\rightskip}{0pt plus 5cm}uint\+\_\+fast16\+\_\+t Q\+M\+Pool\+\_\+get\+Min (
+\begin{DoxyParamCaption}
+\item[{{\bf Q\+M\+Pool} $\ast$const}]{me}
+\end{DoxyParamCaption}
+)}\hypertarget{qf__mem_8c_a5e78f7818d22382464cd6124fecd5810}{}\label{qf__mem_8c_a5e78f7818d22382464cd6124fecd5810}
+This function obtains the minimum number of free blocks in the given event pool since this pool has been initialized by a call to Q\+F\+\_\+pool\+Init().
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in,out}  & {\em me} & pointer (see oop)\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the minimum number of unused blocks in the given event pool. 
+\end{DoxyReturn}
+\index{qf\+\_\+mem.\+c@{qf\+\_\+mem.\+c}!Q\+M\+Pool\+\_\+init@{Q\+M\+Pool\+\_\+init}}
+\index{Q\+M\+Pool\+\_\+init@{Q\+M\+Pool\+\_\+init}!qf\+\_\+mem.\+c@{qf\+\_\+mem.\+c}}
+\subsubsection[{\texorpdfstring{Q\+M\+Pool\+\_\+init(\+Q\+M\+Pool $\ast$const me, void $\ast$const pool\+Sto, uint\+\_\+fast32\+\_\+t pool\+Size, uint\+\_\+fast16\+\_\+t block\+Size)}{QMPool_init(QMPool *const me, void *const poolSto, uint_fast32_t poolSize, uint_fast16_t blockSize)}}]{\setlength{\rightskip}{0pt plus 5cm}void Q\+M\+Pool\+\_\+init (
+\begin{DoxyParamCaption}
+\item[{{\bf Q\+M\+Pool} $\ast$const}]{me, }
+\item[{void $\ast$const}]{pool\+Sto, }
+\item[{uint\+\_\+fast32\+\_\+t}]{pool\+Size, }
+\item[{uint\+\_\+fast16\+\_\+t}]{block\+Size}
+\end{DoxyParamCaption}
+)}\hypertarget{qf__mem_8c_a19ce0f12f82dcf6825628ace98e980dc}{}\label{qf__mem_8c_a19ce0f12f82dcf6825628ace98e980dc}
+Initialize a fixed block-\/size memory pool by providing it with the pool memory to manage, size of this memory, and the block size.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in,out}  & {\em me} & pointer (see oop) \\
+\hline
+\mbox{\tt in}  & {\em pool\+Sto} & pointer to the memory buffer for pool storage \\
+\hline
+\mbox{\tt in}  & {\em pool\+Size} & size of the storage buffer in bytes \\
+\hline
+\mbox{\tt in}  & {\em block\+Size} & fixed-\/size of the memory blocks in bytes\\
+\hline
+\end{DoxyParams}
+\begin{DoxyAttention}{Attention}
+The caller of Q\+M\+Pool\+::init() must make sure that the {\ttfamily pool\+Sto} pointer is properly {\bfseries aligned}. In particular, it must be possible to efficiently store a pointer at the location pointed to by {\ttfamily pool\+Sto}. Internally, the \hyperlink{qf__mem_8c_a19ce0f12f82dcf6825628ace98e980dc}{Q\+M\+Pool\+\_\+init()} function rounds up the block size {\ttfamily block\+Size} so that it can fit an integer number of pointers. This is done to achieve proper alignment of the blocks within the pool.
+\end{DoxyAttention}
+\begin{DoxyNote}{Note}
+Due to the rounding of block size the actual capacity of the pool might be less than ({\ttfamily pool\+Size} / {\ttfamily block\+Size}). You can check the capacity of the pool by calling the Q\+F\+\_\+get\+Pool\+Min() function.
+
+This function is {\bfseries not} protected by a critical section, because it is intended to be called only during the initialization of the system, when interrupts are not allowed yet.
+
+Many QF ports use memory pools to implement the event pools.
+\end{DoxyNote}
+The following example illustrates how to invoke \hyperlink{qf__mem_8c_a19ce0f12f82dcf6825628ace98e980dc}{Q\+M\+Pool\+\_\+init()}\+: 
+\begin{DoxyCodeInclude}
+\end{DoxyCodeInclude}
+ \index{qf\+\_\+mem.\+c@{qf\+\_\+mem.\+c}!Q\+M\+Pool\+\_\+put@{Q\+M\+Pool\+\_\+put}}
+\index{Q\+M\+Pool\+\_\+put@{Q\+M\+Pool\+\_\+put}!qf\+\_\+mem.\+c@{qf\+\_\+mem.\+c}}
+\subsubsection[{\texorpdfstring{Q\+M\+Pool\+\_\+put(\+Q\+M\+Pool $\ast$const me, void $\ast$b)}{QMPool_put(QMPool *const me, void *b)}}]{\setlength{\rightskip}{0pt plus 5cm}void Q\+M\+Pool\+\_\+put (
+\begin{DoxyParamCaption}
+\item[{{\bf Q\+M\+Pool} $\ast$const}]{me, }
+\item[{void $\ast$}]{b}
+\end{DoxyParamCaption}
+)}\hypertarget{qf__mem_8c_aa4a2037d4843f9d1eab63c0ebd7fe302}{}\label{qf__mem_8c_aa4a2037d4843f9d1eab63c0ebd7fe302}
+Recycle a memory block to the fixed block-\/size memory pool.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in,out}  & {\em me} & pointer (see oop) \\
+\hline
+\mbox{\tt in}  & {\em b} & pointer to the memory block that is being recycled\\
+\hline
+\end{DoxyParams}
+\begin{DoxyAttention}{Attention}
+The recycled block must be allocated from the {\bfseries same} memory pool to which it is returned.
+\end{DoxyAttention}
+\begin{DoxyNote}{Note}
+This function can be called from any task level or I\+SR level.
+\end{DoxyNote}
+\begin{DoxySeeAlso}{See also}
+\hyperlink{qf__mem_8c_a76cbc3e7493ea05d944799c126b819a9}{Q\+M\+Pool\+\_\+get()}
+\end{DoxySeeAlso}
+The following example illustrates how to use \hyperlink{qf__mem_8c_aa4a2037d4843f9d1eab63c0ebd7fe302}{Q\+M\+Pool\+\_\+put()}\+: 
+\begin{DoxyCodeInclude}
+\end{DoxyCodeInclude}
+ \begin{DoxyPrecond}{Precondition}
+\# free blocks cannot exceed the total \# blocks and the block pointer must be from this pool.
+\end{DoxyPrecond}

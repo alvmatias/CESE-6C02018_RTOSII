@@ -1,0 +1,66 @@
+\hypertarget{buttons_8h}{}\section{inc/buttons.h File Reference}
+\label{buttons_8h}\index{inc/buttons.\+h@{inc/buttons.\+h}}
+
+
+Manejo de los botones.  
+
+
+{\ttfamily \#include \char`\"{}sapi\+\_\+datatypes.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}events\+\_\+framework.\+h\char`\"{}}\\*
+Include dependency graph for buttons.\+h\+:
+% FIG 0
+\subsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \hyperlink{buttons_8h_ac1b2ac6514eb1999101bbbcb6ecab6c1}{button\+Status\+\_\+t} \{ {\bfseries B\+U\+T\+T\+O\+N\+\_\+\+UP} = 1, 
+{\bfseries B\+U\+T\+T\+O\+N\+\_\+\+D\+O\+WN}
+ \}\hypertarget{buttons_8h_ac1b2ac6514eb1999101bbbcb6ecab6c1}{}\label{buttons_8h_ac1b2ac6514eb1999101bbbcb6ecab6c1}
+\begin{DoxyCompactList}\small\item\em Estados de un boton. \end{DoxyCompactList}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{buttons_8h_ab1f74879f2ec7530a13ed1fcd0e3d6fb}{buttons\+Module\+Handler} (\hyperlink{structevent__t}{event\+\_\+t} $\ast$event)
+\begin{DoxyCompactList}\small\item\em Manejador de los eventos de un boton. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+void $\ast$ \hyperlink{buttons_8h_a52775324b2414d45a61f786de31f972a}{L\+E\+D\+\_\+\+M\+O\+D\+U\+L\+E\+\_\+\+R\+E\+C\+E\+P\+T\+OR}\hypertarget{buttons_8h_a52775324b2414d45a61f786de31f972a}{}\label{buttons_8h_a52775324b2414d45a61f786de31f972a}
+
+\begin{DoxyCompactList}\small\item\em Modulo receptor de los eventos de los leds. \end{DoxyCompactList}\item 
+void $\ast$ \hyperlink{buttons_8h_a34c2abe8e98338424c54b1383e270180}{B\+U\+T\+T\+O\+N\+\_\+\+M\+O\+D\+U\+L\+E\+\_\+\+R\+E\+C\+E\+P\+T\+OR}\hypertarget{buttons_8h_a34c2abe8e98338424c54b1383e270180}{}\label{buttons_8h_a34c2abe8e98338424c54b1383e270180}
+
+\begin{DoxyCompactList}\small\item\em Modulo receptor de los eventos de los botones. \end{DoxyCompactList}\item 
+void $\ast$ \hyperlink{buttons_8h_adef720c21bf9fa7615b9a36785cda94c}{R\+E\+P\+O\+R\+T\+\_\+\+M\+O\+D\+U\+L\+E\+\_\+\+R\+E\+C\+E\+P\+T\+OR}\hypertarget{buttons_8h_adef720c21bf9fa7615b9a36785cda94c}{}\label{buttons_8h_adef720c21bf9fa7615b9a36785cda94c}
+
+\begin{DoxyCompactList}\small\item\em Modulo generador de reportes de eventos de botones. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Manejo de los botones. 
+
+\begin{DoxyNote}{Note}
+Autores\+: Alvarez Matias -\/ Santarcangelo Marco -\/ Tirapegui Rodrigo Licencia\+: Fecha\+: 17/10/2018 
+\end{DoxyNote}
+
+
+\subsection{Function Documentation}
+\index{buttons.\+h@{buttons.\+h}!buttons\+Module\+Handler@{buttons\+Module\+Handler}}
+\index{buttons\+Module\+Handler@{buttons\+Module\+Handler}!buttons.\+h@{buttons.\+h}}
+\subsubsection[{\texorpdfstring{buttons\+Module\+Handler(event\+\_\+t $\ast$event)}{buttonsModuleHandler(event_t *event)}}]{\setlength{\rightskip}{0pt plus 5cm}void buttons\+Module\+Handler (
+\begin{DoxyParamCaption}
+\item[{{\bf event\+\_\+t} $\ast$}]{event}
+\end{DoxyParamCaption}
+)}\hypertarget{buttons_8h_ab1f74879f2ec7530a13ed1fcd0e3d6fb}{}\label{buttons_8h_ab1f74879f2ec7530a13ed1fcd0e3d6fb}
+
+
+Manejador de los eventos de un boton. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em event} & \+: Evento al cual reacciona el manejador \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Nada 
+\end{DoxyReturn}

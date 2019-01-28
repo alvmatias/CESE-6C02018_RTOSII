@@ -1,0 +1,109 @@
+\hypertarget{events_8h}{}\section{inc/events.h File Reference}
+\label{events_8h}\index{inc/events.\+h@{inc/events.\+h}}
+
+
+Manejo de eventos.  
+
+
+{\ttfamily \#include \char`\"{}sapi\+\_\+datatypes.\+h\char`\"{}}\\*
+Include dependency graph for events.\+h\+:
+% FIG 0
+This graph shows which files directly or indirectly include this file\+:
+% FIG 1
+\subsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structevent__t}{event\+\_\+t}
+\begin{DoxyCompactList}\small\item\em Estructura de un evento. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{events_8h_a26d86eea05e73eb9d05d0ac0b38ed649}{events\+\_\+dispatcher\+Task} (void $\ast$param\+Event\+Queue)
+\begin{DoxyCompactList}\small\item\em Tarea que despacha eventos de la cola que recibe por parametros. \end{DoxyCompactList}\item 
+void \hyperlink{events_8h_a2e3996832bdd63b0ba5c615fc162486a}{events\+\_\+push\+Event} (void $\ast$receptor, uint32\+\_\+t signal, uint32\+\_\+t value)
+\begin{DoxyCompactList}\small\item\em Agregado de un evento en la cola de eventos. \end{DoxyCompactList}\item 
+long \hyperlink{events_8h_a6249b80105cfaa9447defb0efd8331d3}{events\+\_\+push\+Event\+From\+I\+SR} (void $\ast$receptor, uint32\+\_\+t signal, uint32\+\_\+t value)
+\begin{DoxyCompactList}\small\item\em Agregado de un evento en la cola de eventos. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Manejo de eventos. 
+
+\begin{DoxyNote}{Note}
+Autores\+: Alvarez Matias -\/ Santarcangelo Marco -\/ Tirapegui Rodrigo Licencia\+: Fecha\+: 17/10/2018 
+\end{DoxyNote}
+
+
+\subsection{Function Documentation}
+\index{events.\+h@{events.\+h}!events\+\_\+dispatcher\+Task@{events\+\_\+dispatcher\+Task}}
+\index{events\+\_\+dispatcher\+Task@{events\+\_\+dispatcher\+Task}!events.\+h@{events.\+h}}
+\subsubsection[{\texorpdfstring{events\+\_\+dispatcher\+Task(void $\ast$param\+Event\+Queue)}{events_dispatcherTask(void *paramEventQueue)}}]{\setlength{\rightskip}{0pt plus 5cm}void events\+\_\+dispatcher\+Task (
+\begin{DoxyParamCaption}
+\item[{void $\ast$}]{param\+Event\+Queue}
+\end{DoxyParamCaption}
+)}\hypertarget{events_8h_a26d86eea05e73eb9d05d0ac0b38ed649}{}\label{events_8h_a26d86eea05e73eb9d05d0ac0b38ed649}
+
+
+Tarea que despacha eventos de la cola que recibe por parametros. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em param\+Event\+Queue} & \+: Cola de eventos sobre la cual despachar los eventos \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Nada 
+\end{DoxyReturn}
+\index{events.\+h@{events.\+h}!events\+\_\+push\+Event@{events\+\_\+push\+Event}}
+\index{events\+\_\+push\+Event@{events\+\_\+push\+Event}!events.\+h@{events.\+h}}
+\subsubsection[{\texorpdfstring{events\+\_\+push\+Event(void $\ast$receptor, uint32\+\_\+t signal, uint32\+\_\+t value)}{events_pushEvent(void *receptor, uint32_t signal, uint32_t value)}}]{\setlength{\rightskip}{0pt plus 5cm}void events\+\_\+push\+Event (
+\begin{DoxyParamCaption}
+\item[{void $\ast$}]{receptor, }
+\item[{uint32\+\_\+t}]{signal, }
+\item[{uint32\+\_\+t}]{value}
+\end{DoxyParamCaption}
+)}\hypertarget{events_8h_a2e3996832bdd63b0ba5c615fc162486a}{}\label{events_8h_a2e3996832bdd63b0ba5c615fc162486a}
+
+
+Agregado de un evento en la cola de eventos. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em receptor} & \+: Modulo receptor del evento \\
+\hline
+{\em signal} & \+: Señal a enviar al evento \\
+\hline
+{\em value} & \+: Valor del evento \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Nada 
+\end{DoxyReturn}
+\index{events.\+h@{events.\+h}!events\+\_\+push\+Event\+From\+I\+SR@{events\+\_\+push\+Event\+From\+I\+SR}}
+\index{events\+\_\+push\+Event\+From\+I\+SR@{events\+\_\+push\+Event\+From\+I\+SR}!events.\+h@{events.\+h}}
+\subsubsection[{\texorpdfstring{events\+\_\+push\+Event\+From\+I\+S\+R(void $\ast$receptor, uint32\+\_\+t signal, uint32\+\_\+t value)}{events_pushEventFromISR(void *receptor, uint32_t signal, uint32_t value)}}]{\setlength{\rightskip}{0pt plus 5cm}void events\+\_\+push\+Event\+From\+I\+SR (
+\begin{DoxyParamCaption}
+\item[{void $\ast$}]{receptor, }
+\item[{uint32\+\_\+t}]{signal, }
+\item[{uint32\+\_\+t}]{value}
+\end{DoxyParamCaption}
+)}\hypertarget{events_8h_a6249b80105cfaa9447defb0efd8331d3}{}\label{events_8h_a6249b80105cfaa9447defb0efd8331d3}
+
+
+Agregado de un evento en la cola de eventos. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em receptor} & \+: Modulo receptor del evento \\
+\hline
+{\em signal} & \+: Señal a enviar al evento \\
+\hline
+{\em value} & \+: Valor del evento \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Flag de cambio de contexto 
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+U\+T\+I\+L\+I\+Z\+AR EN C\+O\+N\+T\+E\+X\+TO DE I\+SR. 
+\end{DoxyNote}

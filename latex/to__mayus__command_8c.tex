@@ -1,0 +1,59 @@
+\hypertarget{to__mayus__command_8c}{}\section{src/to\+\_\+mayus\+\_\+command.c File Reference}
+\label{to__mayus__command_8c}\index{src/to\+\_\+mayus\+\_\+command.\+c@{src/to\+\_\+mayus\+\_\+command.\+c}}
+
+
+Implementacion del procesador del comando \char`\"{}\+To Mayus\char`\"{}.  
+
+
+{\ttfamily \#include $<$string.\+h$>$}\\*
+{\ttfamily \#include \char`\"{}to\+\_\+mayus\+\_\+command.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}Free\+R\+T\+O\+S.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}Free\+R\+T\+O\+S\+Config.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}task.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}semphr.\+h\char`\"{}}\\*
+Include dependency graph for to\+\_\+mayus\+\_\+command.\+c\+:
+% FIG 0
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define {\bfseries T\+O\+\_\+\+M\+A\+Y\+U\+S\+\_\+\+C\+O\+N\+S\+T\+A\+NT}~(\textquotesingle{}A\textquotesingle{} -\/ \textquotesingle{}a\textquotesingle{})\hypertarget{to__mayus__command_8c_a5ea2f615c8e25c7cf3f52f203b0777fd}{}\label{to__mayus__command_8c_a5ea2f615c8e25c7cf3f52f203b0777fd}
+
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool\+\_\+t \hyperlink{to__mayus__command_8c_aed4ddd3e1375a25bc82ae9cb4b96fd8a}{to\+Mayus\+Command\+\_\+init} (void)
+\begin{DoxyCompactList}\small\item\em Inicializacion de la tarea del comando y cola de recepcion. \end{DoxyCompactList}\item 
+void {\bfseries to\+Mayus\+Command\+\_\+data\+Push} (const \hyperlink{structframe__t}{practica3\+Frame\+\_\+t} $\ast$frame)\hypertarget{to__mayus__command_8c_a37ef587474727f8fd13f19ac8240371e}{}\label{to__mayus__command_8c_a37ef587474727f8fd13f19ac8240371e}
+
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Implementacion del procesador del comando \char`\"{}\+To Mayus\char`\"{}. 
+
+\begin{DoxyNote}{Note}
+Autores\+: Alvarez Matias -\/ Santarcangelo Marco -\/ Tirapegui Rodrigo Licencia\+: Fecha\+: 17/10/2018 
+\end{DoxyNote}
+
+
+\subsection{Function Documentation}
+\index{to\+\_\+mayus\+\_\+command.\+c@{to\+\_\+mayus\+\_\+command.\+c}!to\+Mayus\+Command\+\_\+init@{to\+Mayus\+Command\+\_\+init}}
+\index{to\+Mayus\+Command\+\_\+init@{to\+Mayus\+Command\+\_\+init}!to\+\_\+mayus\+\_\+command.\+c@{to\+\_\+mayus\+\_\+command.\+c}}
+\subsubsection[{\texorpdfstring{to\+Mayus\+Command\+\_\+init(void)}{toMayusCommand_init(void)}}]{\setlength{\rightskip}{0pt plus 5cm}bool\+\_\+t to\+Mayus\+Command\+\_\+init (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\hypertarget{to__mayus__command_8c_aed4ddd3e1375a25bc82ae9cb4b96fd8a}{}\label{to__mayus__command_8c_aed4ddd3e1375a25bc82ae9cb4b96fd8a}
+
+
+Inicializacion de la tarea del comando y cola de recepcion. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Ninguno} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+bool\+\_\+t T\+R\+UE si la inicializacion fue correcta, F\+A\+L\+SE caso contrario. 
+\end{DoxyReturn}

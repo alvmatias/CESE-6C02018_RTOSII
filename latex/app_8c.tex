@@ -1,0 +1,108 @@
+\hypertarget{app_8c}{}\section{src/app.c File Reference}
+\label{app_8c}\index{src/app.\+c@{src/app.\+c}}
+
+
+Manejo de la aplicacion.  
+
+
+{\ttfamily \#include \char`\"{}sapi\+\_\+board.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}app.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}practica3\+\_\+commands.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}to\+\_\+minus\+\_\+command.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}to\+\_\+mayus\+\_\+command.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}to\+\_\+meas\+\_\+performance\+\_\+command.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}events\+\_\+framework.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}Free\+R\+T\+O\+S.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}Free\+R\+T\+O\+S\+Config.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}task.\+h\char`\"{}}\\*
+Include dependency graph for app.\+c\+:
+% FIG 0
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool\+\_\+t \hyperlink{app_8c_ad88361911259ebf762918aeb7c1014af}{app\+Init} ()
+\begin{DoxyCompactList}\small\item\em Inicializacion de cada modulo de la aplicacion. \end{DoxyCompactList}\item 
+void \hyperlink{app_8c_a13f15b7828165ff8bb1eca6b56946654}{app\+Run} ()
+\begin{DoxyCompactList}\small\item\em Ejecucion del Scheduler del Sistema Operativo. \end{DoxyCompactList}\item 
+void \hyperlink{app_8c_a1b8e936f71e998c0e874d9bf9e4fdfc3}{app\+Assert} ()
+\begin{DoxyCompactList}\small\item\em Asegura la correcta inicializacion de la aplicacion. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+const void $\ast$ \hyperlink{app_8c_a6795fe692b5eff9516eb9b91ea054364}{L\+E\+D\+\_\+\+M\+O\+D\+U\+L\+E\+\_\+\+R\+E\+C\+E\+P\+T\+OR} = \&\hyperlink{events__framework_8h_a52e6e97d2c92c188374f5fe1edd38f8d}{g\+\_\+ef\+Modules\+Arr}\mbox{[}0\mbox{]}\hypertarget{app_8c_a6795fe692b5eff9516eb9b91ea054364}{}\label{app_8c_a6795fe692b5eff9516eb9b91ea054364}
+
+\begin{DoxyCompactList}\small\item\em Modulo receptor de los eventos de los leds. \end{DoxyCompactList}\item 
+const void $\ast$ \hyperlink{app_8c_a99176ecc2b5000125647e0ebb0455240}{B\+U\+T\+T\+O\+N\+\_\+\+M\+O\+D\+U\+L\+E\+\_\+\+R\+E\+C\+E\+P\+T\+OR} = \&\hyperlink{events__framework_8h_a52e6e97d2c92c188374f5fe1edd38f8d}{g\+\_\+ef\+Modules\+Arr}\mbox{[}1\mbox{]}\hypertarget{app_8c_a99176ecc2b5000125647e0ebb0455240}{}\label{app_8c_a99176ecc2b5000125647e0ebb0455240}
+
+\begin{DoxyCompactList}\small\item\em Modulo receptor de los eventos de los botones. \end{DoxyCompactList}\item 
+const void $\ast$ \hyperlink{app_8c_a1322c8d81d0b17fad6cb737ca2618e9f}{R\+E\+P\+O\+R\+T\+\_\+\+M\+O\+D\+U\+L\+E\+\_\+\+R\+E\+C\+E\+P\+T\+OR} = \&\hyperlink{events__framework_8h_a52e6e97d2c92c188374f5fe1edd38f8d}{g\+\_\+ef\+Modules\+Arr}\mbox{[}2\mbox{]}\hypertarget{app_8c_a1322c8d81d0b17fad6cb737ca2618e9f}{}\label{app_8c_a1322c8d81d0b17fad6cb737ca2618e9f}
+
+\begin{DoxyCompactList}\small\item\em Modulo generador de reportes de eventos de botones. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Manejo de la aplicacion. 
+
+\begin{DoxyNote}{Note}
+Autores\+: Alvarez Matias -\/ Santarcangelo Marco -\/ Tirapegui Rodrigo Licencia\+: Fecha\+: 17/10/2018 
+\end{DoxyNote}
+
+
+\subsection{Function Documentation}
+\index{app.\+c@{app.\+c}!app\+Assert@{app\+Assert}}
+\index{app\+Assert@{app\+Assert}!app.\+c@{app.\+c}}
+\subsubsection[{\texorpdfstring{app\+Assert()}{appAssert()}}]{\setlength{\rightskip}{0pt plus 5cm}void app\+Assert (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\hypertarget{app_8c_a1b8e936f71e998c0e874d9bf9e4fdfc3}{}\label{app_8c_a1b8e936f71e998c0e874d9bf9e4fdfc3}
+
+
+Asegura la correcta inicializacion de la aplicacion. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Ninguno} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void Nada. 
+\end{DoxyReturn}
+\index{app.\+c@{app.\+c}!app\+Init@{app\+Init}}
+\index{app\+Init@{app\+Init}!app.\+c@{app.\+c}}
+\subsubsection[{\texorpdfstring{app\+Init()}{appInit()}}]{\setlength{\rightskip}{0pt plus 5cm}bool\+\_\+t app\+Init (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\hypertarget{app_8c_ad88361911259ebf762918aeb7c1014af}{}\label{app_8c_ad88361911259ebf762918aeb7c1014af}
+
+
+Inicializacion de cada modulo de la aplicacion. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Ninguno} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+bool\+\_\+t T\+R\+UE si la inicialziacion fue correcta, F\+A\+L\+SE caso contrario. 
+\end{DoxyReturn}
+\index{app.\+c@{app.\+c}!app\+Run@{app\+Run}}
+\index{app\+Run@{app\+Run}!app.\+c@{app.\+c}}
+\subsubsection[{\texorpdfstring{app\+Run()}{appRun()}}]{\setlength{\rightskip}{0pt plus 5cm}void app\+Run (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\hypertarget{app_8c_a13f15b7828165ff8bb1eca6b56946654}{}\label{app_8c_a13f15b7828165ff8bb1eca6b56946654}
+
+
+Ejecucion del Scheduler del Sistema Operativo. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Ninungo} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void Nada. 
+\end{DoxyReturn}

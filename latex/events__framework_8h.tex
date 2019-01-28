@@ -1,0 +1,97 @@
+\hypertarget{events__framework_8h}{}\section{inc/events\+\_\+framework.h File Reference}
+\label{events__framework_8h}\index{inc/events\+\_\+framework.\+h@{inc/events\+\_\+framework.\+h}}
+
+
+Manejo del framework de eventos.  
+
+
+{\ttfamily \#include \char`\"{}sapi\+\_\+datatypes.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}events.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}seniales.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}timer\+\_\+service.\+h\char`\"{}}\\*
+Include dependency graph for events\+\_\+framework.\+h\+:
+% FIG 0
+This graph shows which files directly or indirectly include this file\+:
+% FIG 1
+\subsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structefModule__t}{ef\+Module\+\_\+t}
+\begin{DoxyCompactList}\small\item\em Estructura de un Modulo. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef void($\ast$ {\bfseries ef\+Event\+Handler\+\_\+cb}) (\hyperlink{structevent__t}{event\+\_\+t} $\ast$)\hypertarget{events__framework_8h_a20de3fc9b71b6df2b94bc990d29743fe}{}\label{events__framework_8h_a20de3fc9b71b6df2b94bc990d29743fe}
+
+\end{DoxyCompactItemize}
+\subsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \hyperlink{events__framework_8h_a21efcb8ede4463085d4ec7e31b307da8}{ef\+Priority\+\_\+t} \{ \hyperlink{events__framework_8h_a21efcb8ede4463085d4ec7e31b307da8adb8ee22a232a2787f32ba28da55c43c1}{L\+O\+W\+\_\+\+P\+R\+I\+O\+R\+I\+TY} = 0x00, 
+\hyperlink{events__framework_8h_a21efcb8ede4463085d4ec7e31b307da8a9e237bdc5644c0169f72bed1b21d1796}{M\+I\+D\+\_\+\+P\+R\+I\+O\+R\+I\+TY}, 
+\hyperlink{events__framework_8h_a21efcb8ede4463085d4ec7e31b307da8acb1785f11dd02aa7f5d164fb314c594e}{H\+I\+G\+H\+\_\+\+P\+R\+I\+O\+R\+I\+TY}
+ \}\begin{DoxyCompactList}\small\item\em Prioridades de un evento. \end{DoxyCompactList}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool\+\_\+t \hyperlink{events__framework_8h_ae9be60d38e2fa1b5793443a8e30bde17}{events\+Framework\+\_\+init} ()
+\begin{DoxyCompactList}\small\item\em Inicializacion del framework de eventos. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+const \hyperlink{structefModule__t}{ef\+Module\+\_\+t} \hyperlink{events__framework_8h_a52e6e97d2c92c188374f5fe1edd38f8d}{g\+\_\+ef\+Modules\+Arr} \mbox{[}$\,$\mbox{]}\hypertarget{events__framework_8h_a52e6e97d2c92c188374f5fe1edd38f8d}{}\label{events__framework_8h_a52e6e97d2c92c188374f5fe1edd38f8d}
+
+\begin{DoxyCompactList}\small\item\em Arreglo de modulos del event framework. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Manejo del framework de eventos. 
+
+\begin{DoxyNote}{Note}
+Autores\+: Alvarez Matias -\/ Santarcangelo Marco -\/ Tirapegui Rodrigo Licencia\+: Fecha\+: 17/10/2018 
+\end{DoxyNote}
+
+
+\subsection{Enumeration Type Documentation}
+\index{events\+\_\+framework.\+h@{events\+\_\+framework.\+h}!ef\+Priority\+\_\+t@{ef\+Priority\+\_\+t}}
+\index{ef\+Priority\+\_\+t@{ef\+Priority\+\_\+t}!events\+\_\+framework.\+h@{events\+\_\+framework.\+h}}
+\subsubsection[{\texorpdfstring{ef\+Priority\+\_\+t}{efPriority_t}}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf ef\+Priority\+\_\+t}}\hypertarget{events__framework_8h_a21efcb8ede4463085d4ec7e31b307da8}{}\label{events__framework_8h_a21efcb8ede4463085d4ec7e31b307da8}
+
+
+Prioridades de un evento. 
+
+\begin{Desc}
+\item[Enumerator]\par
+\begin{description}
+\index{L\+O\+W\+\_\+\+P\+R\+I\+O\+R\+I\+TY@{L\+O\+W\+\_\+\+P\+R\+I\+O\+R\+I\+TY}!events\+\_\+framework.\+h@{events\+\_\+framework.\+h}}\index{events\+\_\+framework.\+h@{events\+\_\+framework.\+h}!L\+O\+W\+\_\+\+P\+R\+I\+O\+R\+I\+TY@{L\+O\+W\+\_\+\+P\+R\+I\+O\+R\+I\+TY}}\item[{\em 
+L\+O\+W\+\_\+\+P\+R\+I\+O\+R\+I\+TY\hypertarget{events__framework_8h_a21efcb8ede4463085d4ec7e31b307da8adb8ee22a232a2787f32ba28da55c43c1}{}\label{events__framework_8h_a21efcb8ede4463085d4ec7e31b307da8adb8ee22a232a2787f32ba28da55c43c1}
+}]Prioridad Baja \index{M\+I\+D\+\_\+\+P\+R\+I\+O\+R\+I\+TY@{M\+I\+D\+\_\+\+P\+R\+I\+O\+R\+I\+TY}!events\+\_\+framework.\+h@{events\+\_\+framework.\+h}}\index{events\+\_\+framework.\+h@{events\+\_\+framework.\+h}!M\+I\+D\+\_\+\+P\+R\+I\+O\+R\+I\+TY@{M\+I\+D\+\_\+\+P\+R\+I\+O\+R\+I\+TY}}\item[{\em 
+M\+I\+D\+\_\+\+P\+R\+I\+O\+R\+I\+TY\hypertarget{events__framework_8h_a21efcb8ede4463085d4ec7e31b307da8a9e237bdc5644c0169f72bed1b21d1796}{}\label{events__framework_8h_a21efcb8ede4463085d4ec7e31b307da8a9e237bdc5644c0169f72bed1b21d1796}
+}]Prioridad Media \index{H\+I\+G\+H\+\_\+\+P\+R\+I\+O\+R\+I\+TY@{H\+I\+G\+H\+\_\+\+P\+R\+I\+O\+R\+I\+TY}!events\+\_\+framework.\+h@{events\+\_\+framework.\+h}}\index{events\+\_\+framework.\+h@{events\+\_\+framework.\+h}!H\+I\+G\+H\+\_\+\+P\+R\+I\+O\+R\+I\+TY@{H\+I\+G\+H\+\_\+\+P\+R\+I\+O\+R\+I\+TY}}\item[{\em 
+H\+I\+G\+H\+\_\+\+P\+R\+I\+O\+R\+I\+TY\hypertarget{events__framework_8h_a21efcb8ede4463085d4ec7e31b307da8acb1785f11dd02aa7f5d164fb314c594e}{}\label{events__framework_8h_a21efcb8ede4463085d4ec7e31b307da8acb1785f11dd02aa7f5d164fb314c594e}
+}]Prioridad Alta \end{description}
+\end{Desc}
+
+
+\subsection{Function Documentation}
+\index{events\+\_\+framework.\+h@{events\+\_\+framework.\+h}!events\+Framework\+\_\+init@{events\+Framework\+\_\+init}}
+\index{events\+Framework\+\_\+init@{events\+Framework\+\_\+init}!events\+\_\+framework.\+h@{events\+\_\+framework.\+h}}
+\subsubsection[{\texorpdfstring{events\+Framework\+\_\+init()}{eventsFramework_init()}}]{\setlength{\rightskip}{0pt plus 5cm}bool\+\_\+t events\+Framework\+\_\+init (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{events__framework_8h_ae9be60d38e2fa1b5793443a8e30bde17}{}\label{events__framework_8h_ae9be60d38e2fa1b5793443a8e30bde17}
+
+
+Inicializacion del framework de eventos. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Ninguno} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+bool\+\_\+t T\+R\+UE si fue correcta la inicializacion, F\+A\+L\+SE caso contrario 
+\end{DoxyReturn}
+El valor deberia ser la definicion pero no funciona como se espera. El valor de H\+I\+G\+H\+\_\+\+P\+R\+I\+O\+R\+I\+TY es 2

@@ -1,0 +1,95 @@
+\hypertarget{fsm_8h}{}\section{inc/fsm.h File Reference}
+\label{fsm_8h}\index{inc/fsm.\+h@{inc/fsm.\+h}}
+
+
+Implementacion de la maquina de estados finita.  
+
+
+{\ttfamily \#include \char`\"{}sapi\+\_\+datatypes.\+h\char`\"{}}\\*
+Include dependency graph for fsm.\+h\+:
+% FIG 0
+This graph shows which files directly or indirectly include this file\+:
+% FIG 1
+\subsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structfsmState}{fsm\+State}
+\begin{DoxyCompactList}\small\item\em Formato de un estado de la maquina de estados finita. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{fsm_8h_a7f17abeeff132eaf7966ea8f1d62f6a9}{D\+E\+F\+I\+N\+E\+\_\+\+F\+S\+M\+\_\+\+S\+T\+A\+TE}(name, ...)
+\begin{DoxyCompactList}\small\item\em Macro para definir la tabla de estados finita. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef struct \hyperlink{structfsmState}{fsm\+State} {\bfseries fsm\+State\+\_\+t}\hypertarget{fsm_8h_a9f2fe454c539faf85002f641ddf0485d}{}\label{fsm_8h_a9f2fe454c539faf85002f641ddf0485d}
+
+\item 
+typedef void($\ast$ {\bfseries fsm\+Action\+Cb\+\_\+t}) (void $\ast$arg)\hypertarget{fsm_8h_a745658df98512dee772886242abcdbf8}{}\label{fsm_8h_a745658df98512dee772886242abcdbf8}
+
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{fsm_8h_ab4d4095eb3bcc75d04a553d2935e867a}{fsm} (\hyperlink{structfsmState}{fsm\+State\+\_\+t} $\ast$$\ast$state, const uint8\+\_\+t current\+Event, void $\ast$arg)
+\begin{DoxyCompactList}\small\item\em Funcion generica que permite avanzar la maquina de estados finita implementada por algun modulo que conforma el programa. La misma debe ser invocada desde el superloop principal del programa. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Implementacion de la maquina de estados finita. 
+
+\begin{DoxyNote}{Note}
+Autores\+: Alvarez Matias -\/ Santarcangelo Marco -\/ Tirapegui Rodrigo Licencia\+: Fecha\+: 17/10/2018 
+\end{DoxyNote}
+
+
+\subsection{Macro Definition Documentation}
+\index{fsm.\+h@{fsm.\+h}!D\+E\+F\+I\+N\+E\+\_\+\+F\+S\+M\+\_\+\+S\+T\+A\+TE@{D\+E\+F\+I\+N\+E\+\_\+\+F\+S\+M\+\_\+\+S\+T\+A\+TE}}
+\index{D\+E\+F\+I\+N\+E\+\_\+\+F\+S\+M\+\_\+\+S\+T\+A\+TE@{D\+E\+F\+I\+N\+E\+\_\+\+F\+S\+M\+\_\+\+S\+T\+A\+TE}!fsm.\+h@{fsm.\+h}}
+\subsubsection[{\texorpdfstring{D\+E\+F\+I\+N\+E\+\_\+\+F\+S\+M\+\_\+\+S\+T\+A\+TE}{DEFINE_FSM_STATE}}]{\setlength{\rightskip}{0pt plus 5cm}\#define D\+E\+F\+I\+N\+E\+\_\+\+F\+S\+M\+\_\+\+S\+T\+A\+TE(
+\begin{DoxyParamCaption}
+\item[{}]{name, }
+\item[{}]{...}
+\end{DoxyParamCaption}
+)}\hypertarget{fsm_8h_a7f17abeeff132eaf7966ea8f1d62f6a9}{}\label{fsm_8h_a7f17abeeff132eaf7966ea8f1d62f6a9}
+{\bfseries Value\+:}
+\begin{DoxyCode}
+\(\backslash\)
+static \textcolor{keyword}{const} \hyperlink{structfsmState}{fsmState\_t} name[] = \{                 \(\backslash\)
+                                      \_\_VA\_ARGS\_\_  \(\backslash\)
+                                      ,  \{0,0,0\}   \(\backslash\)
+                                   \};
+\end{DoxyCode}
+
+
+Macro para definir la tabla de estados finita. 
+
+
+
+\subsection{Function Documentation}
+\index{fsm.\+h@{fsm.\+h}!fsm@{fsm}}
+\index{fsm@{fsm}!fsm.\+h@{fsm.\+h}}
+\subsubsection[{\texorpdfstring{fsm(fsm\+State\+\_\+t $\ast$$\ast$state, const uint8\+\_\+t current\+Event, void $\ast$arg)}{fsm(fsmState_t **state, const uint8_t currentEvent, void *arg)}}]{\setlength{\rightskip}{0pt plus 5cm}void fsm (
+\begin{DoxyParamCaption}
+\item[{{\bf fsm\+State\+\_\+t} $\ast$$\ast$}]{state, }
+\item[{const uint8\+\_\+t}]{current\+Event, }
+\item[{void $\ast$}]{arg}
+\end{DoxyParamCaption}
+)}\hypertarget{fsm_8h_ab4d4095eb3bcc75d04a553d2935e867a}{}\label{fsm_8h_ab4d4095eb3bcc75d04a553d2935e867a}
+
+
+Funcion generica que permite avanzar la maquina de estados finita implementada por algun modulo que conforma el programa. La misma debe ser invocada desde el superloop principal del programa. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em state} & \+: Direccion del puntero al estado actual de la maquina de estados finita \\
+\hline
+{\em current\+Event} & \+: Evento actual del modulo invocante. Su valor debe ser distinto de 0. \\
+\hline
+{\em arg} & \+:Argumento que sera pasado por parametro al callback de accian asociado con el estado actual de la maquina de estados finita \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Nada 
+\end{DoxyReturn}

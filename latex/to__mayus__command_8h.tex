@@ -1,0 +1,57 @@
+\hypertarget{to__mayus__command_8h}{}\section{inc/to\+\_\+mayus\+\_\+command.h File Reference}
+\label{to__mayus__command_8h}\index{inc/to\+\_\+mayus\+\_\+command.\+h@{inc/to\+\_\+mayus\+\_\+command.\+h}}
+
+
+Implementacion del procesador del comando \char`\"{}\+To Mayus\char`\"{}.  
+
+
+{\ttfamily \#include \char`\"{}sapi\+\_\+datatypes.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}practica3\+\_\+commands.\+h\char`\"{}}\\*
+Include dependency graph for to\+\_\+mayus\+\_\+command.\+h\+:
+% FIG 0
+This graph shows which files directly or indirectly include this file\+:
+% FIG 1
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool\+\_\+t \hyperlink{to__mayus__command_8h_aed4ddd3e1375a25bc82ae9cb4b96fd8a}{to\+Mayus\+Command\+\_\+init} (void)
+\begin{DoxyCompactList}\small\item\em Inicializacion de la tarea del comando y cola de recepcion. \end{DoxyCompactList}\item 
+void {\bfseries to\+Mayus\+Command\+\_\+data\+Push} (const \hyperlink{structframe__t}{practica3\+Frame\+\_\+t} $\ast$frame)\hypertarget{to__mayus__command_8h_a37ef587474727f8fd13f19ac8240371e}{}\label{to__mayus__command_8h_a37ef587474727f8fd13f19ac8240371e}
+
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+const uint8\+\_\+t \hyperlink{to__mayus__command_8h_a410a34556c3e3f17303645fec3d2bf90}{T\+O\+\_\+\+M\+A\+Y\+U\+S\+\_\+\+T\+A\+S\+K\+\_\+\+ID}\hypertarget{to__mayus__command_8h_a410a34556c3e3f17303645fec3d2bf90}{}\label{to__mayus__command_8h_a410a34556c3e3f17303645fec3d2bf90}
+
+\begin{DoxyCompactList}\small\item\em Id correspondiente a la tarea del procesador de to\+\_\+mayus\+\_\+command. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Implementacion del procesador del comando \char`\"{}\+To Mayus\char`\"{}. 
+
+\begin{DoxyNote}{Note}
+Autores\+: Alvarez Matias -\/ Santarcangelo Marco -\/ Tirapegui Rodrigo Licencia\+: Fecha\+: 17/10/2018 
+\end{DoxyNote}
+
+
+\subsection{Function Documentation}
+\index{to\+\_\+mayus\+\_\+command.\+h@{to\+\_\+mayus\+\_\+command.\+h}!to\+Mayus\+Command\+\_\+init@{to\+Mayus\+Command\+\_\+init}}
+\index{to\+Mayus\+Command\+\_\+init@{to\+Mayus\+Command\+\_\+init}!to\+\_\+mayus\+\_\+command.\+h@{to\+\_\+mayus\+\_\+command.\+h}}
+\subsubsection[{\texorpdfstring{to\+Mayus\+Command\+\_\+init(void)}{toMayusCommand_init(void)}}]{\setlength{\rightskip}{0pt plus 5cm}bool\+\_\+t to\+Mayus\+Command\+\_\+init (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\hypertarget{to__mayus__command_8h_aed4ddd3e1375a25bc82ae9cb4b96fd8a}{}\label{to__mayus__command_8h_aed4ddd3e1375a25bc82ae9cb4b96fd8a}
+
+
+Inicializacion de la tarea del comando y cola de recepcion. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Ninguno} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+bool\+\_\+t T\+R\+UE si la inicializacion fue correcta, F\+A\+L\+SE caso contrario. 
+\end{DoxyReturn}

@@ -1,0 +1,216 @@
+\hypertarget{qmpool_8h}{}\section{inc/qmpool.h File Reference}
+\label{qmpool_8h}\index{inc/qmpool.\+h@{inc/qmpool.\+h}}
+
+
+QP native, platform-\/independent memory pool \hyperlink{structQMPool}{Q\+M\+Pool} interface.  
+
+
+This graph shows which files directly or indirectly include this file\+:
+% FIG 0
+\subsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structQFreeBlock}{Q\+Free\+Block}
+\item 
+struct \hyperlink{structQMPool}{Q\+M\+Pool}
+\end{DoxyCompactItemize}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{qmpool_8h_a4e32e4833cb9f41e69ad01e95bd0d3ca}{Q\+F\+\_\+\+P\+T\+R\+\_\+\+A\+T\+\_\+}(base\+\_\+,  i\+\_\+)~((base\+\_\+)\mbox{[}(i\+\_\+)\mbox{]})
+\item 
+\#define \hyperlink{qmpool_8h_ac41e4f294d103c68521f9ad1f8e4e3b4}{Q\+F\+\_\+\+M\+P\+O\+O\+L\+\_\+\+S\+I\+Z\+\_\+\+S\+I\+ZE}~2
+\item 
+\#define \hyperlink{qmpool_8h_adc446a34e9e682fc5e821d203f73a6e0}{Q\+F\+\_\+\+M\+P\+O\+O\+L\+\_\+\+C\+T\+R\+\_\+\+S\+I\+ZE}~2
+\item 
+\#define \hyperlink{qmpool_8h_ab0fe475154021674f904c52e61e78841}{Q\+F\+\_\+\+M\+P\+O\+O\+L\+\_\+\+EL}(ev\+Type\+\_\+)~struct \{ void $\ast$sto\+\_\+\mbox{[}((sizeof(ev\+Type\+\_\+) -\/ 1\+U)/sizeof(void$\ast$)) + 1\+U\mbox{]}; \}
+\end{DoxyCompactItemize}
+\subsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef struct \hyperlink{structQFreeBlock}{Q\+Free\+Block} \hyperlink{qmpool_8h_a67629e18ea74454564622d135698ecda}{Q\+Free\+Block}
+\item 
+typedef uint16\+\_\+t {\bfseries Q\+M\+Pool\+Size}\hypertarget{qmpool_8h_a2226ce6172c728e06ff9aac971e4ccec}{}\label{qmpool_8h_a2226ce6172c728e06ff9aac971e4ccec}
+
+\item 
+typedef uint16\+\_\+t {\bfseries Q\+M\+Pool\+Ctr}\hypertarget{qmpool_8h_a2ada1ec89c23fa2a02b207bca8665e31}{}\label{qmpool_8h_a2ada1ec89c23fa2a02b207bca8665e31}
+
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{qmpool_8h_a19ce0f12f82dcf6825628ace98e980dc}{Q\+M\+Pool\+\_\+init} (\hyperlink{structQMPool}{Q\+M\+Pool} $\ast$const me, void $\ast$const pool\+Sto, uint\+\_\+fast32\+\_\+t pool\+Size, uint\+\_\+fast16\+\_\+t block\+Size)
+\item 
+void $\ast$ \hyperlink{qmpool_8h_a76cbc3e7493ea05d944799c126b819a9}{Q\+M\+Pool\+\_\+get} (\hyperlink{structQMPool}{Q\+M\+Pool} $\ast$const me, uint\+\_\+fast16\+\_\+t const margin)
+\item 
+void \hyperlink{qmpool_8h_aa4a2037d4843f9d1eab63c0ebd7fe302}{Q\+M\+Pool\+\_\+put} (\hyperlink{structQMPool}{Q\+M\+Pool} $\ast$const me, void $\ast$b)
+\item 
+uint\+\_\+fast16\+\_\+t \hyperlink{qmpool_8h_a5e78f7818d22382464cd6124fecd5810}{Q\+M\+Pool\+\_\+get\+Min} (\hyperlink{structQMPool}{Q\+M\+Pool} $\ast$const me)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+QP native, platform-\/independent memory pool \hyperlink{structQMPool}{Q\+M\+Pool} interface. 
+
+
+
+\subsection{Macro Definition Documentation}
+\index{qmpool.\+h@{qmpool.\+h}!Q\+F\+\_\+\+M\+P\+O\+O\+L\+\_\+\+C\+T\+R\+\_\+\+S\+I\+ZE@{Q\+F\+\_\+\+M\+P\+O\+O\+L\+\_\+\+C\+T\+R\+\_\+\+S\+I\+ZE}}
+\index{Q\+F\+\_\+\+M\+P\+O\+O\+L\+\_\+\+C\+T\+R\+\_\+\+S\+I\+ZE@{Q\+F\+\_\+\+M\+P\+O\+O\+L\+\_\+\+C\+T\+R\+\_\+\+S\+I\+ZE}!qmpool.\+h@{qmpool.\+h}}
+\subsubsection[{\texorpdfstring{Q\+F\+\_\+\+M\+P\+O\+O\+L\+\_\+\+C\+T\+R\+\_\+\+S\+I\+ZE}{QF_MPOOL_CTR_SIZE}}]{\setlength{\rightskip}{0pt plus 5cm}\#define Q\+F\+\_\+\+M\+P\+O\+O\+L\+\_\+\+C\+T\+R\+\_\+\+S\+I\+ZE~2}\hypertarget{qmpool_8h_adc446a34e9e682fc5e821d203f73a6e0}{}\label{qmpool_8h_adc446a34e9e682fc5e821d203f73a6e0}
+macro to override the default \+::\+Q\+M\+Pool\+Ctr size. Valid values 1, 2, or 4; default 2 \index{qmpool.\+h@{qmpool.\+h}!Q\+F\+\_\+\+M\+P\+O\+O\+L\+\_\+\+EL@{Q\+F\+\_\+\+M\+P\+O\+O\+L\+\_\+\+EL}}
+\index{Q\+F\+\_\+\+M\+P\+O\+O\+L\+\_\+\+EL@{Q\+F\+\_\+\+M\+P\+O\+O\+L\+\_\+\+EL}!qmpool.\+h@{qmpool.\+h}}
+\subsubsection[{\texorpdfstring{Q\+F\+\_\+\+M\+P\+O\+O\+L\+\_\+\+EL}{QF_MPOOL_EL}}]{\setlength{\rightskip}{0pt plus 5cm}\#define Q\+F\+\_\+\+M\+P\+O\+O\+L\+\_\+\+EL(
+\begin{DoxyParamCaption}
+\item[{}]{ev\+Type\+\_\+}
+\end{DoxyParamCaption}
+)~struct \{ void $\ast$sto\+\_\+\mbox{[}((sizeof(ev\+Type\+\_\+) -\/ 1\+U)/sizeof(void$\ast$)) + 1\+U\mbox{]}; \}}\hypertarget{qmpool_8h_ab0fe475154021674f904c52e61e78841}{}\label{qmpool_8h_ab0fe475154021674f904c52e61e78841}
+Memory pool element to allocate correctly aligned storage for \hyperlink{structQMPool}{Q\+M\+Pool} class. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em ev\+Type\+\_\+} & event type (name of the subclass of Q\+Evt) \\
+\hline
+\end{DoxyParams}
+\index{qmpool.\+h@{qmpool.\+h}!Q\+F\+\_\+\+M\+P\+O\+O\+L\+\_\+\+S\+I\+Z\+\_\+\+S\+I\+ZE@{Q\+F\+\_\+\+M\+P\+O\+O\+L\+\_\+\+S\+I\+Z\+\_\+\+S\+I\+ZE}}
+\index{Q\+F\+\_\+\+M\+P\+O\+O\+L\+\_\+\+S\+I\+Z\+\_\+\+S\+I\+ZE@{Q\+F\+\_\+\+M\+P\+O\+O\+L\+\_\+\+S\+I\+Z\+\_\+\+S\+I\+ZE}!qmpool.\+h@{qmpool.\+h}}
+\subsubsection[{\texorpdfstring{Q\+F\+\_\+\+M\+P\+O\+O\+L\+\_\+\+S\+I\+Z\+\_\+\+S\+I\+ZE}{QF_MPOOL_SIZ_SIZE}}]{\setlength{\rightskip}{0pt plus 5cm}\#define Q\+F\+\_\+\+M\+P\+O\+O\+L\+\_\+\+S\+I\+Z\+\_\+\+S\+I\+ZE~2}\hypertarget{qmpool_8h_ac41e4f294d103c68521f9ad1f8e4e3b4}{}\label{qmpool_8h_ac41e4f294d103c68521f9ad1f8e4e3b4}
+macro to override the default \+::\+Q\+M\+Pool\+Size size. Valid values 1, 2, or 4; default 2 \index{qmpool.\+h@{qmpool.\+h}!Q\+F\+\_\+\+P\+T\+R\+\_\+\+A\+T\+\_\+@{Q\+F\+\_\+\+P\+T\+R\+\_\+\+A\+T\+\_\+}}
+\index{Q\+F\+\_\+\+P\+T\+R\+\_\+\+A\+T\+\_\+@{Q\+F\+\_\+\+P\+T\+R\+\_\+\+A\+T\+\_\+}!qmpool.\+h@{qmpool.\+h}}
+\subsubsection[{\texorpdfstring{Q\+F\+\_\+\+P\+T\+R\+\_\+\+A\+T\+\_\+}{QF_PTR_AT_}}]{\setlength{\rightskip}{0pt plus 5cm}\#define Q\+F\+\_\+\+P\+T\+R\+\_\+\+A\+T\+\_\+(
+\begin{DoxyParamCaption}
+\item[{}]{base\+\_\+, }
+\item[{}]{i\+\_\+}
+\end{DoxyParamCaption}
+)~((base\+\_\+)\mbox{[}(i\+\_\+)\mbox{]})}\hypertarget{qmpool_8h_a4e32e4833cb9f41e69ad01e95bd0d3ca}{}\label{qmpool_8h_a4e32e4833cb9f41e69ad01e95bd0d3ca}
+access element at index {\ttfamily i\+\_\+} from the base pointer {\ttfamily base\+\_\+} 
+
+\subsection{Typedef Documentation}
+\index{qmpool.\+h@{qmpool.\+h}!Q\+Free\+Block@{Q\+Free\+Block}}
+\index{Q\+Free\+Block@{Q\+Free\+Block}!qmpool.\+h@{qmpool.\+h}}
+\subsubsection[{\texorpdfstring{Q\+Free\+Block}{QFreeBlock}}]{\setlength{\rightskip}{0pt plus 5cm}typedef struct {\bf Q\+Free\+Block}  {\bf Q\+Free\+Block}}\hypertarget{qmpool_8h_a67629e18ea74454564622d135698ecda}{}\label{qmpool_8h_a67629e18ea74454564622d135698ecda}
+structure representing a free block in the Native QF Memory Pool 
+
+\subsection{Function Documentation}
+\index{qmpool.\+h@{qmpool.\+h}!Q\+M\+Pool\+\_\+get@{Q\+M\+Pool\+\_\+get}}
+\index{Q\+M\+Pool\+\_\+get@{Q\+M\+Pool\+\_\+get}!qmpool.\+h@{qmpool.\+h}}
+\subsubsection[{\texorpdfstring{Q\+M\+Pool\+\_\+get(\+Q\+M\+Pool $\ast$const me, uint\+\_\+fast16\+\_\+t const margin)}{QMPool_get(QMPool *const me, uint_fast16_t const margin)}}]{\setlength{\rightskip}{0pt plus 5cm}void$\ast$ Q\+M\+Pool\+\_\+get (
+\begin{DoxyParamCaption}
+\item[{{\bf Q\+M\+Pool} $\ast$const}]{me, }
+\item[{uint\+\_\+fast16\+\_\+t const}]{margin}
+\end{DoxyParamCaption}
+)}\hypertarget{qmpool_8h_a76cbc3e7493ea05d944799c126b819a9}{}\label{qmpool_8h_a76cbc3e7493ea05d944799c126b819a9}
+Obtains a memory block from a memory pool.
+
+The function allocates a memory block from the pool and returns a pointer to the block back to the caller.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in,out}  & {\em me} & pointer (see oop) \\
+\hline
+\mbox{\tt in}  & {\em margin} & the minimum number of unused blocks still available in the pool after the allocation.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+This function can be called from any task level or I\+SR level.
+
+The memory pool {\ttfamily me} must be initialized before any events can be requested from it. Also, the \hyperlink{qf__mem_8c_a76cbc3e7493ea05d944799c126b819a9}{Q\+M\+Pool\+\_\+get()} function uses internally a QF critical section, so you should be careful not to call it from within a critical section when nesting of critical section is not supported.
+\end{DoxyNote}
+\begin{DoxyAttention}{Attention}
+An allocated block must be later returned back to the same pool from which it has been allocated.
+\end{DoxyAttention}
+\begin{DoxySeeAlso}{See also}
+\hyperlink{qf__mem_8c_aa4a2037d4843f9d1eab63c0ebd7fe302}{Q\+M\+Pool\+\_\+put()}
+\end{DoxySeeAlso}
+The following example illustrates how to use \hyperlink{qf__mem_8c_a76cbc3e7493ea05d944799c126b819a9}{Q\+M\+Pool\+\_\+get()}\+: 
+\begin{DoxyCodeInclude}
+\end{DoxyCodeInclude}
+ \index{qmpool.\+h@{qmpool.\+h}!Q\+M\+Pool\+\_\+get\+Min@{Q\+M\+Pool\+\_\+get\+Min}}
+\index{Q\+M\+Pool\+\_\+get\+Min@{Q\+M\+Pool\+\_\+get\+Min}!qmpool.\+h@{qmpool.\+h}}
+\subsubsection[{\texorpdfstring{Q\+M\+Pool\+\_\+get\+Min(\+Q\+M\+Pool $\ast$const me)}{QMPool_getMin(QMPool *const me)}}]{\setlength{\rightskip}{0pt plus 5cm}uint\+\_\+fast16\+\_\+t Q\+M\+Pool\+\_\+get\+Min (
+\begin{DoxyParamCaption}
+\item[{{\bf Q\+M\+Pool} $\ast$const}]{me}
+\end{DoxyParamCaption}
+)}\hypertarget{qmpool_8h_a5e78f7818d22382464cd6124fecd5810}{}\label{qmpool_8h_a5e78f7818d22382464cd6124fecd5810}
+Returns the minimum number of unused blocks in the given event pool.
+
+This function obtains the minimum number of free blocks in the given event pool since this pool has been initialized by a call to Q\+F\+\_\+pool\+Init().
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in,out}  & {\em me} & pointer (see oop)\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the minimum number of unused blocks in the given event pool. 
+\end{DoxyReturn}
+\index{qmpool.\+h@{qmpool.\+h}!Q\+M\+Pool\+\_\+init@{Q\+M\+Pool\+\_\+init}}
+\index{Q\+M\+Pool\+\_\+init@{Q\+M\+Pool\+\_\+init}!qmpool.\+h@{qmpool.\+h}}
+\subsubsection[{\texorpdfstring{Q\+M\+Pool\+\_\+init(\+Q\+M\+Pool $\ast$const me, void $\ast$const pool\+Sto, uint\+\_\+fast32\+\_\+t pool\+Size, uint\+\_\+fast16\+\_\+t block\+Size)}{QMPool_init(QMPool *const me, void *const poolSto, uint_fast32_t poolSize, uint_fast16_t blockSize)}}]{\setlength{\rightskip}{0pt plus 5cm}void Q\+M\+Pool\+\_\+init (
+\begin{DoxyParamCaption}
+\item[{{\bf Q\+M\+Pool} $\ast$const}]{me, }
+\item[{void $\ast$const}]{pool\+Sto, }
+\item[{uint\+\_\+fast32\+\_\+t}]{pool\+Size, }
+\item[{uint\+\_\+fast16\+\_\+t}]{block\+Size}
+\end{DoxyParamCaption}
+)}\hypertarget{qmpool_8h_a19ce0f12f82dcf6825628ace98e980dc}{}\label{qmpool_8h_a19ce0f12f82dcf6825628ace98e980dc}
+Initializes the native QF memory pool
+
+Initialize a fixed block-\/size memory pool by providing it with the pool memory to manage, size of this memory, and the block size.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in,out}  & {\em me} & pointer (see oop) \\
+\hline
+\mbox{\tt in}  & {\em pool\+Sto} & pointer to the memory buffer for pool storage \\
+\hline
+\mbox{\tt in}  & {\em pool\+Size} & size of the storage buffer in bytes \\
+\hline
+\mbox{\tt in}  & {\em block\+Size} & fixed-\/size of the memory blocks in bytes\\
+\hline
+\end{DoxyParams}
+\begin{DoxyAttention}{Attention}
+The caller of Q\+M\+Pool\+::init() must make sure that the {\ttfamily pool\+Sto} pointer is properly {\bfseries aligned}. In particular, it must be possible to efficiently store a pointer at the location pointed to by {\ttfamily pool\+Sto}. Internally, the \hyperlink{qf__mem_8c_a19ce0f12f82dcf6825628ace98e980dc}{Q\+M\+Pool\+\_\+init()} function rounds up the block size {\ttfamily block\+Size} so that it can fit an integer number of pointers. This is done to achieve proper alignment of the blocks within the pool.
+\end{DoxyAttention}
+\begin{DoxyNote}{Note}
+Due to the rounding of block size the actual capacity of the pool might be less than ({\ttfamily pool\+Size} / {\ttfamily block\+Size}). You can check the capacity of the pool by calling the Q\+F\+\_\+get\+Pool\+Min() function.
+
+This function is {\bfseries not} protected by a critical section, because it is intended to be called only during the initialization of the system, when interrupts are not allowed yet.
+
+Many QF ports use memory pools to implement the event pools.
+\end{DoxyNote}
+The following example illustrates how to invoke \hyperlink{qf__mem_8c_a19ce0f12f82dcf6825628ace98e980dc}{Q\+M\+Pool\+\_\+init()}\+: 
+\begin{DoxyCodeInclude}
+\end{DoxyCodeInclude}
+ \index{qmpool.\+h@{qmpool.\+h}!Q\+M\+Pool\+\_\+put@{Q\+M\+Pool\+\_\+put}}
+\index{Q\+M\+Pool\+\_\+put@{Q\+M\+Pool\+\_\+put}!qmpool.\+h@{qmpool.\+h}}
+\subsubsection[{\texorpdfstring{Q\+M\+Pool\+\_\+put(\+Q\+M\+Pool $\ast$const me, void $\ast$b)}{QMPool_put(QMPool *const me, void *b)}}]{\setlength{\rightskip}{0pt plus 5cm}void Q\+M\+Pool\+\_\+put (
+\begin{DoxyParamCaption}
+\item[{{\bf Q\+M\+Pool} $\ast$const}]{me, }
+\item[{void $\ast$}]{b}
+\end{DoxyParamCaption}
+)}\hypertarget{qmpool_8h_aa4a2037d4843f9d1eab63c0ebd7fe302}{}\label{qmpool_8h_aa4a2037d4843f9d1eab63c0ebd7fe302}
+Recycles a memory block back to a memory pool.
+
+Recycle a memory block to the fixed block-\/size memory pool.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in,out}  & {\em me} & pointer (see oop) \\
+\hline
+\mbox{\tt in}  & {\em b} & pointer to the memory block that is being recycled\\
+\hline
+\end{DoxyParams}
+\begin{DoxyAttention}{Attention}
+The recycled block must be allocated from the {\bfseries same} memory pool to which it is returned.
+\end{DoxyAttention}
+\begin{DoxyNote}{Note}
+This function can be called from any task level or I\+SR level.
+\end{DoxyNote}
+\begin{DoxySeeAlso}{See also}
+\hyperlink{qf__mem_8c_a76cbc3e7493ea05d944799c126b819a9}{Q\+M\+Pool\+\_\+get()}
+\end{DoxySeeAlso}
+The following example illustrates how to use \hyperlink{qf__mem_8c_aa4a2037d4843f9d1eab63c0ebd7fe302}{Q\+M\+Pool\+\_\+put()}\+: 
+\begin{DoxyCodeInclude}
+\end{DoxyCodeInclude}
+ \begin{DoxyPrecond}{Precondition}
+\# free blocks cannot exceed the total \# blocks and the block pointer must be from this pool.
+\end{DoxyPrecond}

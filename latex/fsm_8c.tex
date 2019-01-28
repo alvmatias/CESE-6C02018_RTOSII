@@ -1,0 +1,51 @@
+\hypertarget{fsm_8c}{}\section{src/fsm.c File Reference}
+\label{fsm_8c}\index{src/fsm.\+c@{src/fsm.\+c}}
+
+
+Implementacion de la maquina de estados finita.  
+
+
+{\ttfamily \#include \char`\"{}fsm.\+h\char`\"{}}\\*
+Include dependency graph for fsm.\+c\+:
+% FIG 0
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{fsm_8c_ab4d4095eb3bcc75d04a553d2935e867a}{fsm} (\hyperlink{structfsmState}{fsm\+State\+\_\+t} $\ast$$\ast$state, const uint8\+\_\+t current\+Event, void $\ast$arg)
+\begin{DoxyCompactList}\small\item\em Funcion generica que permite avanzar la maquina de estados finita implementada por algun modulo que conforma el programa. La misma debe ser invocada desde el superloop principal del programa. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Implementacion de la maquina de estados finita. 
+
+\begin{DoxyNote}{Note}
+Autores\+: Alvarez Matias -\/ Santarcangelo Marco -\/ Tirapegui Rodrigo Licencia\+: Fecha\+: 17/10/2018 
+\end{DoxyNote}
+
+
+\subsection{Function Documentation}
+\index{fsm.\+c@{fsm.\+c}!fsm@{fsm}}
+\index{fsm@{fsm}!fsm.\+c@{fsm.\+c}}
+\subsubsection[{\texorpdfstring{fsm(fsm\+State\+\_\+t $\ast$$\ast$state, const uint8\+\_\+t current\+Event, void $\ast$arg)}{fsm(fsmState_t **state, const uint8_t currentEvent, void *arg)}}]{\setlength{\rightskip}{0pt plus 5cm}void fsm (
+\begin{DoxyParamCaption}
+\item[{{\bf fsm\+State\+\_\+t} $\ast$$\ast$}]{state, }
+\item[{const uint8\+\_\+t}]{current\+Event, }
+\item[{void $\ast$}]{arg}
+\end{DoxyParamCaption}
+)}\hypertarget{fsm_8c_ab4d4095eb3bcc75d04a553d2935e867a}{}\label{fsm_8c_ab4d4095eb3bcc75d04a553d2935e867a}
+
+
+Funcion generica que permite avanzar la maquina de estados finita implementada por algun modulo que conforma el programa. La misma debe ser invocada desde el superloop principal del programa. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em state} & \+: Direccion del puntero al estado actual de la maquina de estados finita \\
+\hline
+{\em current\+Event} & \+: Evento actual del modulo invocante. Su valor debe ser distinto de 0. \\
+\hline
+{\em arg} & \+:Argumento que sera pasado por parametro al callback de accian asociado con el estado actual de la maquina de estados finita \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Nada 
+\end{DoxyReturn}

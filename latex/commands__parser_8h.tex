@@ -1,0 +1,155 @@
+\hypertarget{commands__parser_8h}{}\section{inc/commands\+\_\+parser.h File Reference}
+\label{commands__parser_8h}\index{inc/commands\+\_\+parser.\+h@{inc/commands\+\_\+parser.\+h}}
+
+
+Implementacion del parser de los paquetes.  
+
+
+{\ttfamily \#include \char`\"{}sapi\+\_\+datatypes.\+h\char`\"{}}\\*
+Include dependency graph for commands\+\_\+parser.\+h\+:
+% FIG 0
+This graph shows which files directly or indirectly include this file\+:
+% FIG 1
+\subsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structframe__t}{frame\+\_\+t}
+\begin{DoxyCompactList}\small\item\em Estructura de datos para comunicar paquetes entre el parser y los procesadores de los comandos. \end{DoxyCompactList}\item 
+struct \hyperlink{structcommands__t}{commands\+\_\+t}
+\begin{DoxyCompactList}\small\item\em Estructura de datos que representa un comando. \end{DoxyCompactList}\item 
+struct \hyperlink{structcommands__cbHandlers__t}{commands\+\_\+cb\+Handlers\+\_\+t}
+\begin{DoxyCompactList}\small\item\em Callback Handlers para medicion de performace de paquete. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef void($\ast$ {\bfseries cmd\+Data\+Push\+\_\+t}) (const \hyperlink{structframe__t}{frame\+\_\+t} $\ast$frame)\hypertarget{commands__parser_8h_a61527fcc89c0b144c57a7ac0e29178ca}{}\label{commands__parser_8h_a61527fcc89c0b144c57a7ac0e29178ca}
+
+\item 
+typedef void($\ast$ {\bfseries cmd\+Data\+Pop\+\_\+t}) (\hyperlink{structframe__t}{frame\+\_\+t} $\ast$const frame)\hypertarget{commands__parser_8h_ae643785e5ce3804f2e261e78367c281e}{}\label{commands__parser_8h_ae643785e5ce3804f2e261e78367c281e}
+
+\item 
+typedef void($\ast$ {\bfseries async\+Op\+\_\+cb\+Handler\+\_\+t}) (uint8\+\_\+t $\ast$frame)\hypertarget{commands__parser_8h_ae5a6c14dbb3d7c6cb4ed6d2d12b42a15}{}\label{commands__parser_8h_ae5a6c14dbb3d7c6cb4ed6d2d12b42a15}
+
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool\+\_\+t \hyperlink{commands__parser_8h_aadb64eb287eace7af9f2c34ea663156b}{commands\+Parser\+\_\+init} (void)
+\begin{DoxyCompactList}\small\item\em Inicializacion del parser, mempool y driver de la U\+A\+RT. \end{DoxyCompactList}\item 
+bool\+\_\+t \hyperlink{commands__parser_8h_a477e2361652b5ba11c970b3d7881e1ed}{commands\+Parser\+\_\+register\+Ind\+Handlers} (const uint8\+\_\+t task\+Id, const \hyperlink{structcommands__cbHandlers__t}{commands\+\_\+cb\+Handlers\+\_\+t} $\ast$observer\+Cb\+Handlers)
+\begin{DoxyCompactList}\small\item\em Registro de callback handlers para medicion de performance de paquetes. \end{DoxyCompactList}\item 
+uint32\+\_\+t \hyperlink{commands__parser_8h_aa8b5b2568c2f63ad2b6da33c40bc9a6b}{commands\+Parser\+\_\+get\+Mem\+Pool\+Block\+Size} (const \hyperlink{structframe__t}{frame\+\_\+t} $\ast$frame)
+\begin{DoxyCompactList}\small\item\em Obtencion del tamaño de bloque del mem pool del parser de acuerdo a la direccion de los datos del frame pasado. \end{DoxyCompactList}\item 
+bool\+\_\+t \hyperlink{commands__parser_8h_ad7ee1b4381dad30cf0a9373174f8eeff}{commands\+Parser\+\_\+data\+Push} (\hyperlink{structframe__t}{frame\+\_\+t} $\ast$frame, bool\+\_\+t with\+Mem\+Alloc)
+\begin{DoxyCompactList}\small\item\em Agregado de dato en la cola del parser. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+const \hyperlink{structcommands__t}{commands\+\_\+t} \hyperlink{commands__parser_8h_ab037e716c63bece9921b0aaccc2ee433}{g\+\_\+commands\+Arr} \mbox{[}$\,$\mbox{]}\hypertarget{commands__parser_8h_ab037e716c63bece9921b0aaccc2ee433}{}\label{commands__parser_8h_ab037e716c63bece9921b0aaccc2ee433}
+
+\begin{DoxyCompactList}\small\item\em Comandos de la practica 3. \end{DoxyCompactList}\item 
+const uint8\+\_\+t \hyperlink{commands__parser_8h_a51ea0c99aa16d743e3be38388531c787}{C\+O\+M\+M\+A\+N\+D\+S\+\_\+\+P\+A\+R\+S\+E\+R\+\_\+\+T\+X\+\_\+\+Q\+U\+E\+U\+E\+\_\+\+E\+N\+T\+R\+I\+E\+S\+\_\+\+M\+AX}\hypertarget{commands__parser_8h_a51ea0c99aa16d743e3be38388531c787}{}\label{commands__parser_8h_a51ea0c99aa16d743e3be38388531c787}
+
+\begin{DoxyCompactList}\small\item\em Definicion de la cantidad maxima de entradas para la cola de transmision del parser. \end{DoxyCompactList}\item 
+const uint8\+\_\+t \hyperlink{commands__parser_8h_a02752e97651d233eb851060c25b46d1a}{C\+O\+M\+M\+A\+N\+D\+S\+\_\+\+P\+A\+R\+S\+E\+R\+\_\+\+I\+N\+V\+A\+L\+I\+D\+\_\+\+C\+M\+D\+\_\+\+ID}\hypertarget{commands__parser_8h_a02752e97651d233eb851060c25b46d1a}{}\label{commands__parser_8h_a02752e97651d233eb851060c25b46d1a}
+
+\begin{DoxyCompactList}\small\item\em Definicion de comando invalido para el parser. \end{DoxyCompactList}\item 
+const uint8\+\_\+t \hyperlink{commands__parser_8h_a38ec34bc151d9ac62f5957976d747e9d}{C\+O\+M\+M\+A\+N\+D\+S\+\_\+\+P\+A\+R\+S\+E\+R\+\_\+\+M\+I\+N\+I\+M\+U\+M\+\_\+\+S\+T\+A\+C\+K\+\_\+\+C\+M\+D\+\_\+\+ID}\hypertarget{commands__parser_8h_a38ec34bc151d9ac62f5957976d747e9d}{}\label{commands__parser_8h_a38ec34bc151d9ac62f5957976d747e9d}
+
+\begin{DoxyCompactList}\small\item\em Definicion de comando de reporte de minimo stack disponible para el parser. \end{DoxyCompactList}\item 
+const uint8\+\_\+t \hyperlink{commands__parser_8h_a712bac80c947a1f8225ae208591c901b}{C\+O\+M\+M\+A\+N\+D\+S\+\_\+\+P\+A\+R\+S\+E\+R\+\_\+\+A\+V\+A\+I\+L\+A\+B\+L\+E\+\_\+\+H\+E\+A\+P\+\_\+\+C\+M\+D\+\_\+\+ID}\hypertarget{commands__parser_8h_a712bac80c947a1f8225ae208591c901b}{}\label{commands__parser_8h_a712bac80c947a1f8225ae208591c901b}
+
+\begin{DoxyCompactList}\small\item\em Definicion de comando heap disponible para el parser. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Implementacion del parser de los paquetes. 
+
+\begin{DoxyNote}{Note}
+Autores\+: Alvarez Matias -\/ Santarcangelo Marco -\/ Tirapegui Rodrigo Licencia\+: Fecha\+: 17/10/2018 
+\end{DoxyNote}
+
+
+\subsection{Function Documentation}
+\index{commands\+\_\+parser.\+h@{commands\+\_\+parser.\+h}!commands\+Parser\+\_\+data\+Push@{commands\+Parser\+\_\+data\+Push}}
+\index{commands\+Parser\+\_\+data\+Push@{commands\+Parser\+\_\+data\+Push}!commands\+\_\+parser.\+h@{commands\+\_\+parser.\+h}}
+\subsubsection[{\texorpdfstring{commands\+Parser\+\_\+data\+Push(frame\+\_\+t $\ast$frame, bool\+\_\+t with\+Mem\+Alloc)}{commandsParser_dataPush(frame_t *frame, bool_t withMemAlloc)}}]{\setlength{\rightskip}{0pt plus 5cm}bool\+\_\+t commands\+Parser\+\_\+data\+Push (
+\begin{DoxyParamCaption}
+\item[{{\bf frame\+\_\+t} $\ast$}]{frame, }
+\item[{bool\+\_\+t}]{with\+Mem\+Alloc}
+\end{DoxyParamCaption}
+)}\hypertarget{commands__parser_8h_ad7ee1b4381dad30cf0a9373174f8eeff}{}\label{commands__parser_8h_ad7ee1b4381dad30cf0a9373174f8eeff}
+
+
+Agregado de dato en la cola del parser. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em frame} & \+: Frame a ser agregado \\
+\hline
+{\em with\+Mem\+Alloc} & \+: Booleano que indica si los datos deben ser previamente alocados antes de ser agregados en la cola o no \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+bool\+\_\+t T\+R\+UE si pudo agregarse y/o alocarse el frame, F\+A\+L\+SE caso contrario 
+\end{DoxyReturn}
+\index{commands\+\_\+parser.\+h@{commands\+\_\+parser.\+h}!commands\+Parser\+\_\+get\+Mem\+Pool\+Block\+Size@{commands\+Parser\+\_\+get\+Mem\+Pool\+Block\+Size}}
+\index{commands\+Parser\+\_\+get\+Mem\+Pool\+Block\+Size@{commands\+Parser\+\_\+get\+Mem\+Pool\+Block\+Size}!commands\+\_\+parser.\+h@{commands\+\_\+parser.\+h}}
+\subsubsection[{\texorpdfstring{commands\+Parser\+\_\+get\+Mem\+Pool\+Block\+Size(const frame\+\_\+t $\ast$frame)}{commandsParser_getMemPoolBlockSize(const frame_t *frame)}}]{\setlength{\rightskip}{0pt plus 5cm}uint32\+\_\+t commands\+Parser\+\_\+get\+Mem\+Pool\+Block\+Size (
+\begin{DoxyParamCaption}
+\item[{const {\bf frame\+\_\+t} $\ast$}]{frame}
+\end{DoxyParamCaption}
+)}\hypertarget{commands__parser_8h_aa8b5b2568c2f63ad2b6da33c40bc9a6b}{}\label{commands__parser_8h_aa8b5b2568c2f63ad2b6da33c40bc9a6b}
+
+
+Obtencion del tamaño de bloque del mem pool del parser de acuerdo a la direccion de los datos del frame pasado. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em frame} & \+: Frame conteniendo los datos alocados en el mem pool \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+uint32\+\_\+t Tamaño de bloque del mem pool donde estan alojados los datos del frame pasado como parametros 
+\end{DoxyReturn}
+\index{commands\+\_\+parser.\+h@{commands\+\_\+parser.\+h}!commands\+Parser\+\_\+init@{commands\+Parser\+\_\+init}}
+\index{commands\+Parser\+\_\+init@{commands\+Parser\+\_\+init}!commands\+\_\+parser.\+h@{commands\+\_\+parser.\+h}}
+\subsubsection[{\texorpdfstring{commands\+Parser\+\_\+init(void)}{commandsParser_init(void)}}]{\setlength{\rightskip}{0pt plus 5cm}bool\+\_\+t commands\+Parser\+\_\+init (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\hypertarget{commands__parser_8h_aadb64eb287eace7af9f2c34ea663156b}{}\label{commands__parser_8h_aadb64eb287eace7af9f2c34ea663156b}
+
+
+Inicializacion del parser, mempool y driver de la U\+A\+RT. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Ninguno} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+bool\+\_\+t T\+R\+UE si la inicializacion fue correcta, F\+A\+L\+SE caso contrario. 
+\end{DoxyReturn}
+\index{commands\+\_\+parser.\+h@{commands\+\_\+parser.\+h}!commands\+Parser\+\_\+register\+Ind\+Handlers@{commands\+Parser\+\_\+register\+Ind\+Handlers}}
+\index{commands\+Parser\+\_\+register\+Ind\+Handlers@{commands\+Parser\+\_\+register\+Ind\+Handlers}!commands\+\_\+parser.\+h@{commands\+\_\+parser.\+h}}
+\subsubsection[{\texorpdfstring{commands\+Parser\+\_\+register\+Ind\+Handlers(const uint8\+\_\+t task\+Id, const commands\+\_\+cb\+Handlers\+\_\+t $\ast$observer\+Cb\+Handlers)}{commandsParser_registerIndHandlers(const uint8_t taskId, const commands_cbHandlers_t *observerCbHandlers)}}]{\setlength{\rightskip}{0pt plus 5cm}bool\+\_\+t commands\+Parser\+\_\+register\+Ind\+Handlers (
+\begin{DoxyParamCaption}
+\item[{const uint8\+\_\+t}]{task\+Id, }
+\item[{const {\bf commands\+\_\+cb\+Handlers\+\_\+t} $\ast$}]{observer\+Cb\+Handlers}
+\end{DoxyParamCaption}
+)}\hypertarget{commands__parser_8h_a477e2361652b5ba11c970b3d7881e1ed}{}\label{commands__parser_8h_a477e2361652b5ba11c970b3d7881e1ed}
+
+
+Registro de callback handlers para medicion de performance de paquetes. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em task\+Id} & \+: Id de la tarea que registra los callbacks \\
+\hline
+{\em observer\+Cb\+Handlers} & \+: Puntero a la estructura que contiene los distintos callbacks \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+bool\+\_\+t T\+R\+UE si fue posible registrarlos, F\+A\+L\+SE caso contrario. 
+\end{DoxyReturn}

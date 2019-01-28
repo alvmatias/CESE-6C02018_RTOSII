@@ -1,0 +1,81 @@
+\hypertarget{tpaste_8h}{}\section{inc/tpaste.h File Reference}
+\label{tpaste_8h}\index{inc/tpaste.\+h@{inc/tpaste.\+h}}
+This graph shows which files directly or indirectly include this file\+:
+% FIG 0
+\subsection*{Macros}
+\begin{Indent}{\bf Token Paste}\par
+{\em Paste N preprocessing tokens together, these tokens being allowed to be \#defined.
+
+May be used only within macros with the tokens passed as arguments if the tokens are \#defined.
+
+For example, writing T\+P\+A\+S\+T\+E2(\+U, W\+I\+D\+T\+H) within a macro \#defined by U\+T\+Y\+P\+E(\+W\+I\+D\+T\+H) and invoked as U\+T\+Y\+P\+E(\+U\+L\+\_\+\+W\+I\+D\+T\+H) with U\+L\+\_\+\+W\+I\+D\+TH \#defined as 32 is equivalent to writing U32. }\begin{DoxyCompactItemize}
+\item 
+\#define {\bfseries T\+P\+A\+S\+T\+E2}(a,  b)~a\#\#b\hypertarget{tpaste_8h_a55fb148844f5ba993a992b609728e82e}{}\label{tpaste_8h_a55fb148844f5ba993a992b609728e82e}
+
+\item 
+\#define {\bfseries T\+P\+A\+S\+T\+E3}(a,  b,  c)~a\#\#b\#\#c\hypertarget{tpaste_8h_a3774e5e321825e6ab4a27fef2a0deb14}{}\label{tpaste_8h_a3774e5e321825e6ab4a27fef2a0deb14}
+
+\item 
+\#define {\bfseries T\+P\+A\+S\+T\+E4}(a,  b,  c,  d)~a\#\#b\#\#c\#\#d\hypertarget{tpaste_8h_a7df52ac8ee04480944ef404ef9418b38}{}\label{tpaste_8h_a7df52ac8ee04480944ef404ef9418b38}
+
+\item 
+\#define {\bfseries T\+P\+A\+S\+T\+E5}(a,  b,  c,  d,  e)~a\#\#b\#\#c\#\#d\#\#e\hypertarget{tpaste_8h_ac9624b958617cbb3281de7ec41f53230}{}\label{tpaste_8h_ac9624b958617cbb3281de7ec41f53230}
+
+\item 
+\#define {\bfseries T\+P\+A\+S\+T\+E6}(a,  b,  c,  d,  e,  f)~a\#\#b\#\#c\#\#d\#\#e\#\#f\hypertarget{tpaste_8h_a2c4dbcf9049d7553366bbf9b9bc4e801}{}\label{tpaste_8h_a2c4dbcf9049d7553366bbf9b9bc4e801}
+
+\item 
+\#define {\bfseries T\+P\+A\+S\+T\+E7}(a,  b,  c,  d,  e,  f,  g)~a\#\#b\#\#c\#\#d\#\#e\#\#f\#\#g\hypertarget{tpaste_8h_ad36c0d6224338a4f8738aa25659afc14}{}\label{tpaste_8h_ad36c0d6224338a4f8738aa25659afc14}
+
+\item 
+\#define {\bfseries T\+P\+A\+S\+T\+E8}(a,  b,  c,  d,  e,  f,  g,  h)~a\#\#b\#\#c\#\#d\#\#e\#\#f\#\#g\#\#h\hypertarget{tpaste_8h_af7aff743d5c0d66a81a13268b1a7e222}{}\label{tpaste_8h_af7aff743d5c0d66a81a13268b1a7e222}
+
+\item 
+\#define {\bfseries T\+P\+A\+S\+T\+E9}(a,  b,  c,  d,  e,  f,  g,  h,  i)~a\#\#b\#\#c\#\#d\#\#e\#\#f\#\#g\#\#h\#\#i\hypertarget{tpaste_8h_a5440e5a665d859bec7c3527312d0889d}{}\label{tpaste_8h_a5440e5a665d859bec7c3527312d0889d}
+
+\item 
+\#define {\bfseries T\+P\+A\+S\+T\+E10}(a,  b,  c,  d,  e,  f,  g,  h,  i,  j)~a\#\#b\#\#c\#\#d\#\#e\#\#f\#\#g\#\#h\#\#i\#\#j\hypertarget{tpaste_8h_a0235b2e4ccf7a5b1d022a729a17a78a2}{}\label{tpaste_8h_a0235b2e4ccf7a5b1d022a729a17a78a2}
+
+\end{DoxyCompactItemize}
+\end{Indent}
+\begin{Indent}{\bf Absolute Token Paste}\par
+{\em Paste N preprocessing tokens together, these tokens being allowed to be \#defined.
+
+No restriction of use if the tokens are \#defined.
+
+For example, writing A\+T\+P\+A\+S\+T\+E2(\+U, U\+L\+\_\+\+W\+I\+D\+T\+H) anywhere with U\+L\+\_\+\+W\+I\+D\+TH \#defined as 32 is equivalent to writing U32. }\begin{DoxyCompactItemize}
+\item 
+\#define {\bfseries A\+T\+P\+A\+S\+T\+E2}(a,  b)~T\+P\+A\+S\+T\+E2( a, b)\hypertarget{tpaste_8h_afd3b4e313492a0862292dc3072d8e347}{}\label{tpaste_8h_afd3b4e313492a0862292dc3072d8e347}
+
+\item 
+\#define {\bfseries A\+T\+P\+A\+S\+T\+E3}(a,  b,  c)~T\+P\+A\+S\+T\+E3( a, b, c)\hypertarget{tpaste_8h_a80b7594516326045fbcaec54d7759c20}{}\label{tpaste_8h_a80b7594516326045fbcaec54d7759c20}
+
+\item 
+\#define {\bfseries A\+T\+P\+A\+S\+T\+E4}(a,  b,  c,  d)~T\+P\+A\+S\+T\+E4( a, b, c, d)\hypertarget{tpaste_8h_ad9dcc51074148a4ff01810033a41e282}{}\label{tpaste_8h_ad9dcc51074148a4ff01810033a41e282}
+
+\item 
+\#define {\bfseries A\+T\+P\+A\+S\+T\+E5}(a,  b,  c,  d,  e)~T\+P\+A\+S\+T\+E5( a, b, c, d, e)\hypertarget{tpaste_8h_a4e4994267872724c11e31f1274c1a84c}{}\label{tpaste_8h_a4e4994267872724c11e31f1274c1a84c}
+
+\item 
+\#define {\bfseries A\+T\+P\+A\+S\+T\+E6}(a,  b,  c,  d,  e,  f)~T\+P\+A\+S\+T\+E6( a, b, c, d, e, f)\hypertarget{tpaste_8h_a5bbd1842581ea1fa81616d3222bda308}{}\label{tpaste_8h_a5bbd1842581ea1fa81616d3222bda308}
+
+\item 
+\#define {\bfseries A\+T\+P\+A\+S\+T\+E7}(a,  b,  c,  d,  e,  f,  g)~T\+P\+A\+S\+T\+E7( a, b, c, d, e, f, g)\hypertarget{tpaste_8h_abecc8ad964051f6f877f14dd13919b18}{}\label{tpaste_8h_abecc8ad964051f6f877f14dd13919b18}
+
+\item 
+\#define {\bfseries A\+T\+P\+A\+S\+T\+E8}(a,  b,  c,  d,  e,  f,  g,  h)~T\+P\+A\+S\+T\+E8( a, b, c, d, e, f, g, h)\hypertarget{tpaste_8h_a303651436fcc8283bd17c13578476c8e}{}\label{tpaste_8h_a303651436fcc8283bd17c13578476c8e}
+
+\item 
+\#define {\bfseries A\+T\+P\+A\+S\+T\+E9}(a,  b,  c,  d,  e,  f,  g,  h,  i)~T\+P\+A\+S\+T\+E9( a, b, c, d, e, f, g, h, i)\hypertarget{tpaste_8h_a5305e79258b2256febfac6ebec8838c2}{}\label{tpaste_8h_a5305e79258b2256febfac6ebec8838c2}
+
+\item 
+\#define {\bfseries A\+T\+P\+A\+S\+T\+E10}(a,  b,  c,  d,  e,  f,  g,  h,  i,  j)~T\+P\+A\+S\+T\+E10(a, b, c, d, e, f, g, h, i, j)\hypertarget{tpaste_8h_a3b9c4ca2ffbcec13ec3083ab95664ac9}{}\label{tpaste_8h_a3b9c4ca2ffbcec13ec3083ab95664ac9}
+
+\end{DoxyCompactItemize}
+\end{Indent}
+
+
+\subsection{Detailed Description}
+\begin{DoxyNote}{Note}
+Autores\+: Alvarez Matias -\/ Santarcangelo Marco -\/ Tirapegui Rodrigo Licencia\+: Fecha\+: 17/10/2018 
+\end{DoxyNote}

@@ -1,0 +1,18 @@
+digraph "inc/seniales.h"
+{
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  Node1 [label="inc/seniales.h",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black"];
+  Node1 -> Node2 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node2 [label="inc/events_framework.h",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$events__framework_8h.html",tooltip="Manejo del framework de eventos. "];
+  Node2 -> Node3 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node3 [label="inc/button_events_command.h",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$button__events__command_8h.html",tooltip="Manejo del comando de reporte de evento de botones. "];
+  Node2 -> Node4 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node4 [label="inc/buttons.h",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$buttons_8h.html",tooltip="Manejo de los botones. "];
+  Node2 -> Node5 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node5 [label="inc/conf_events_framework.h",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$conf__events__framework_8h.html",tooltip="Configuracion del framework de eventos. "];
+  Node2 -> Node6 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node6 [label="inc/leds.h",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$leds_8h.html",tooltip="Manejo de los leds. "];
+  Node2 -> Node7 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node7 [label="src/app.c",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$app_8c.html",tooltip="Manejo de la aplicacion. "];
+}

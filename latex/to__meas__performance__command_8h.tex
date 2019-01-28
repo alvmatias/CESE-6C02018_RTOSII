@@ -1,0 +1,75 @@
+\hypertarget{to__meas__performance__command_8h}{}\section{inc/to\+\_\+meas\+\_\+performance\+\_\+command.h File Reference}
+\label{to__meas__performance__command_8h}\index{inc/to\+\_\+meas\+\_\+performance\+\_\+command.\+h@{inc/to\+\_\+meas\+\_\+performance\+\_\+command.\+h}}
+
+
+Implementacion del procesador del comando \char`\"{}\+To Measure Performance\char`\"{}.  
+
+
+{\ttfamily \#include \char`\"{}sapi\+\_\+datatypes.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}practica3\+\_\+commands.\+h\char`\"{}}\\*
+Include dependency graph for to\+\_\+meas\+\_\+performance\+\_\+command.\+h\+:
+% FIG 0
+This graph shows which files directly or indirectly include this file\+:
+% FIG 1
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool\+\_\+t \hyperlink{to__meas__performance__command_8h_a8ff2fae5f958f7f08ba48f73e0aed48c}{to\+Meas\+Performance\+Command\+\_\+init} (void)
+\begin{DoxyCompactList}\small\item\em Inicializacion de la tarea del comando y cola de recepcion. \end{DoxyCompactList}\item 
+void \hyperlink{to__meas__performance__command_8h_a49434acfc76cba8aa995dbe55546cefb}{to\+Meas\+Performance\+Command\+\_\+data\+Push} (const \hyperlink{structframe__t}{practica3\+Frame\+\_\+t} $\ast$frame)
+\begin{DoxyCompactList}\small\item\em Agregado de un frame a la cola de recepcion del procesador del comando. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+const uint8\+\_\+t \hyperlink{to__meas__performance__command_8h_a3b56fc8e461fb38b0af2f4e60cdc5218}{T\+O\+\_\+\+M\+E\+A\+S\+\_\+\+P\+E\+R\+F\+O\+R\+M\+A\+N\+C\+E\+\_\+\+T\+A\+S\+K\+\_\+\+ID}\hypertarget{to__meas__performance__command_8h_a3b56fc8e461fb38b0af2f4e60cdc5218}{}\label{to__meas__performance__command_8h_a3b56fc8e461fb38b0af2f4e60cdc5218}
+
+\begin{DoxyCompactList}\small\item\em Id correspondiente a la tarea del procesador de to\+\_\+meas\+\_\+performance\+\_\+command. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Implementacion del procesador del comando \char`\"{}\+To Measure Performance\char`\"{}. 
+
+\begin{DoxyNote}{Note}
+Autores\+: Alvarez Matias -\/ Santarcangelo Marco -\/ Tirapegui Rodrigo Licencia\+: Fecha\+: 17/10/2018 
+\end{DoxyNote}
+
+
+\subsection{Function Documentation}
+\index{to\+\_\+meas\+\_\+performance\+\_\+command.\+h@{to\+\_\+meas\+\_\+performance\+\_\+command.\+h}!to\+Meas\+Performance\+Command\+\_\+data\+Push@{to\+Meas\+Performance\+Command\+\_\+data\+Push}}
+\index{to\+Meas\+Performance\+Command\+\_\+data\+Push@{to\+Meas\+Performance\+Command\+\_\+data\+Push}!to\+\_\+meas\+\_\+performance\+\_\+command.\+h@{to\+\_\+meas\+\_\+performance\+\_\+command.\+h}}
+\subsubsection[{\texorpdfstring{to\+Meas\+Performance\+Command\+\_\+data\+Push(const practica3\+Frame\+\_\+t $\ast$frame)}{toMeasPerformanceCommand_dataPush(const practica3Frame_t *frame)}}]{\setlength{\rightskip}{0pt plus 5cm}void to\+Meas\+Performance\+Command\+\_\+data\+Push (
+\begin{DoxyParamCaption}
+\item[{const {\bf practica3\+Frame\+\_\+t} $\ast$}]{frame}
+\end{DoxyParamCaption}
+)}\hypertarget{to__meas__performance__command_8h_a49434acfc76cba8aa995dbe55546cefb}{}\label{to__meas__performance__command_8h_a49434acfc76cba8aa995dbe55546cefb}
+
+
+Agregado de un frame a la cola de recepcion del procesador del comando. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em frame} & \+: Frame a agregar en la cola \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Nada. 
+\end{DoxyReturn}
+\index{to\+\_\+meas\+\_\+performance\+\_\+command.\+h@{to\+\_\+meas\+\_\+performance\+\_\+command.\+h}!to\+Meas\+Performance\+Command\+\_\+init@{to\+Meas\+Performance\+Command\+\_\+init}}
+\index{to\+Meas\+Performance\+Command\+\_\+init@{to\+Meas\+Performance\+Command\+\_\+init}!to\+\_\+meas\+\_\+performance\+\_\+command.\+h@{to\+\_\+meas\+\_\+performance\+\_\+command.\+h}}
+\subsubsection[{\texorpdfstring{to\+Meas\+Performance\+Command\+\_\+init(void)}{toMeasPerformanceCommand_init(void)}}]{\setlength{\rightskip}{0pt plus 5cm}bool\+\_\+t to\+Meas\+Performance\+Command\+\_\+init (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\hypertarget{to__meas__performance__command_8h_a8ff2fae5f958f7f08ba48f73e0aed48c}{}\label{to__meas__performance__command_8h_a8ff2fae5f958f7f08ba48f73e0aed48c}
+
+
+Inicializacion de la tarea del comando y cola de recepcion. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Ninguno} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+bool\+\_\+t T\+R\+UE si la inicializacion fue correcta, F\+A\+L\+SE caso contrario. 
+\end{DoxyReturn}

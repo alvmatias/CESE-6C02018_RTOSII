@@ -1,0 +1,67 @@
+\hypertarget{structQMPool}{}\section{Q\+M\+Pool Struct Reference}
+\label{structQMPool}\index{Q\+M\+Pool@{Q\+M\+Pool}}
+
+
+{\ttfamily \#include $<$qmpool.\+h$>$}
+
+\subsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+void $\ast$volatile \hyperlink{structQMPool_a5e8248b793788b181c1a13c39f2100c2}{free\+\_\+head}
+\item 
+void $\ast$ \hyperlink{structQMPool_ad0834404a27a4260898e927fd1e03925}{start}
+\item 
+void $\ast$ \hyperlink{structQMPool_a7e03b2b1de179b9ad5e618d0622521fc}{end}
+\item 
+Q\+M\+Pool\+Size \hyperlink{structQMPool_afa43a09e05f8e8820e90c51e5b86d3e2}{block\+Size}
+\item 
+Q\+M\+Pool\+Ctr \hyperlink{structQMPool_a429751e99a581e4fd21665b0cc58a225}{n\+Tot}
+\item 
+Q\+M\+Pool\+Ctr volatile \hyperlink{structQMPool_a9078988aa441f41305a142aec0187f55}{n\+Free}
+\item 
+Q\+M\+Pool\+Ctr \hyperlink{structQMPool_aebecbafcf2b06319016b737d0bf6337f}{n\+Min}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Native QF Memory Pool  A fixed block-\/size memory pool is a very fast and efficient data structure for dynamic allocation of fixed block-\/size chunks of memory. A memory pool offers fast and deterministic allocation and recycling of memory blocks and is not subject to fragmenation.~\newline
+~\newline
+The \hyperlink{structQMPool}{Q\+M\+Pool} class describes the native QF memory pool, which can be used as the event pool for dynamic event allocation, or as a fast, deterministic fixed block-\/size heap for any other objects in your application.
+
+\begin{DoxyNote}{Note}
+\hyperlink{structQMPool}{Q\+M\+Pool} contains only data members for managing a memory pool, but does not contain the pool storage, which must be provided externally during the pool initialization.
+
+The native QF event pool is configured by defining the macro \#\+Q\+F\+\_\+\+E\+P\+O\+O\+L\+\_\+\+T\+Y\+P\+E\+\_\+ as \hyperlink{structQMPool}{Q\+M\+Pool} in the specific QF port header file. 
+\end{DoxyNote}
+
+
+\subsection{Field Documentation}
+\index{Q\+M\+Pool@{Q\+M\+Pool}!block\+Size@{block\+Size}}
+\index{block\+Size@{block\+Size}!Q\+M\+Pool@{Q\+M\+Pool}}
+\subsubsection[{\texorpdfstring{block\+Size}{blockSize}}]{\setlength{\rightskip}{0pt plus 5cm}Q\+M\+Pool\+Size Q\+M\+Pool\+::block\+Size}\hypertarget{structQMPool_afa43a09e05f8e8820e90c51e5b86d3e2}{}\label{structQMPool_afa43a09e05f8e8820e90c51e5b86d3e2}
+maximum block size (in bytes) \index{Q\+M\+Pool@{Q\+M\+Pool}!end@{end}}
+\index{end@{end}!Q\+M\+Pool@{Q\+M\+Pool}}
+\subsubsection[{\texorpdfstring{end}{end}}]{\setlength{\rightskip}{0pt plus 5cm}void$\ast$ Q\+M\+Pool\+::end}\hypertarget{structQMPool_a7e03b2b1de179b9ad5e618d0622521fc}{}\label{structQMPool_a7e03b2b1de179b9ad5e618d0622521fc}
+the last memory block managed by this memory pool \index{Q\+M\+Pool@{Q\+M\+Pool}!free\+\_\+head@{free\+\_\+head}}
+\index{free\+\_\+head@{free\+\_\+head}!Q\+M\+Pool@{Q\+M\+Pool}}
+\subsubsection[{\texorpdfstring{free\+\_\+head}{free_head}}]{\setlength{\rightskip}{0pt plus 5cm}void$\ast$ volatile Q\+M\+Pool\+::free\+\_\+head}\hypertarget{structQMPool_a5e8248b793788b181c1a13c39f2100c2}{}\label{structQMPool_a5e8248b793788b181c1a13c39f2100c2}
+The head of the linked list of free blocks \index{Q\+M\+Pool@{Q\+M\+Pool}!n\+Free@{n\+Free}}
+\index{n\+Free@{n\+Free}!Q\+M\+Pool@{Q\+M\+Pool}}
+\subsubsection[{\texorpdfstring{n\+Free}{nFree}}]{\setlength{\rightskip}{0pt plus 5cm}Q\+M\+Pool\+Ctr volatile Q\+M\+Pool\+::n\+Free}\hypertarget{structQMPool_a9078988aa441f41305a142aec0187f55}{}\label{structQMPool_a9078988aa441f41305a142aec0187f55}
+number of free blocks remaining \index{Q\+M\+Pool@{Q\+M\+Pool}!n\+Min@{n\+Min}}
+\index{n\+Min@{n\+Min}!Q\+M\+Pool@{Q\+M\+Pool}}
+\subsubsection[{\texorpdfstring{n\+Min}{nMin}}]{\setlength{\rightskip}{0pt plus 5cm}Q\+M\+Pool\+Ctr Q\+M\+Pool\+::n\+Min}\hypertarget{structQMPool_aebecbafcf2b06319016b737d0bf6337f}{}\label{structQMPool_aebecbafcf2b06319016b737d0bf6337f}
+minimum number of free blocks ever present in this pool  this attribute remembers the low watermark of the pool, which provides a valuable information for sizing event pools. \begin{DoxySeeAlso}{See also}
+Q\+F\+\_\+get\+Pool\+Min(). 
+\end{DoxySeeAlso}
+\index{Q\+M\+Pool@{Q\+M\+Pool}!n\+Tot@{n\+Tot}}
+\index{n\+Tot@{n\+Tot}!Q\+M\+Pool@{Q\+M\+Pool}}
+\subsubsection[{\texorpdfstring{n\+Tot}{nTot}}]{\setlength{\rightskip}{0pt plus 5cm}Q\+M\+Pool\+Ctr Q\+M\+Pool\+::n\+Tot}\hypertarget{structQMPool_a429751e99a581e4fd21665b0cc58a225}{}\label{structQMPool_a429751e99a581e4fd21665b0cc58a225}
+total number of blocks \index{Q\+M\+Pool@{Q\+M\+Pool}!start@{start}}
+\index{start@{start}!Q\+M\+Pool@{Q\+M\+Pool}}
+\subsubsection[{\texorpdfstring{start}{start}}]{\setlength{\rightskip}{0pt plus 5cm}void$\ast$ Q\+M\+Pool\+::start}\hypertarget{structQMPool_ad0834404a27a4260898e927fd1e03925}{}\label{structQMPool_ad0834404a27a4260898e927fd1e03925}
+the original start this pool 
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+inc/\hyperlink{qmpool_8h}{qmpool.\+h}\end{DoxyCompactItemize}

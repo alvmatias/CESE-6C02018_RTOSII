@@ -1,0 +1,45 @@
+\hypertarget{structring__buffer}{}\section{ring\+\_\+buffer Struct Reference}
+\label{structring__buffer}\index{ring\+\_\+buffer@{ring\+\_\+buffer}}
+
+
+Estructura para contener el buffer circular.  
+
+
+
+
+{\ttfamily \#include $<$ring\+\_\+buffer.\+h$>$}
+
+\subsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+volatile uint16\+\_\+t \hyperlink{structring__buffer_a39755539dd29fbbbdd184f60e41500eb}{write\+\_\+offset}
+\item 
+volatile uint16\+\_\+t \hyperlink{structring__buffer_ac5ac57ce34ad5f9e2fb7d5f15484131f}{read\+\_\+offset}
+\item 
+uint16\+\_\+t \hyperlink{structring__buffer_a6d5d1e99514e08157b9f8f7549892ee6}{size}
+\item 
+uint8\+\_\+t $\ast$ \hyperlink{structring__buffer_add403d592f49a0a28f77fc23e276832b}{buffer}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Estructura para contener el buffer circular. 
+
+\subsection{Field Documentation}
+\index{ring\+\_\+buffer@{ring\+\_\+buffer}!buffer@{buffer}}
+\index{buffer@{buffer}!ring\+\_\+buffer@{ring\+\_\+buffer}}
+\subsubsection[{\texorpdfstring{buffer}{buffer}}]{\setlength{\rightskip}{0pt plus 5cm}uint8\+\_\+t$\ast$ ring\+\_\+buffer\+::buffer}\hypertarget{structring__buffer_add403d592f49a0a28f77fc23e276832b}{}\label{structring__buffer_add403d592f49a0a28f77fc23e276832b}
+Puntero al buffer circular \index{ring\+\_\+buffer@{ring\+\_\+buffer}!read\+\_\+offset@{read\+\_\+offset}}
+\index{read\+\_\+offset@{read\+\_\+offset}!ring\+\_\+buffer@{ring\+\_\+buffer}}
+\subsubsection[{\texorpdfstring{read\+\_\+offset}{read_offset}}]{\setlength{\rightskip}{0pt plus 5cm}volatile uint16\+\_\+t ring\+\_\+buffer\+::read\+\_\+offset}\hypertarget{structring__buffer_ac5ac57ce34ad5f9e2fb7d5f15484131f}{}\label{structring__buffer_ac5ac57ce34ad5f9e2fb7d5f15484131f}
+Offset de lectura dentro del buffer circular \index{ring\+\_\+buffer@{ring\+\_\+buffer}!size@{size}}
+\index{size@{size}!ring\+\_\+buffer@{ring\+\_\+buffer}}
+\subsubsection[{\texorpdfstring{size}{size}}]{\setlength{\rightskip}{0pt plus 5cm}uint16\+\_\+t ring\+\_\+buffer\+::size}\hypertarget{structring__buffer_a6d5d1e99514e08157b9f8f7549892ee6}{}\label{structring__buffer_a6d5d1e99514e08157b9f8f7549892ee6}
+Tamaño del buffer circular \index{ring\+\_\+buffer@{ring\+\_\+buffer}!write\+\_\+offset@{write\+\_\+offset}}
+\index{write\+\_\+offset@{write\+\_\+offset}!ring\+\_\+buffer@{ring\+\_\+buffer}}
+\subsubsection[{\texorpdfstring{write\+\_\+offset}{write_offset}}]{\setlength{\rightskip}{0pt plus 5cm}volatile uint16\+\_\+t ring\+\_\+buffer\+::write\+\_\+offset}\hypertarget{structring__buffer_a39755539dd29fbbbdd184f60e41500eb}{}\label{structring__buffer_a39755539dd29fbbbdd184f60e41500eb}
+Offset de escritura dentro del buffer circular 
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+inc/\hyperlink{ring__buffer_8h}{ring\+\_\+buffer.\+h}\end{DoxyCompactItemize}

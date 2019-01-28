@@ -1,0 +1,195 @@
+\hypertarget{conf__events__framework_8h}{}\section{inc/conf\+\_\+events\+\_\+framework.h File Reference}
+\label{conf__events__framework_8h}\index{inc/conf\+\_\+events\+\_\+framework.\+h@{inc/conf\+\_\+events\+\_\+framework.\+h}}
+
+
+Configuracion del framework de eventos.  
+
+
+{\ttfamily \#include \char`\"{}events\+\_\+framework.\+h\char`\"{}}\\*
+Include dependency graph for conf\+\_\+events\+\_\+framework.\+h\+:
+% FIG 0
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{conf__events__framework_8h_a1bc6c9eb0ac6a5b8b1fd3cdb6bee0639}{E\+F\+\_\+\+P\+R\+I\+O\+R\+I\+T\+Y\+\_\+\+M\+AX}~\hyperlink{events__framework_8h_a21efcb8ede4463085d4ec7e31b307da8adb8ee22a232a2787f32ba28da55c43c1}{L\+O\+W\+\_\+\+P\+R\+I\+O\+R\+I\+TY}
+\begin{DoxyCompactList}\small\item\em Prioridad maxima utilizada por el framework de eventos. \end{DoxyCompactList}\item 
+\#define \hyperlink{conf__events__framework_8h_af79bef60c9df038f2332b7ca8eb58feb}{E\+F\+\_\+\+Q\+U\+E\+U\+E\+\_\+\+E\+L\+E\+M\+E\+N\+T\+S\+\_\+\+M\+AX}~15
+\begin{DoxyCompactList}\small\item\em Cantidad maxima de elementos de las colas de eventos. \end{DoxyCompactList}\item 
+\#define \hyperlink{conf__events__framework_8h_a0cb1cbbe2d238170c5abf0d53bbf392d}{M\+O\+D\+U\+L\+E\+S\+\_\+\+S\+T\+U\+FF}
+\begin{DoxyCompactList}\small\item\em Definicion de los modulos y su prioridad. \end{DoxyCompactList}\item 
+\#define \hyperlink{conf__events__framework_8h_aea81074499864ca71bc543c4a393d87e}{T\+I\+M\+E\+R\+\_\+\+S\+W\+\_\+\+M\+AX}~10
+\begin{DoxyCompactList}\small\item\em Maxima cantidad de timers de software soportados. \end{DoxyCompactList}\item 
+\#define \hyperlink{conf__events__framework_8h_af6f2eae574413b974ad2c008f42dd686}{T\+I\+M\+E\+R\+\_\+\+HW}~L\+P\+C\+\_\+\+T\+I\+M\+E\+R0\hypertarget{conf__events__framework_8h_af6f2eae574413b974ad2c008f42dd686}{}\label{conf__events__framework_8h_af6f2eae574413b974ad2c008f42dd686}
+
+\begin{DoxyCompactList}\small\item\em Timer a utilizar por la aplicacion. \end{DoxyCompactList}\item 
+\#define \hyperlink{conf__events__framework_8h_ac3a3a161b263443cc3ebc1ff2a77835c}{T\+I\+M\+E\+R\+\_\+\+H\+W\+\_\+\+C\+O\+M\+P\+A\+R\+E\+\_\+\+M\+A\+T\+C\+H\+\_\+\+N\+U\+M\+B\+ER}~T\+I\+M\+E\+R\+C\+O\+M\+P\+A\+R\+E\+M\+A\+T\+C\+H0\hypertarget{conf__events__framework_8h_ac3a3a161b263443cc3ebc1ff2a77835c}{}\label{conf__events__framework_8h_ac3a3a161b263443cc3ebc1ff2a77835c}
+
+\begin{DoxyCompactList}\small\item\em Numero de C\+O\+M\+P\+A\+RE M\+A\+T\+CH a utilizar por la aplicacion. \end{DoxyCompactList}\item 
+\#define \hyperlink{conf__events__framework_8h_a0a397a1203f82475c6d95b1e93cb0eea}{R\+G\+U\+\_\+\+T\+I\+M\+E\+R\+\_\+\+H\+W\+\_\+\+R\+E\+S\+ET}~R\+G\+U\+\_\+\+T\+I\+M\+E\+R0\+\_\+\+R\+ST
+\begin{DoxyCompactList}\small\item\em R\+GU T\+I\+M\+ER R\+E\+S\+ET asociado al T\+I\+M\+ER a utilizar por la aplicacion. \end{DoxyCompactList}\item 
+\#define \hyperlink{conf__events__framework_8h_a2c6fa19be22a4853764c316d04570f07}{T\+I\+M\+E\+R\+\_\+\+H\+W\+\_\+\+I\+R\+Qn}~T\+I\+M\+E\+R0\+\_\+\+I\+R\+Qn
+\begin{DoxyCompactList}\small\item\em Manejador de interrupciones asociado al T\+I\+M\+ER a utilizar por la aplicacion. \end{DoxyCompactList}\item 
+\#define \hyperlink{conf__events__framework_8h_a0070fd8518545946892cd5ae92463297}{T\+I\+M\+E\+R\+\_\+\+H\+W\+\_\+\+P\+R\+E\+S\+C\+A\+L\+ER}~203
+\begin{DoxyCompactList}\small\item\em Preescalador a utilizar por la aplicacion. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{conf__events__framework_8h_a2cb624be73ebc75758b55dd5bd3f3f9d}{leds\+Module\+Handler} (\hyperlink{structevent__t}{event\+\_\+t} $\ast$event)
+\begin{DoxyCompactList}\small\item\em Manejador de los eventos de un led. \end{DoxyCompactList}\item 
+void \hyperlink{conf__events__framework_8h_ab1f74879f2ec7530a13ed1fcd0e3d6fb}{buttons\+Module\+Handler} (\hyperlink{structevent__t}{event\+\_\+t} $\ast$event)
+\begin{DoxyCompactList}\small\item\em Manejador de los eventos de un boton. \end{DoxyCompactList}\item 
+void \hyperlink{conf__events__framework_8h_a9c51b9036436ef53eb70f002bb0c1993}{report\+Module\+Handler} (\hyperlink{structevent__t}{event\+\_\+t} $\ast$event)
+\begin{DoxyCompactList}\small\item\em Manejador del reporte de eventos de botones. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Configuracion del framework de eventos. 
+
+\begin{DoxyNote}{Note}
+Autores\+: Alvarez Matias -\/ Santarcangelo Marco -\/ Tirapegui Rodrigo Licencia\+: Fecha\+: 17/10/2018 
+\end{DoxyNote}
+
+
+\subsection{Macro Definition Documentation}
+\index{conf\+\_\+events\+\_\+framework.\+h@{conf\+\_\+events\+\_\+framework.\+h}!E\+F\+\_\+\+P\+R\+I\+O\+R\+I\+T\+Y\+\_\+\+M\+AX@{E\+F\+\_\+\+P\+R\+I\+O\+R\+I\+T\+Y\+\_\+\+M\+AX}}
+\index{E\+F\+\_\+\+P\+R\+I\+O\+R\+I\+T\+Y\+\_\+\+M\+AX@{E\+F\+\_\+\+P\+R\+I\+O\+R\+I\+T\+Y\+\_\+\+M\+AX}!conf\+\_\+events\+\_\+framework.\+h@{conf\+\_\+events\+\_\+framework.\+h}}
+\subsubsection[{\texorpdfstring{E\+F\+\_\+\+P\+R\+I\+O\+R\+I\+T\+Y\+\_\+\+M\+AX}{EF_PRIORITY_MAX}}]{\setlength{\rightskip}{0pt plus 5cm}\#define E\+F\+\_\+\+P\+R\+I\+O\+R\+I\+T\+Y\+\_\+\+M\+AX~{\bf L\+O\+W\+\_\+\+P\+R\+I\+O\+R\+I\+TY}}\hypertarget{conf__events__framework_8h_a1bc6c9eb0ac6a5b8b1fd3cdb6bee0639}{}\label{conf__events__framework_8h_a1bc6c9eb0ac6a5b8b1fd3cdb6bee0639}
+
+
+Prioridad maxima utilizada por el framework de eventos. 
+
+\begin{DoxyNote}{Note}
+Definir debajo la maxima prioridad respetando una de las siguientes\+: L\+O\+W\+\_\+\+P\+R\+I\+O\+R\+I\+TY M\+E\+D\+I\+U\+M\+\_\+\+P\+R\+I\+O\+R\+I\+TY H\+I\+G\+H\+\_\+\+P\+R\+I\+O\+R\+I\+TY 
+\end{DoxyNote}
+\index{conf\+\_\+events\+\_\+framework.\+h@{conf\+\_\+events\+\_\+framework.\+h}!E\+F\+\_\+\+Q\+U\+E\+U\+E\+\_\+\+E\+L\+E\+M\+E\+N\+T\+S\+\_\+\+M\+AX@{E\+F\+\_\+\+Q\+U\+E\+U\+E\+\_\+\+E\+L\+E\+M\+E\+N\+T\+S\+\_\+\+M\+AX}}
+\index{E\+F\+\_\+\+Q\+U\+E\+U\+E\+\_\+\+E\+L\+E\+M\+E\+N\+T\+S\+\_\+\+M\+AX@{E\+F\+\_\+\+Q\+U\+E\+U\+E\+\_\+\+E\+L\+E\+M\+E\+N\+T\+S\+\_\+\+M\+AX}!conf\+\_\+events\+\_\+framework.\+h@{conf\+\_\+events\+\_\+framework.\+h}}
+\subsubsection[{\texorpdfstring{E\+F\+\_\+\+Q\+U\+E\+U\+E\+\_\+\+E\+L\+E\+M\+E\+N\+T\+S\+\_\+\+M\+AX}{EF_QUEUE_ELEMENTS_MAX}}]{\setlength{\rightskip}{0pt plus 5cm}\#define E\+F\+\_\+\+Q\+U\+E\+U\+E\+\_\+\+E\+L\+E\+M\+E\+N\+T\+S\+\_\+\+M\+AX~15}\hypertarget{conf__events__framework_8h_af79bef60c9df038f2332b7ca8eb58feb}{}\label{conf__events__framework_8h_af79bef60c9df038f2332b7ca8eb58feb}
+
+
+Cantidad maxima de elementos de las colas de eventos. 
+
+\begin{DoxyNote}{Note}
+Cambiar segun la aplicacion 
+\end{DoxyNote}
+\index{conf\+\_\+events\+\_\+framework.\+h@{conf\+\_\+events\+\_\+framework.\+h}!M\+O\+D\+U\+L\+E\+S\+\_\+\+S\+T\+U\+FF@{M\+O\+D\+U\+L\+E\+S\+\_\+\+S\+T\+U\+FF}}
+\index{M\+O\+D\+U\+L\+E\+S\+\_\+\+S\+T\+U\+FF@{M\+O\+D\+U\+L\+E\+S\+\_\+\+S\+T\+U\+FF}!conf\+\_\+events\+\_\+framework.\+h@{conf\+\_\+events\+\_\+framework.\+h}}
+\subsubsection[{\texorpdfstring{M\+O\+D\+U\+L\+E\+S\+\_\+\+S\+T\+U\+FF}{MODULES_STUFF}}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\+O\+D\+U\+L\+E\+S\+\_\+\+S\+T\+U\+FF}\hypertarget{conf__events__framework_8h_a0cb1cbbe2d238170c5abf0d53bbf392d}{}\label{conf__events__framework_8h_a0cb1cbbe2d238170c5abf0d53bbf392d}
+{\bfseries Value\+:}
+\begin{DoxyCode}
+\{                                           \(\backslash\)
+                        \{  .eventHandler = \hyperlink{conf__events__framework_8h_a2cb624be73ebc75758b55dd5bd3f3f9d}{ledsModuleHandler},     \(\backslash\)
+                           .priority = \hyperlink{events__framework_8h_a21efcb8ede4463085d4ec7e31b307da8adb8ee22a232a2787f32ba28da55c43c1}{LOW\_PRIORITY}               \(\backslash\)
+                        \},                                        \(\backslash\)
+                        \{                                         \(\backslash\)
+                           .eventHandler = \hyperlink{conf__events__framework_8h_ab1f74879f2ec7530a13ed1fcd0e3d6fb}{buttonsModuleHandler},  \(\backslash\)
+                           .priority = \hyperlink{events__framework_8h_a21efcb8ede4463085d4ec7e31b307da8adb8ee22a232a2787f32ba28da55c43c1}{LOW\_PRIORITY}               \(\backslash\)
+                        \},                                        \(\backslash\)
+                        \{  .eventHandler = \hyperlink{conf__events__framework_8h_a9c51b9036436ef53eb70f002bb0c1993}{reportModuleHandler},   \(\backslash\)
+                           .priority = \hyperlink{events__framework_8h_a21efcb8ede4463085d4ec7e31b307da8adb8ee22a232a2787f32ba28da55c43c1}{LOW\_PRIORITY}               \(\backslash\)
+                        \}                                         \(\backslash\)
+                       \};
+\end{DoxyCode}
+
+
+Definicion de los modulos y su prioridad. 
+
+\index{conf\+\_\+events\+\_\+framework.\+h@{conf\+\_\+events\+\_\+framework.\+h}!R\+G\+U\+\_\+\+T\+I\+M\+E\+R\+\_\+\+H\+W\+\_\+\+R\+E\+S\+ET@{R\+G\+U\+\_\+\+T\+I\+M\+E\+R\+\_\+\+H\+W\+\_\+\+R\+E\+S\+ET}}
+\index{R\+G\+U\+\_\+\+T\+I\+M\+E\+R\+\_\+\+H\+W\+\_\+\+R\+E\+S\+ET@{R\+G\+U\+\_\+\+T\+I\+M\+E\+R\+\_\+\+H\+W\+\_\+\+R\+E\+S\+ET}!conf\+\_\+events\+\_\+framework.\+h@{conf\+\_\+events\+\_\+framework.\+h}}
+\subsubsection[{\texorpdfstring{R\+G\+U\+\_\+\+T\+I\+M\+E\+R\+\_\+\+H\+W\+\_\+\+R\+E\+S\+ET}{RGU_TIMER_HW_RESET}}]{\setlength{\rightskip}{0pt plus 5cm}\#define R\+G\+U\+\_\+\+T\+I\+M\+E\+R\+\_\+\+H\+W\+\_\+\+R\+E\+S\+ET~R\+G\+U\+\_\+\+T\+I\+M\+E\+R0\+\_\+\+R\+ST}\hypertarget{conf__events__framework_8h_a0a397a1203f82475c6d95b1e93cb0eea}{}\label{conf__events__framework_8h_a0a397a1203f82475c6d95b1e93cb0eea}
+
+
+R\+GU T\+I\+M\+ER R\+E\+S\+ET asociado al T\+I\+M\+ER a utilizar por la aplicacion. 
+
+\begin{DoxyNote}{Note}
+Debe ir en concordancia con el T\+I\+M\+ER utilizado 
+\end{DoxyNote}
+\index{conf\+\_\+events\+\_\+framework.\+h@{conf\+\_\+events\+\_\+framework.\+h}!T\+I\+M\+E\+R\+\_\+\+H\+W\+\_\+\+I\+R\+Qn@{T\+I\+M\+E\+R\+\_\+\+H\+W\+\_\+\+I\+R\+Qn}}
+\index{T\+I\+M\+E\+R\+\_\+\+H\+W\+\_\+\+I\+R\+Qn@{T\+I\+M\+E\+R\+\_\+\+H\+W\+\_\+\+I\+R\+Qn}!conf\+\_\+events\+\_\+framework.\+h@{conf\+\_\+events\+\_\+framework.\+h}}
+\subsubsection[{\texorpdfstring{T\+I\+M\+E\+R\+\_\+\+H\+W\+\_\+\+I\+R\+Qn}{TIMER_HW_IRQn}}]{\setlength{\rightskip}{0pt plus 5cm}\#define T\+I\+M\+E\+R\+\_\+\+H\+W\+\_\+\+I\+R\+Qn~T\+I\+M\+E\+R0\+\_\+\+I\+R\+Qn}\hypertarget{conf__events__framework_8h_a2c6fa19be22a4853764c316d04570f07}{}\label{conf__events__framework_8h_a2c6fa19be22a4853764c316d04570f07}
+
+
+Manejador de interrupciones asociado al T\+I\+M\+ER a utilizar por la aplicacion. 
+
+\begin{DoxyNote}{Note}
+Debe ir en concordancia con el T\+I\+M\+ER utilizado 
+\end{DoxyNote}
+\index{conf\+\_\+events\+\_\+framework.\+h@{conf\+\_\+events\+\_\+framework.\+h}!T\+I\+M\+E\+R\+\_\+\+H\+W\+\_\+\+P\+R\+E\+S\+C\+A\+L\+ER@{T\+I\+M\+E\+R\+\_\+\+H\+W\+\_\+\+P\+R\+E\+S\+C\+A\+L\+ER}}
+\index{T\+I\+M\+E\+R\+\_\+\+H\+W\+\_\+\+P\+R\+E\+S\+C\+A\+L\+ER@{T\+I\+M\+E\+R\+\_\+\+H\+W\+\_\+\+P\+R\+E\+S\+C\+A\+L\+ER}!conf\+\_\+events\+\_\+framework.\+h@{conf\+\_\+events\+\_\+framework.\+h}}
+\subsubsection[{\texorpdfstring{T\+I\+M\+E\+R\+\_\+\+H\+W\+\_\+\+P\+R\+E\+S\+C\+A\+L\+ER}{TIMER_HW_PRESCALER}}]{\setlength{\rightskip}{0pt plus 5cm}\#define T\+I\+M\+E\+R\+\_\+\+H\+W\+\_\+\+P\+R\+E\+S\+C\+A\+L\+ER~203}\hypertarget{conf__events__framework_8h_a0070fd8518545946892cd5ae92463297}{}\label{conf__events__framework_8h_a0070fd8518545946892cd5ae92463297}
+
+
+Preescalador a utilizar por la aplicacion. 
+
+\begin{DoxyNote}{Note}
+Seteado en 203 permite contar de a 1us. 
+\end{DoxyNote}
+\index{conf\+\_\+events\+\_\+framework.\+h@{conf\+\_\+events\+\_\+framework.\+h}!T\+I\+M\+E\+R\+\_\+\+S\+W\+\_\+\+M\+AX@{T\+I\+M\+E\+R\+\_\+\+S\+W\+\_\+\+M\+AX}}
+\index{T\+I\+M\+E\+R\+\_\+\+S\+W\+\_\+\+M\+AX@{T\+I\+M\+E\+R\+\_\+\+S\+W\+\_\+\+M\+AX}!conf\+\_\+events\+\_\+framework.\+h@{conf\+\_\+events\+\_\+framework.\+h}}
+\subsubsection[{\texorpdfstring{T\+I\+M\+E\+R\+\_\+\+S\+W\+\_\+\+M\+AX}{TIMER_SW_MAX}}]{\setlength{\rightskip}{0pt plus 5cm}\#define T\+I\+M\+E\+R\+\_\+\+S\+W\+\_\+\+M\+AX~10}\hypertarget{conf__events__framework_8h_aea81074499864ca71bc543c4a393d87e}{}\label{conf__events__framework_8h_aea81074499864ca71bc543c4a393d87e}
+
+
+Maxima cantidad de timers de software soportados. 
+
+\begin{DoxyNote}{Note}
+Cambiar segun la aplicacion 
+\end{DoxyNote}
+
+
+\subsection{Function Documentation}
+\index{conf\+\_\+events\+\_\+framework.\+h@{conf\+\_\+events\+\_\+framework.\+h}!buttons\+Module\+Handler@{buttons\+Module\+Handler}}
+\index{buttons\+Module\+Handler@{buttons\+Module\+Handler}!conf\+\_\+events\+\_\+framework.\+h@{conf\+\_\+events\+\_\+framework.\+h}}
+\subsubsection[{\texorpdfstring{buttons\+Module\+Handler(event\+\_\+t $\ast$event)}{buttonsModuleHandler(event_t *event)}}]{\setlength{\rightskip}{0pt plus 5cm}void buttons\+Module\+Handler (
+\begin{DoxyParamCaption}
+\item[{{\bf event\+\_\+t} $\ast$}]{event}
+\end{DoxyParamCaption}
+)}\hypertarget{conf__events__framework_8h_ab1f74879f2ec7530a13ed1fcd0e3d6fb}{}\label{conf__events__framework_8h_ab1f74879f2ec7530a13ed1fcd0e3d6fb}
+
+
+Manejador de los eventos de un boton. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em event} & \+: Evento al cual reacciona el manejador \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Nada 
+\end{DoxyReturn}
+\index{conf\+\_\+events\+\_\+framework.\+h@{conf\+\_\+events\+\_\+framework.\+h}!leds\+Module\+Handler@{leds\+Module\+Handler}}
+\index{leds\+Module\+Handler@{leds\+Module\+Handler}!conf\+\_\+events\+\_\+framework.\+h@{conf\+\_\+events\+\_\+framework.\+h}}
+\subsubsection[{\texorpdfstring{leds\+Module\+Handler(event\+\_\+t $\ast$event)}{ledsModuleHandler(event_t *event)}}]{\setlength{\rightskip}{0pt plus 5cm}void leds\+Module\+Handler (
+\begin{DoxyParamCaption}
+\item[{{\bf event\+\_\+t} $\ast$}]{event}
+\end{DoxyParamCaption}
+)}\hypertarget{conf__events__framework_8h_a2cb624be73ebc75758b55dd5bd3f3f9d}{}\label{conf__events__framework_8h_a2cb624be73ebc75758b55dd5bd3f3f9d}
+
+
+Manejador de los eventos de un led. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em event} & \+: Evento al cual reacciona el manejador \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Nada 
+\end{DoxyReturn}
+\index{conf\+\_\+events\+\_\+framework.\+h@{conf\+\_\+events\+\_\+framework.\+h}!report\+Module\+Handler@{report\+Module\+Handler}}
+\index{report\+Module\+Handler@{report\+Module\+Handler}!conf\+\_\+events\+\_\+framework.\+h@{conf\+\_\+events\+\_\+framework.\+h}}
+\subsubsection[{\texorpdfstring{report\+Module\+Handler(event\+\_\+t $\ast$event)}{reportModuleHandler(event_t *event)}}]{\setlength{\rightskip}{0pt plus 5cm}void report\+Module\+Handler (
+\begin{DoxyParamCaption}
+\item[{{\bf event\+\_\+t} $\ast$}]{event}
+\end{DoxyParamCaption}
+)}\hypertarget{conf__events__framework_8h_a9c51b9036436ef53eb70f002bb0c1993}{}\label{conf__events__framework_8h_a9c51b9036436ef53eb70f002bb0c1993}
+
+
+Manejador del reporte de eventos de botones. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em event} & \+: Evento al cual reacciona el manejador \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Nada 
+\end{DoxyReturn}

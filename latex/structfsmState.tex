@@ -1,0 +1,44 @@
+\hypertarget{structfsmState}{}\section{fsm\+State Struct Reference}
+\label{structfsmState}\index{fsm\+State@{fsm\+State}}
+
+
+Formato de un estado de la maquina de estados finita.  
+
+
+
+
+{\ttfamily \#include $<$fsm.\+h$>$}
+
+
+
+Collaboration diagram for fsm\+State\+:
+% FIG 0
+\subsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+const uint8\+\_\+t \hyperlink{structfsmState_ae7a35fc5aec6884f24d5c8c293af155b}{event}
+\item 
+const \hyperlink{structfsmState}{fsm\+State\+\_\+t} $\ast$const \hyperlink{structfsmState_aec2706243c56627e33f8744dc38b964a}{next\+State}
+\item 
+const fsm\+Action\+Cb\+\_\+t \hyperlink{structfsmState_a496dddb5715b31b1efaf83758a34f6f2}{action\+Cb}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Formato de un estado de la maquina de estados finita. 
+
+\subsection{Field Documentation}
+\index{fsm\+State@{fsm\+State}!action\+Cb@{action\+Cb}}
+\index{action\+Cb@{action\+Cb}!fsm\+State@{fsm\+State}}
+\subsubsection[{\texorpdfstring{action\+Cb}{actionCb}}]{\setlength{\rightskip}{0pt plus 5cm}const fsm\+Action\+Cb\+\_\+t fsm\+State\+::action\+Cb}\hypertarget{structfsmState_a496dddb5715b31b1efaf83758a34f6f2}{}\label{structfsmState_a496dddb5715b31b1efaf83758a34f6f2}
+Callback de accion a ejecutar en la transicion \index{fsm\+State@{fsm\+State}!event@{event}}
+\index{event@{event}!fsm\+State@{fsm\+State}}
+\subsubsection[{\texorpdfstring{event}{event}}]{\setlength{\rightskip}{0pt plus 5cm}const uint8\+\_\+t fsm\+State\+::event}\hypertarget{structfsmState_ae7a35fc5aec6884f24d5c8c293af155b}{}\label{structfsmState_ae7a35fc5aec6884f24d5c8c293af155b}
+Evento asociado al estado que dispara la transicion \index{fsm\+State@{fsm\+State}!next\+State@{next\+State}}
+\index{next\+State@{next\+State}!fsm\+State@{fsm\+State}}
+\subsubsection[{\texorpdfstring{next\+State}{nextState}}]{\setlength{\rightskip}{0pt plus 5cm}const {\bf fsm\+State\+\_\+t}$\ast$ const fsm\+State\+::next\+State}\hypertarget{structfsmState_aec2706243c56627e33f8744dc38b964a}{}\label{structfsmState_aec2706243c56627e33f8744dc38b964a}
+Puntero al proximo estado 
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+inc/\hyperlink{fsm_8h}{fsm.\+h}\end{DoxyCompactItemize}

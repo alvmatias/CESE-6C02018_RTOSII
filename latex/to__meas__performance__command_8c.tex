@@ -1,0 +1,153 @@
+\hypertarget{to__meas__performance__command_8c}{}\section{src/to\+\_\+meas\+\_\+performance\+\_\+command.c File Reference}
+\label{to__meas__performance__command_8c}\index{src/to\+\_\+meas\+\_\+performance\+\_\+command.\+c@{src/to\+\_\+meas\+\_\+performance\+\_\+command.\+c}}
+
+
+Implementacion del procesador del comando \char`\"{}\+To Measure Performance\char`\"{}.  
+
+
+{\ttfamily \#include $<$string.\+h$>$}\\*
+{\ttfamily \#include \char`\"{}to\+\_\+meas\+\_\+performance\+\_\+command.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}qmpool.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}timer\+\_\+service.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}fsm.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}Free\+R\+T\+O\+S.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}Free\+R\+T\+O\+S\+Config.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}task.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}semphr.\+h\char`\"{}}\\*
+Include dependency graph for to\+\_\+meas\+\_\+performance\+\_\+command.\+c\+:
+% FIG 0
+\subsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structtoken}{token}
+\end{DoxyCompactItemize}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{to__meas__performance__command_8c_aed4d34fb74d96ac4c20e0920896eb729}{P\+E\+R\+F\+O\+R\+M\+A\+N\+C\+E\+\_\+\+M\+S\+G\+\_\+\+S\+I\+Z\+E\+\_\+\+M\+AX}~255\hypertarget{to__meas__performance__command_8c_aed4d34fb74d96ac4c20e0920896eb729}{}\label{to__meas__performance__command_8c_aed4d34fb74d96ac4c20e0920896eb729}
+
+\begin{DoxyCompactList}\small\item\em Tamaño maximo del mensaje de reporte de medicion de performance. \end{DoxyCompactList}\item 
+\#define \hyperlink{to__meas__performance__command_8c_ada820ed5da2b3ecf1ed23f3c0d51f411}{M\+E\+M\+\_\+\+P\+O\+O\+L\+\_\+\+C\+O\+U\+NT}~1
+\begin{DoxyCompactList}\small\item\em Cantidad de mem pools. \end{DoxyCompactList}\item 
+\#define \hyperlink{to__meas__performance__command_8c_a9deeebeafbed2fc5872289ab0cde546c}{M\+E\+M\+\_\+\+P\+O\+O\+L\+\_\+\+S\+I\+ZE}~256
+\begin{DoxyCompactList}\small\item\em Tamaño de cada mem pool. \end{DoxyCompactList}\item 
+\#define {\bfseries T\+O\+\_\+\+M\+A\+Y\+U\+S\+\_\+\+C\+O\+N\+S\+T\+A\+NT}~(\textquotesingle{}A\textquotesingle{} -\/ \textquotesingle{}a\textquotesingle{})\hypertarget{to__meas__performance__command_8c_a5ea2f615c8e25c7cf3f52f203b0777fd}{}\label{to__meas__performance__command_8c_a5ea2f615c8e25c7cf3f52f203b0777fd}
+
+\end{DoxyCompactItemize}
+\subsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef struct \hyperlink{structtoken}{token} {\bfseries token\+\_\+t}\hypertarget{to__meas__performance__command_8c_a72de45cee406d22893953321bc2a02fd}{}\label{to__meas__performance__command_8c_a72de45cee406d22893953321bc2a02fd}
+
+\end{DoxyCompactItemize}
+\subsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \hyperlink{to__meas__performance__command_8c_a40adebf1d4becca4d8f4bed242f1437b}{sm\+Event\+\_\+t} \{ \\*
+{\bfseries F\+I\+R\+S\+T\+\_\+\+B\+Y\+T\+E\+\_\+\+A\+R\+R\+I\+V\+A\+L\+\_\+\+E\+V\+E\+NT} = 0x01, 
+{\bfseries L\+A\+S\+T\+\_\+\+B\+Y\+T\+E\+\_\+\+A\+R\+R\+I\+V\+A\+L\+\_\+\+E\+V\+E\+NT}, 
+{\bfseries F\+R\+A\+M\+E\+\_\+\+P\+O\+P\+\_\+\+E\+V\+E\+NT}, 
+{\bfseries F\+R\+A\+M\+E\+\_\+\+P\+U\+S\+H\+\_\+\+E\+V\+E\+NT}, 
+\\*
+{\bfseries F\+I\+R\+S\+T\+\_\+\+B\+Y\+T\+E\+\_\+\+S\+E\+N\+T\+\_\+\+E\+V\+E\+NT}, 
+{\bfseries L\+A\+S\+T\+\_\+\+B\+Y\+T\+E\+\_\+\+S\+E\+N\+T\+\_\+\+E\+V\+E\+NT}
+ \}\hypertarget{to__meas__performance__command_8c_a40adebf1d4becca4d8f4bed242f1437b}{}\label{to__meas__performance__command_8c_a40adebf1d4becca4d8f4bed242f1437b}
+\begin{DoxyCompactList}\small\item\em Eventos de la maquina de estados finita. \end{DoxyCompactList}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bfseries D\+E\+F\+I\+N\+E\+\_\+\+F\+S\+M\+\_\+\+S\+T\+A\+TE} (waiting\+First\+Byte\+Arrival,\{F\+I\+R\+S\+T\+\_\+\+B\+Y\+T\+E\+\_\+\+A\+R\+R\+I\+V\+A\+L\+\_\+\+E\+V\+E\+NT, waiting\+Last\+Byte\+Arrival, register\+Time\+Action\})\hypertarget{to__meas__performance__command_8c_aa81bdf9b472409bf3e643f7ab0866279}{}\label{to__meas__performance__command_8c_aa81bdf9b472409bf3e643f7ab0866279}
+
+\item 
+{\bfseries D\+E\+F\+I\+N\+E\+\_\+\+F\+S\+M\+\_\+\+S\+T\+A\+TE} (waiting\+Last\+Byte\+Arrival,\{L\+A\+S\+T\+\_\+\+B\+Y\+T\+E\+\_\+\+A\+R\+R\+I\+V\+A\+L\+\_\+\+E\+V\+E\+NT, waiting\+Frame\+Pop, register\+Time\+Action\})\hypertarget{to__meas__performance__command_8c_a34efcd603585b45d3efdcf2434d820ac}{}\label{to__meas__performance__command_8c_a34efcd603585b45d3efdcf2434d820ac}
+
+\item 
+{\bfseries D\+E\+F\+I\+N\+E\+\_\+\+F\+S\+M\+\_\+\+S\+T\+A\+TE} (waiting\+Frame\+Pop,\{F\+R\+A\+M\+E\+\_\+\+P\+O\+P\+\_\+\+E\+V\+E\+NT, waiting\+Frame\+Push, register\+Time\+Action\})\hypertarget{to__meas__performance__command_8c_ab9cea2f0b9265dc11f37d03053927dcc}{}\label{to__meas__performance__command_8c_ab9cea2f0b9265dc11f37d03053927dcc}
+
+\item 
+{\bfseries D\+E\+F\+I\+N\+E\+\_\+\+F\+S\+M\+\_\+\+S\+T\+A\+TE} (waiting\+Frame\+Push,\{F\+R\+A\+M\+E\+\_\+\+P\+U\+S\+H\+\_\+\+E\+V\+E\+NT, waiting\+First\+Byte\+Departure, register\+Time\+Action\})\hypertarget{to__meas__performance__command_8c_a94a844bf4f35e73863755e977e0ab555}{}\label{to__meas__performance__command_8c_a94a844bf4f35e73863755e977e0ab555}
+
+\item 
+{\bfseries D\+E\+F\+I\+N\+E\+\_\+\+F\+S\+M\+\_\+\+S\+T\+A\+TE} (waiting\+First\+Byte\+Departure,\{F\+I\+R\+S\+T\+\_\+\+B\+Y\+T\+E\+\_\+\+S\+E\+N\+T\+\_\+\+E\+V\+E\+NT, waiting\+Last\+Byte\+Departure, register\+Time\+Action\})\hypertarget{to__meas__performance__command_8c_a6edeff7d4e6778e965c975cecb7acdb6}{}\label{to__meas__performance__command_8c_a6edeff7d4e6778e965c975cecb7acdb6}
+
+\item 
+{\bfseries D\+E\+F\+I\+N\+E\+\_\+\+F\+S\+M\+\_\+\+S\+T\+A\+TE} (waiting\+Last\+Byte\+Departure,\{L\+A\+S\+T\+\_\+\+B\+Y\+T\+E\+\_\+\+S\+E\+N\+T\+\_\+\+E\+V\+E\+NT, waiting\+First\+Byte\+Arrival, register\+Time\+Action\})\hypertarget{to__meas__performance__command_8c_af19d5d5846ddaa73a6224b30dfdb7560}{}\label{to__meas__performance__command_8c_af19d5d5846ddaa73a6224b30dfdb7560}
+
+\item 
+bool\+\_\+t \hyperlink{to__meas__performance__command_8c_a8ff2fae5f958f7f08ba48f73e0aed48c}{to\+Meas\+Performance\+Command\+\_\+init} (void)
+\begin{DoxyCompactList}\small\item\em Inicializacion de la tarea del comando y cola de recepcion. \end{DoxyCompactList}\item 
+void \hyperlink{to__meas__performance__command_8c_a49434acfc76cba8aa995dbe55546cefb}{to\+Meas\+Performance\+Command\+\_\+data\+Push} (const \hyperlink{structframe__t}{practica3\+Frame\+\_\+t} $\ast$frame)
+\begin{DoxyCompactList}\small\item\em Agregado de un frame a la cola de recepcion del procesador del comando. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Implementacion del procesador del comando \char`\"{}\+To Measure Performance\char`\"{}. 
+
+\begin{DoxyNote}{Note}
+Autores\+: Alvarez Matias -\/ Santarcangelo Marco -\/ Tirapegui Rodrigo Licencia\+: Fecha\+: 17/10/2018 
+\end{DoxyNote}
+
+
+\subsection{Macro Definition Documentation}
+\index{to\+\_\+meas\+\_\+performance\+\_\+command.\+c@{to\+\_\+meas\+\_\+performance\+\_\+command.\+c}!M\+E\+M\+\_\+\+P\+O\+O\+L\+\_\+\+C\+O\+U\+NT@{M\+E\+M\+\_\+\+P\+O\+O\+L\+\_\+\+C\+O\+U\+NT}}
+\index{M\+E\+M\+\_\+\+P\+O\+O\+L\+\_\+\+C\+O\+U\+NT@{M\+E\+M\+\_\+\+P\+O\+O\+L\+\_\+\+C\+O\+U\+NT}!to\+\_\+meas\+\_\+performance\+\_\+command.\+c@{to\+\_\+meas\+\_\+performance\+\_\+command.\+c}}
+\subsubsection[{\texorpdfstring{M\+E\+M\+\_\+\+P\+O\+O\+L\+\_\+\+C\+O\+U\+NT}{MEM_POOL_COUNT}}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\+E\+M\+\_\+\+P\+O\+O\+L\+\_\+\+C\+O\+U\+NT~1}\hypertarget{to__meas__performance__command_8c_ada820ed5da2b3ecf1ed23f3c0d51f411}{}\label{to__meas__performance__command_8c_ada820ed5da2b3ecf1ed23f3c0d51f411}
+
+
+Cantidad de mem pools. 
+
+\begin{DoxyNote}{Note}
+Decimal $>$ 0 
+\end{DoxyNote}
+\index{to\+\_\+meas\+\_\+performance\+\_\+command.\+c@{to\+\_\+meas\+\_\+performance\+\_\+command.\+c}!M\+E\+M\+\_\+\+P\+O\+O\+L\+\_\+\+S\+I\+ZE@{M\+E\+M\+\_\+\+P\+O\+O\+L\+\_\+\+S\+I\+ZE}}
+\index{M\+E\+M\+\_\+\+P\+O\+O\+L\+\_\+\+S\+I\+ZE@{M\+E\+M\+\_\+\+P\+O\+O\+L\+\_\+\+S\+I\+ZE}!to\+\_\+meas\+\_\+performance\+\_\+command.\+c@{to\+\_\+meas\+\_\+performance\+\_\+command.\+c}}
+\subsubsection[{\texorpdfstring{M\+E\+M\+\_\+\+P\+O\+O\+L\+\_\+\+S\+I\+ZE}{MEM_POOL_SIZE}}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\+E\+M\+\_\+\+P\+O\+O\+L\+\_\+\+S\+I\+ZE~256}\hypertarget{to__meas__performance__command_8c_a9deeebeafbed2fc5872289ab0cde546c}{}\label{to__meas__performance__command_8c_a9deeebeafbed2fc5872289ab0cde546c}
+
+
+Tamaño de cada mem pool. 
+
+\begin{DoxyNote}{Note}
+En bytes 
+\end{DoxyNote}
+
+
+\subsection{Function Documentation}
+\index{to\+\_\+meas\+\_\+performance\+\_\+command.\+c@{to\+\_\+meas\+\_\+performance\+\_\+command.\+c}!to\+Meas\+Performance\+Command\+\_\+data\+Push@{to\+Meas\+Performance\+Command\+\_\+data\+Push}}
+\index{to\+Meas\+Performance\+Command\+\_\+data\+Push@{to\+Meas\+Performance\+Command\+\_\+data\+Push}!to\+\_\+meas\+\_\+performance\+\_\+command.\+c@{to\+\_\+meas\+\_\+performance\+\_\+command.\+c}}
+\subsubsection[{\texorpdfstring{to\+Meas\+Performance\+Command\+\_\+data\+Push(const practica3\+Frame\+\_\+t $\ast$frame)}{toMeasPerformanceCommand_dataPush(const practica3Frame_t *frame)}}]{\setlength{\rightskip}{0pt plus 5cm}void to\+Meas\+Performance\+Command\+\_\+data\+Push (
+\begin{DoxyParamCaption}
+\item[{const {\bf practica3\+Frame\+\_\+t} $\ast$}]{frame}
+\end{DoxyParamCaption}
+)}\hypertarget{to__meas__performance__command_8c_a49434acfc76cba8aa995dbe55546cefb}{}\label{to__meas__performance__command_8c_a49434acfc76cba8aa995dbe55546cefb}
+
+
+Agregado de un frame a la cola de recepcion del procesador del comando. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em frame} & \+: Frame a agregar en la cola \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Nada. 
+\end{DoxyReturn}
+\index{to\+\_\+meas\+\_\+performance\+\_\+command.\+c@{to\+\_\+meas\+\_\+performance\+\_\+command.\+c}!to\+Meas\+Performance\+Command\+\_\+init@{to\+Meas\+Performance\+Command\+\_\+init}}
+\index{to\+Meas\+Performance\+Command\+\_\+init@{to\+Meas\+Performance\+Command\+\_\+init}!to\+\_\+meas\+\_\+performance\+\_\+command.\+c@{to\+\_\+meas\+\_\+performance\+\_\+command.\+c}}
+\subsubsection[{\texorpdfstring{to\+Meas\+Performance\+Command\+\_\+init(void)}{toMeasPerformanceCommand_init(void)}}]{\setlength{\rightskip}{0pt plus 5cm}bool\+\_\+t to\+Meas\+Performance\+Command\+\_\+init (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\hypertarget{to__meas__performance__command_8c_a8ff2fae5f958f7f08ba48f73e0aed48c}{}\label{to__meas__performance__command_8c_a8ff2fae5f958f7f08ba48f73e0aed48c}
+
+
+Inicializacion de la tarea del comando y cola de recepcion. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Ninguno} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+bool\+\_\+t T\+R\+UE si la inicializacion fue correcta, F\+A\+L\+SE caso contrario. 
+\end{DoxyReturn}

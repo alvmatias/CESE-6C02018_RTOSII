@@ -1,0 +1,214 @@
+\hypertarget{uart__usb_8c}{}\section{src/uart\+\_\+usb.c File Reference}
+\label{uart__usb_8c}\index{src/uart\+\_\+usb.\+c@{src/uart\+\_\+usb.\+c}}
+
+
+Implementacion del driver de la U\+A\+RT 2 (U\+A\+RT U\+SB) de la E\+D\+U-\/\+C\+I\+AA.  
+
+
+{\ttfamily \#include $<$stdarg.\+h$>$}\\*
+{\ttfamily \#include \char`\"{}conf\+\_\+uart\+\_\+usb.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}ring\+\_\+buffer.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}uart\+\_\+usb.\+h\char`\"{}}\\*
+Include dependency graph for uart\+\_\+usb.\+c\+:
+% FIG 0
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{uart__usb_8c_aa0b912f416e680f4c7142feed458bf51}{I\+N\+A\+C\+C\+U\+R\+A\+T\+E\+\_\+\+T\+O\+\_\+\+MS}~20400\hypertarget{uart__usb_8c_aa0b912f416e680f4c7142feed458bf51}{}\label{uart__usb_8c_aa0b912f416e680f4c7142feed458bf51}
+
+\begin{DoxyCompactList}\small\item\em Numero de ciclos en 1ms del lpc4337 a 204\+M\+Hz. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{uart__usb_8c_ac20eca44aeea90e6f603831193cc9b28}{U\+A\+R\+T2\+\_\+\+I\+R\+Q\+Handler} (void)
+\begin{DoxyCompactList}\small\item\em Manejador de interrupcion de la U\+A\+R\+T2. \end{DoxyCompactList}\item 
+void \hyperlink{uart__usb_8c_a61ff4dcbda70eb594868fb3a309d8df5}{uart\+Usb\+Init} (void)
+\begin{DoxyCompactList}\small\item\em Inicializa el periferico de la uart que esta mapeado al conector U\+SB de la board E\+D\+U-\/\+C\+I\+A\+A-\/\+N\+XP. \end{DoxyCompactList}\item 
+bool\+\_\+t \hyperlink{uart__usb_8c_a5380a9428ded998bebfc8e5ba9c1e1c6}{uart\+Usb\+Read\+Byte} (uint8\+\_\+t $\ast$byte)
+\begin{DoxyCompactList}\small\item\em Obtiene un byte del buffer circular de recepcion de la U\+A\+RT. \end{DoxyCompactList}\item 
+uint8\+\_\+t \hyperlink{uart__usb_8c_a3f42983aecf118f50e3a21c1c8167a7e}{uart\+Usb\+Read\+Data} (uint8\+\_\+t $\ast$buff, const uint8\+\_\+t exp\+Bytes\+Len, const uint32\+\_\+t timeout)
+\begin{DoxyCompactList}\small\item\em Obtiene un conjunto de bytes del buffer circular de recepcion de la U\+A\+RT. \end{DoxyCompactList}\item 
+bool\+\_\+t \hyperlink{uart__usb_8c_aa86b7813259774f94a73d95c98babedc}{uart\+Usb\+Write\+Byte} (const uint8\+\_\+t byte)
+\begin{DoxyCompactList}\small\item\em Almacena un byte en el buffer circular de transmision de la U\+A\+RT. \end{DoxyCompactList}\item 
+uint8\+\_\+t \hyperlink{uart__usb_8c_aa95a0b818f8fd12e9711a24b32cc8fdb}{uart\+Usb\+Write\+Data} (const uint8\+\_\+t $\ast$buff, const uint32\+\_\+t len)
+\begin{DoxyCompactList}\small\item\em Almacena un conjunto de bytes en el buffer circular de transmision de la U\+A\+RT. \end{DoxyCompactList}\item 
+uint8\+\_\+t \hyperlink{uart__usb_8c_a2d4c055609d5a43d238db53aaf936fd3}{uart\+Usb\+Write\+String} (const uint8\+\_\+t $\ast$string)
+\begin{DoxyCompactList}\small\item\em Almacena un string en el buffer circular de transmision de la U\+A\+RT. \end{DoxyCompactList}\item 
+uint8\+\_\+t \hyperlink{uart__usb_8c_a80d7fe5b490286e5a70e6150562a5b98}{uart\+Usb\+Write\+Variadic\+String} (const uint8\+\_\+t $\ast$format,...)
+\begin{DoxyCompactList}\small\item\em Escribe un string de largo variable en el buffer circular de transmision de la U\+A\+RT. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Implementacion del driver de la U\+A\+RT 2 (U\+A\+RT U\+SB) de la E\+D\+U-\/\+C\+I\+AA. 
+
+\begin{DoxyNote}{Note}
+Autores\+: Alvarez Matias -\/ Santarcangelo Marco -\/ Tirapegui Rodrigo Licencia\+: Fecha\+: 17/10/2018 
+\end{DoxyNote}
+
+
+\subsection{Function Documentation}
+\index{uart\+\_\+usb.\+c@{uart\+\_\+usb.\+c}!U\+A\+R\+T2\+\_\+\+I\+R\+Q\+Handler@{U\+A\+R\+T2\+\_\+\+I\+R\+Q\+Handler}}
+\index{U\+A\+R\+T2\+\_\+\+I\+R\+Q\+Handler@{U\+A\+R\+T2\+\_\+\+I\+R\+Q\+Handler}!uart\+\_\+usb.\+c@{uart\+\_\+usb.\+c}}
+\subsubsection[{\texorpdfstring{U\+A\+R\+T2\+\_\+\+I\+R\+Q\+Handler(void)}{UART2_IRQHandler(void)}}]{\setlength{\rightskip}{0pt plus 5cm}void U\+A\+R\+T2\+\_\+\+I\+R\+Q\+Handler (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\hypertarget{uart__usb_8c_ac20eca44aeea90e6f603831193cc9b28}{}\label{uart__usb_8c_ac20eca44aeea90e6f603831193cc9b28}
+
+
+Manejador de interrupcion de la U\+A\+R\+T2. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Ninguno} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Nada 
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+0x2a 0x000000\+A8 -\/ Handler for I\+SR U\+A\+R\+T2 (I\+RQ 26) 
+\end{DoxyNote}
+\index{uart\+\_\+usb.\+c@{uart\+\_\+usb.\+c}!uart\+Usb\+Init@{uart\+Usb\+Init}}
+\index{uart\+Usb\+Init@{uart\+Usb\+Init}!uart\+\_\+usb.\+c@{uart\+\_\+usb.\+c}}
+\subsubsection[{\texorpdfstring{uart\+Usb\+Init(void)}{uartUsbInit(void)}}]{\setlength{\rightskip}{0pt plus 5cm}void uart\+Usb\+Init (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\hypertarget{uart__usb_8c_a61ff4dcbda70eb594868fb3a309d8df5}{}\label{uart__usb_8c_a61ff4dcbda70eb594868fb3a309d8df5}
+
+
+Inicializa el periferico de la uart que esta mapeado al conector U\+SB de la board E\+D\+U-\/\+C\+I\+A\+A-\/\+N\+XP. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Ninguno} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Nada 
+\end{DoxyReturn}
+\index{uart\+\_\+usb.\+c@{uart\+\_\+usb.\+c}!uart\+Usb\+Read\+Byte@{uart\+Usb\+Read\+Byte}}
+\index{uart\+Usb\+Read\+Byte@{uart\+Usb\+Read\+Byte}!uart\+\_\+usb.\+c@{uart\+\_\+usb.\+c}}
+\subsubsection[{\texorpdfstring{uart\+Usb\+Read\+Byte(uint8\+\_\+t $\ast$byte)}{uartUsbReadByte(uint8_t *byte)}}]{\setlength{\rightskip}{0pt plus 5cm}bool\+\_\+t uart\+Usb\+Read\+Byte (
+\begin{DoxyParamCaption}
+\item[{uint8\+\_\+t $\ast$}]{byte}
+\end{DoxyParamCaption}
+)}\hypertarget{uart__usb_8c_a5380a9428ded998bebfc8e5ba9c1e1c6}{}\label{uart__usb_8c_a5380a9428ded998bebfc8e5ba9c1e1c6}
+
+
+Obtiene un byte del buffer circular de recepcion de la U\+A\+RT. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em byte} & \+: Puntero donde almacenar el byte recibido \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+bool\+\_\+t T\+R\+UE si se recibio un byte, F\+A\+L\+SE caso contrario. 
+\end{DoxyReturn}
+\index{uart\+\_\+usb.\+c@{uart\+\_\+usb.\+c}!uart\+Usb\+Read\+Data@{uart\+Usb\+Read\+Data}}
+\index{uart\+Usb\+Read\+Data@{uart\+Usb\+Read\+Data}!uart\+\_\+usb.\+c@{uart\+\_\+usb.\+c}}
+\subsubsection[{\texorpdfstring{uart\+Usb\+Read\+Data(uint8\+\_\+t $\ast$buff, const uint8\+\_\+t exp\+Bytes\+Len, const uint32\+\_\+t timeout)}{uartUsbReadData(uint8_t *buff, const uint8_t expBytesLen, const uint32_t timeout)}}]{\setlength{\rightskip}{0pt plus 5cm}uint8\+\_\+t uart\+Usb\+Read\+Data (
+\begin{DoxyParamCaption}
+\item[{uint8\+\_\+t $\ast$}]{buff, }
+\item[{const uint8\+\_\+t}]{exp\+Bytes\+Len, }
+\item[{const uint32\+\_\+t}]{timeout}
+\end{DoxyParamCaption}
+)}\hypertarget{uart__usb_8c_a3f42983aecf118f50e3a21c1c8167a7e}{}\label{uart__usb_8c_a3f42983aecf118f50e3a21c1c8167a7e}
+
+
+Obtiene un conjunto de bytes del buffer circular de recepcion de la U\+A\+RT. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em buff} & \+: Puntero al buffer de la aplicacion donde almacenar los bytes leidos \\
+\hline
+{\em exp\+Bytes\+Len} & \+: Cantidad maxima de bytes que se deberan almacenar en el buffer de la aplicacion \\
+\hline
+{\em timeout} & \+: Tiempo maximo de espera en ms \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+uint8\+\_\+t Numero de bytes leidos 
+\end{DoxyReturn}
+\index{uart\+\_\+usb.\+c@{uart\+\_\+usb.\+c}!uart\+Usb\+Write\+Byte@{uart\+Usb\+Write\+Byte}}
+\index{uart\+Usb\+Write\+Byte@{uart\+Usb\+Write\+Byte}!uart\+\_\+usb.\+c@{uart\+\_\+usb.\+c}}
+\subsubsection[{\texorpdfstring{uart\+Usb\+Write\+Byte(const uint8\+\_\+t byte)}{uartUsbWriteByte(const uint8_t byte)}}]{\setlength{\rightskip}{0pt plus 5cm}bool\+\_\+t uart\+Usb\+Write\+Byte (
+\begin{DoxyParamCaption}
+\item[{const uint8\+\_\+t}]{byte}
+\end{DoxyParamCaption}
+)}\hypertarget{uart__usb_8c_aa86b7813259774f94a73d95c98babedc}{}\label{uart__usb_8c_aa86b7813259774f94a73d95c98babedc}
+
+
+Almacena un byte en el buffer circular de transmision de la U\+A\+RT. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em byte} & \+: Dato a almacenar en el buffer circular de transmision de la U\+A\+RT \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+bool\+\_\+t T\+R\+UE si el byte pudo ser almacenado, F\+A\+L\+SE caso contario. 
+\end{DoxyReturn}
+\index{uart\+\_\+usb.\+c@{uart\+\_\+usb.\+c}!uart\+Usb\+Write\+Data@{uart\+Usb\+Write\+Data}}
+\index{uart\+Usb\+Write\+Data@{uart\+Usb\+Write\+Data}!uart\+\_\+usb.\+c@{uart\+\_\+usb.\+c}}
+\subsubsection[{\texorpdfstring{uart\+Usb\+Write\+Data(const uint8\+\_\+t $\ast$buff, const uint32\+\_\+t len)}{uartUsbWriteData(const uint8_t *buff, const uint32_t len)}}]{\setlength{\rightskip}{0pt plus 5cm}uint8\+\_\+t uart\+Usb\+Write\+Data (
+\begin{DoxyParamCaption}
+\item[{const uint8\+\_\+t $\ast$}]{buff, }
+\item[{const uint32\+\_\+t}]{len}
+\end{DoxyParamCaption}
+)}\hypertarget{uart__usb_8c_aa95a0b818f8fd12e9711a24b32cc8fdb}{}\label{uart__usb_8c_aa95a0b818f8fd12e9711a24b32cc8fdb}
+
+
+Almacena un conjunto de bytes en el buffer circular de transmision de la U\+A\+RT. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em buff} & \+: Puntero al buffer de la aplicacion con bytes a escribir \\
+\hline
+{\em len} & \+: Cantidad de bytes a escribir \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+uint8\+\_\+t Numero de bytes escritos en el buffer circular de transmision de la U\+A\+RT 
+\end{DoxyReturn}
+\index{uart\+\_\+usb.\+c@{uart\+\_\+usb.\+c}!uart\+Usb\+Write\+String@{uart\+Usb\+Write\+String}}
+\index{uart\+Usb\+Write\+String@{uart\+Usb\+Write\+String}!uart\+\_\+usb.\+c@{uart\+\_\+usb.\+c}}
+\subsubsection[{\texorpdfstring{uart\+Usb\+Write\+String(const uint8\+\_\+t $\ast$string)}{uartUsbWriteString(const uint8_t *string)}}]{\setlength{\rightskip}{0pt plus 5cm}uint8\+\_\+t uart\+Usb\+Write\+String (
+\begin{DoxyParamCaption}
+\item[{const uint8\+\_\+t $\ast$}]{string}
+\end{DoxyParamCaption}
+)}\hypertarget{uart__usb_8c_a2d4c055609d5a43d238db53aaf936fd3}{}\label{uart__usb_8c_a2d4c055609d5a43d238db53aaf936fd3}
+
+
+Almacena un string en el buffer circular de transmision de la U\+A\+RT. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em buff} & \+: Puntero al string de la aplicacion escribir \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+uint8t\+\_\+t Numero de bytes escritos en el buffer circular de transmision de la U\+A\+RT 
+\end{DoxyReturn}
+\index{uart\+\_\+usb.\+c@{uart\+\_\+usb.\+c}!uart\+Usb\+Write\+Variadic\+String@{uart\+Usb\+Write\+Variadic\+String}}
+\index{uart\+Usb\+Write\+Variadic\+String@{uart\+Usb\+Write\+Variadic\+String}!uart\+\_\+usb.\+c@{uart\+\_\+usb.\+c}}
+\subsubsection[{\texorpdfstring{uart\+Usb\+Write\+Variadic\+String(const uint8\+\_\+t $\ast$format,...)}{uartUsbWriteVariadicString(const uint8_t *format,...)}}]{\setlength{\rightskip}{0pt plus 5cm}uint8\+\_\+t uart\+Usb\+Write\+Variadic\+String (
+\begin{DoxyParamCaption}
+\item[{const uint8\+\_\+t $\ast$}]{format, }
+\item[{}]{...}
+\end{DoxyParamCaption}
+)}\hypertarget{uart__usb_8c_a80d7fe5b490286e5a70e6150562a5b98}{}\label{uart__usb_8c_a80d7fe5b490286e5a70e6150562a5b98}
+
+
+Escribe un string de largo variable en el buffer circular de transmision de la U\+A\+RT. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em buff} & \+: Puntero al string de la aplicacion escribir \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+uint8t\+\_\+t Numero de bytes escritos en el buffer circular de transmision de la U\+A\+RT 
+\end{DoxyReturn}

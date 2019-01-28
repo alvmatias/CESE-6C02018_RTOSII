@@ -1,0 +1,28 @@
+digraph "inc/practica3_commands.h"
+{
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  Node1 [label="inc/practica3_commands.h",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black"];
+  Node1 -> Node2 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node2 [label="inc/to_mayus_command.h",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$to__mayus__command_8h.html",tooltip="Implementacion del procesador del comando \"To Mayus\". "];
+  Node2 -> Node3 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node3 [label="src/app.c",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$app_8c.html",tooltip="Manejo de la aplicacion. "];
+  Node2 -> Node4 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node4 [label="src/practica3_commands.c",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$practica3__commands_8c.html",tooltip="Definicion de los comandos de la practica 3. "];
+  Node2 -> Node5 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node5 [label="src/to_mayus_command.c",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$to__mayus__command_8c.html",tooltip="Implementacion del procesador del comando \"To Mayus\". "];
+  Node1 -> Node6 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node6 [label="inc/to_meas_performance\l_command.h",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$to__meas__performance__command_8h.html",tooltip="Implementacion del procesador del comando \"To Measure Performance\". "];
+  Node6 -> Node3 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node6 -> Node4 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node6 -> Node7 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node7 [label="src/to_meas_performance\l_command.c",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$to__meas__performance__command_8c.html",tooltip="Implementacion del procesador del comando \"To Measure Performance\". "];
+  Node1 -> Node8 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node8 [label="inc/to_minus_command.h",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$to__minus__command_8h.html",tooltip="Implementacion del procesador del comando \"To Minus\". "];
+  Node8 -> Node3 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node8 -> Node4 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node8 -> Node9 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node9 [label="src/to_minus_command.c",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$to__minus__command_8c.html",tooltip="Implementacion del procesador del comando \"To Minus\". "];
+  Node1 -> Node3 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node1 -> Node4 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+}

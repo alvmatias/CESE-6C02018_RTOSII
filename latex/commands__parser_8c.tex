@@ -1,0 +1,313 @@
+\hypertarget{commands__parser_8c}{}\section{src/commands\+\_\+parser.c File Reference}
+\label{commands__parser_8c}\index{src/commands\+\_\+parser.\+c@{src/commands\+\_\+parser.\+c}}
+
+
+Implementacion del parser de los paquetes.  
+
+
+{\ttfamily \#include $<$string.\+h$>$}\\*
+{\ttfamily \#include \char`\"{}commands\+\_\+parser.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}preprocessor.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}qmpool.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}uart\+\_\+usb.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}Free\+R\+T\+O\+S.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}Free\+R\+T\+O\+S\+Config.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}task.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}semphr.\+h\char`\"{}}\\*
+Include dependency graph for commands\+\_\+parser.\+c\+:
+% FIG 0
+\subsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structtaskObserver__data__t}{task\+Observer\+\_\+data\+\_\+t}
+\begin{DoxyCompactList}\small\item\em Datos de las tareas de observacion. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{commands__parser_8c_a750659e05502f04f67deb298f5eb22d3}{B\+U\+F\+\_\+\+S\+I\+Z\+E\+\_\+\+M\+AX}~10\hypertarget{commands__parser_8c_a750659e05502f04f67deb298f5eb22d3}{}\label{commands__parser_8c_a750659e05502f04f67deb298f5eb22d3}
+
+\begin{DoxyCompactList}\small\item\em Tamaño maximo de los buffers internos. \end{DoxyCompactList}\item 
+\#define \hyperlink{commands__parser_8c_ada820ed5da2b3ecf1ed23f3c0d51f411}{M\+E\+M\+\_\+\+P\+O\+O\+L\+\_\+\+C\+O\+U\+NT}~3
+\begin{DoxyCompactList}\small\item\em Cantidad de mem pools. \end{DoxyCompactList}\item 
+\#define {\bfseries M\+E\+M\+\_\+\+P\+O\+O\+L\+\_\+\+T\+Y\+P\+E\+\_\+\+X\+\_\+\+S\+I\+ZE}~512\hypertarget{commands__parser_8c_a47dea4fc0bfd175f8bec5032aebde071}{}\label{commands__parser_8c_a47dea4fc0bfd175f8bec5032aebde071}
+
+\item 
+\#define \hyperlink{commands__parser_8c_a87025230c8e4443aa99a3a7a0c6d3dcd}{I\+N\+I\+T\+\_\+\+M\+E\+M\+\_\+\+P\+O\+OL}(n,  unused)
+\begin{DoxyCompactList}\small\item\em Macro para inicializacion de un mem pool. \end{DoxyCompactList}\item 
+\#define \hyperlink{commands__parser_8c_a1a60c3f94cd35402bbdb0764b261fe8a}{D\+E\+C\+L\+A\+R\+E\+\_\+\+M\+E\+M\+\_\+\+P\+O\+O\+L\+\_\+\+B\+L\+O\+C\+K\+\_\+\+S\+I\+ZE}(n,  unused)~M\+E\+M\+\_\+\+P\+O\+O\+L\+\_\+\+T\+Y\+P\+E\+\_\+\#\#n\#\#\+\_\+\+B\+L\+O\+C\+K\+\_\+\+S\+I\+ZE = (M\+E\+M\+\_\+\+P\+O\+O\+L\+\_\+\+T\+Y\+P\+E\+\_\+\+X\+\_\+\+S\+I\+ZE $>$$>$ n),  \textbackslash{}\hypertarget{commands__parser_8c_a1a60c3f94cd35402bbdb0764b261fe8a}{}\label{commands__parser_8c_a1a60c3f94cd35402bbdb0764b261fe8a}
+
+\begin{DoxyCompactList}\small\item\em Macro para declarar el tamaño de bloque del mem pool de acuerdo al tipo. \end{DoxyCompactList}\item 
+\#define \hyperlink{commands__parser_8c_a26ca3d67e4201b8d3a1ee820659a47b2}{I\+N\+S\+T\+A\+N\+C\+I\+A\+T\+E\+\_\+\+M\+E\+M\+\_\+\+P\+O\+O\+L\+\_\+\+H\+A\+N\+L\+D\+ER}(n,  unused)~static \hyperlink{structQMPool}{Q\+M\+Pool} g\+\_\+mem\+PoolT\#\#n\#\#\+\_\+\+Handler;\hypertarget{commands__parser_8c_a26ca3d67e4201b8d3a1ee820659a47b2}{}\label{commands__parser_8c_a26ca3d67e4201b8d3a1ee820659a47b2}
+
+\begin{DoxyCompactList}\small\item\em Macro para instancia el mem pool de acuerdo al tipo. \end{DoxyCompactList}\item 
+\#define \hyperlink{commands__parser_8c_a2a26a70b487210f5b4d0061d3f43c7ef}{G\+E\+T\+\_\+\+O\+P\+T\+I\+M\+A\+L\+\_\+\+M\+E\+M\+\_\+\+P\+O\+O\+L\+\_\+\+B\+Y\+\_\+\+D\+A\+T\+A\+\_\+\+S\+I\+ZE}(n,  unsused)
+\begin{DoxyCompactList}\small\item\em Macro para obtener mem pool de tamaño optimo de acuerdo al tamaño del frame. \end{DoxyCompactList}\item 
+\#define \hyperlink{commands__parser_8c_a5690687b3cfb3f01664f3bc82b978ec5}{G\+E\+T\+\_\+\+M\+E\+M\+\_\+\+P\+O\+O\+L\+\_\+\+H\+A\+N\+D\+L\+E\+R\+\_\+\+B\+Y\+\_\+\+D\+A\+T\+A\+\_\+\+A\+D\+D\+R\+E\+SS}(n,  unsused)
+\begin{DoxyCompactList}\small\item\em Macro para obtener el manejador del mem pool de acuerdo a la direccion del puntero a datos. \end{DoxyCompactList}\item 
+\#define \hyperlink{commands__parser_8c_aacd744a917e61146ec8b7175b4761683}{S\+TX}~0x55\hypertarget{commands__parser_8c_aacd744a917e61146ec8b7175b4761683}{}\label{commands__parser_8c_aacd744a917e61146ec8b7175b4761683}
+
+\begin{DoxyCompactList}\small\item\em Delimitador de comienzo de paquete. \end{DoxyCompactList}\item 
+\#define \hyperlink{commands__parser_8c_af02558e983dd26832a852bf186ed6726}{E\+TX}~0x\+AA\hypertarget{commands__parser_8c_af02558e983dd26832a852bf186ed6726}{}\label{commands__parser_8c_af02558e983dd26832a852bf186ed6726}
+
+\begin{DoxyCompactList}\small\item\em Delimitador de fin de paquete. \end{DoxyCompactList}\item 
+\#define \hyperlink{commands__parser_8c_a01f0175f03058bd9b2964bfd45fb8043}{C\+M\+D\+S\+\_\+\+U\+A\+R\+T\+\_\+\+B\+U\+F\+\_\+\+S\+I\+Z\+E\+\_\+\+M\+AX}~255\hypertarget{commands__parser_8c_a01f0175f03058bd9b2964bfd45fb8043}{}\label{commands__parser_8c_a01f0175f03058bd9b2964bfd45fb8043}
+
+\begin{DoxyCompactList}\small\item\em Tamaño maximo del campo datos del paquete. \end{DoxyCompactList}\item 
+\#define \hyperlink{commands__parser_8c_a26ba92d74241295a22a8d123bbae59df}{C\+M\+D\+S\+\_\+\+U\+A\+R\+T\+\_\+\+R\+C\+V\+\_\+\+D\+A\+T\+A\+\_\+\+T\+I\+M\+E\+O\+UT}~100
+\begin{DoxyCompactList}\small\item\em Timeout de la recepcion de datos. \end{DoxyCompactList}\item 
+\#define \hyperlink{commands__parser_8c_adbd05b1990386c9e342ba6df2939e64a}{T\+A\+S\+K\+S\+\_\+\+I\+D\+\_\+\+M\+AX}~3\hypertarget{commands__parser_8c_adbd05b1990386c9e342ba6df2939e64a}{}\label{commands__parser_8c_adbd05b1990386c9e342ba6df2939e64a}
+
+\begin{DoxyCompactList}\small\item\em Maxima cantidad de tareas en la aplicacion. \end{DoxyCompactList}\item 
+\#define {\bfseries S\+L\+E\+E\+P\+\_\+\+I\+N\+T\+E\+R\+V\+AL}~1\hypertarget{commands__parser_8c_af4b5a1de1bb25e3e56fd2842bf644993}{}\label{commands__parser_8c_af4b5a1de1bb25e3e56fd2842bf644993}
+
+\end{DoxyCompactItemize}
+\subsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \hyperlink{commands__parser_8c_ab08e4c7d1321fb61d58716cee9608b79}{mem\+Pool\+\_\+block\+Size} \begin{DoxyCompactList}\small\item\em Definicion auto-\/completada de los handlers de los mem pools. \end{DoxyCompactList}
+\item 
+enum \hyperlink{commands__parser_8c_afb9d7e14077e1295646b7a2d67235aec}{cmds\+\_\+rcv\+\_\+state\+\_\+t} \{ {\bfseries C\+M\+D\+S\+\_\+\+R\+C\+V\+\_\+\+I\+D\+LE} = 0x00, 
+{\bfseries C\+M\+D\+S\+\_\+\+R\+C\+V\+\_\+\+W\+A\+I\+T\+I\+N\+G\+\_\+\+C\+M\+D\+\_\+\+ID}, 
+{\bfseries C\+M\+D\+S\+\_\+\+R\+C\+V\+\_\+\+W\+A\+I\+T\+I\+N\+G\+\_\+\+E\+X\+P\+\_\+\+L\+EN}, 
+{\bfseries C\+M\+D\+S\+\_\+\+R\+C\+V\+\_\+\+W\+A\+I\+T\+I\+N\+G\+\_\+\+P\+A\+Y\+L\+O\+A\+D\+\_\+\+A\+N\+D\+\_\+\+E\+TX}
+ \}\hypertarget{commands__parser_8c_afb9d7e14077e1295646b7a2d67235aec}{}\label{commands__parser_8c_afb9d7e14077e1295646b7a2d67235aec}
+\begin{DoxyCompactList}\small\item\em Estados posibles de la maquina de estados de recepcion del protocolo serie. \end{DoxyCompactList}
+\item 
+enum \hyperlink{commands__parser_8c_a5439e36371a9e40d3abb33508e3cb4ef}{observer\+Cb} \{ {\bfseries C\+B\+\_\+\+R\+C\+V\+\_\+\+S\+TX}, 
+{\bfseries C\+B\+\_\+\+R\+C\+V\+\_\+\+E\+TX}, 
+{\bfseries C\+B\+\_\+\+S\+N\+D\+\_\+\+S\+TX}, 
+{\bfseries C\+B\+\_\+\+S\+N\+D\+\_\+\+E\+TX}
+ \}\hypertarget{commands__parser_8c_a5439e36371a9e40d3abb33508e3cb4ef}{}\label{commands__parser_8c_a5439e36371a9e40d3abb33508e3cb4ef}
+\begin{DoxyCompactList}\small\item\em Tipo del callback de medicion de performance. \end{DoxyCompactList}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bfseries M\+R\+E\+P\+E\+AT} (\hyperlink{to__meas__performance__command_8c_ada820ed5da2b3ecf1ed23f3c0d51f411}{M\+E\+M\+\_\+\+P\+O\+O\+L\+\_\+\+C\+O\+U\+NT}, \hyperlink{commands__parser_8c_a26ca3d67e4201b8d3a1ee820659a47b2}{I\+N\+S\+T\+A\+N\+C\+I\+A\+T\+E\+\_\+\+M\+E\+M\+\_\+\+P\+O\+O\+L\+\_\+\+H\+A\+N\+L\+D\+ER},$\sim$)\hypertarget{commands__parser_8c_a7181e08870a61e66f699a52b7078a639}{}\label{commands__parser_8c_a7181e08870a61e66f699a52b7078a639}
+
+\item 
+void \hyperlink{commands__parser_8c_a9cafcadae206fc9edbf5aae1a0f09345}{process\+T\+A\+S\+K\+S\+Complete\+Msg} (void)
+\begin{DoxyCompactList}\small\item\em Formateo y envio de paquete via U\+A\+RT  Ninguno. \end{DoxyCompactList}\item 
+bool\+\_\+t \hyperlink{commands__parser_8c_a0daa09eba92c60cb41ea41e548f7f0e4}{get\+T\+A\+S\+K\+S\+Complete\+Msg} (void)
+\begin{DoxyCompactList}\small\item\em Obtencion de datos procesados del procesador de cada comando  Ninguno. \end{DoxyCompactList}\item 
+bool\+\_\+t \hyperlink{commands__parser_8c_aadb64eb287eace7af9f2c34ea663156b}{commands\+Parser\+\_\+init} (void)
+\begin{DoxyCompactList}\small\item\em Inicializacion del parser, mempool y driver de la U\+A\+RT. \end{DoxyCompactList}\item 
+bool\+\_\+t \hyperlink{commands__parser_8c_a477e2361652b5ba11c970b3d7881e1ed}{commands\+Parser\+\_\+register\+Ind\+Handlers} (const uint8\+\_\+t task\+Id, const \hyperlink{structcommands__cbHandlers__t}{commands\+\_\+cb\+Handlers\+\_\+t} $\ast$observer\+Cb\+Handlers)
+\begin{DoxyCompactList}\small\item\em Registro de callback handlers para medicion de performance de paquetes. \end{DoxyCompactList}\item 
+uint32\+\_\+t \hyperlink{commands__parser_8c_aa8b5b2568c2f63ad2b6da33c40bc9a6b}{commands\+Parser\+\_\+get\+Mem\+Pool\+Block\+Size} (const \hyperlink{structframe__t}{frame\+\_\+t} $\ast$frame)
+\begin{DoxyCompactList}\small\item\em Obtencion del tamaño de bloque del mem pool del parser de acuerdo a la direccion de los datos del frame pasado. \end{DoxyCompactList}\item 
+bool\+\_\+t \hyperlink{commands__parser_8c_aa33809d49ea4e21d422ebc0ee51decdb}{commands\+Parser\+\_\+data\+Push} (\hyperlink{structframe__t}{frame\+\_\+t} $\ast$frame, bool\+\_\+t with\+Alloc\+Mem)
+\begin{DoxyCompactList}\small\item\em Agregado de dato en la cola del parser. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Implementacion del parser de los paquetes. 
+
+\begin{DoxyNote}{Note}
+Autores\+: Alvarez Matias -\/ Santarcangelo Marco -\/ Tirapegui Rodrigo Licencia\+: Fecha\+: 17/10/2018 
+\end{DoxyNote}
+
+
+\subsection{Macro Definition Documentation}
+\index{commands\+\_\+parser.\+c@{commands\+\_\+parser.\+c}!C\+M\+D\+S\+\_\+\+U\+A\+R\+T\+\_\+\+R\+C\+V\+\_\+\+D\+A\+T\+A\+\_\+\+T\+I\+M\+E\+O\+UT@{C\+M\+D\+S\+\_\+\+U\+A\+R\+T\+\_\+\+R\+C\+V\+\_\+\+D\+A\+T\+A\+\_\+\+T\+I\+M\+E\+O\+UT}}
+\index{C\+M\+D\+S\+\_\+\+U\+A\+R\+T\+\_\+\+R\+C\+V\+\_\+\+D\+A\+T\+A\+\_\+\+T\+I\+M\+E\+O\+UT@{C\+M\+D\+S\+\_\+\+U\+A\+R\+T\+\_\+\+R\+C\+V\+\_\+\+D\+A\+T\+A\+\_\+\+T\+I\+M\+E\+O\+UT}!commands\+\_\+parser.\+c@{commands\+\_\+parser.\+c}}
+\subsubsection[{\texorpdfstring{C\+M\+D\+S\+\_\+\+U\+A\+R\+T\+\_\+\+R\+C\+V\+\_\+\+D\+A\+T\+A\+\_\+\+T\+I\+M\+E\+O\+UT}{CMDS_UART_RCV_DATA_TIMEOUT}}]{\setlength{\rightskip}{0pt plus 5cm}\#define C\+M\+D\+S\+\_\+\+U\+A\+R\+T\+\_\+\+R\+C\+V\+\_\+\+D\+A\+T\+A\+\_\+\+T\+I\+M\+E\+O\+UT~100}\hypertarget{commands__parser_8c_a26ba92d74241295a22a8d123bbae59df}{}\label{commands__parser_8c_a26ba92d74241295a22a8d123bbae59df}
+
+
+Timeout de la recepcion de datos. 
+
+\begin{DoxyNote}{Note}
+En milisegundos 
+\end{DoxyNote}
+\index{commands\+\_\+parser.\+c@{commands\+\_\+parser.\+c}!G\+E\+T\+\_\+\+M\+E\+M\+\_\+\+P\+O\+O\+L\+\_\+\+H\+A\+N\+D\+L\+E\+R\+\_\+\+B\+Y\+\_\+\+D\+A\+T\+A\+\_\+\+A\+D\+D\+R\+E\+SS@{G\+E\+T\+\_\+\+M\+E\+M\+\_\+\+P\+O\+O\+L\+\_\+\+H\+A\+N\+D\+L\+E\+R\+\_\+\+B\+Y\+\_\+\+D\+A\+T\+A\+\_\+\+A\+D\+D\+R\+E\+SS}}
+\index{G\+E\+T\+\_\+\+M\+E\+M\+\_\+\+P\+O\+O\+L\+\_\+\+H\+A\+N\+D\+L\+E\+R\+\_\+\+B\+Y\+\_\+\+D\+A\+T\+A\+\_\+\+A\+D\+D\+R\+E\+SS@{G\+E\+T\+\_\+\+M\+E\+M\+\_\+\+P\+O\+O\+L\+\_\+\+H\+A\+N\+D\+L\+E\+R\+\_\+\+B\+Y\+\_\+\+D\+A\+T\+A\+\_\+\+A\+D\+D\+R\+E\+SS}!commands\+\_\+parser.\+c@{commands\+\_\+parser.\+c}}
+\subsubsection[{\texorpdfstring{G\+E\+T\+\_\+\+M\+E\+M\+\_\+\+P\+O\+O\+L\+\_\+\+H\+A\+N\+D\+L\+E\+R\+\_\+\+B\+Y\+\_\+\+D\+A\+T\+A\+\_\+\+A\+D\+D\+R\+E\+SS}{GET_MEM_POOL_HANDLER_BY_DATA_ADDRESS}}]{\setlength{\rightskip}{0pt plus 5cm}\#define G\+E\+T\+\_\+\+M\+E\+M\+\_\+\+P\+O\+O\+L\+\_\+\+H\+A\+N\+D\+L\+E\+R\+\_\+\+B\+Y\+\_\+\+D\+A\+T\+A\+\_\+\+A\+D\+D\+R\+E\+SS(
+\begin{DoxyParamCaption}
+\item[{}]{n, }
+\item[{}]{unsused}
+\end{DoxyParamCaption}
+)}\hypertarget{commands__parser_8c_a5690687b3cfb3f01664f3bc82b978ec5}{}\label{commands__parser_8c_a5690687b3cfb3f01664f3bc82b978ec5}
+{\bfseries Value\+:}
+\begin{DoxyCode}
+\textcolor{keywordflow}{if}((&g\_memPool[MEM\_POOL\_TYPE\_X\_SIZE*n] <= sndData) &&        \(\backslash\)
+         (&g\_memPool[MEM\_POOL\_TYPE\_X\_SIZE*(n + 1)] > sndData)) \{   \(\backslash\)
+         memPoolHandler = &g\_memPoolT##n##\_Handler;                  \(\backslash\)
+      \}
+\end{DoxyCode}
+
+
+Macro para obtener el manejador del mem pool de acuerdo a la direccion del puntero a datos. 
+
+\index{commands\+\_\+parser.\+c@{commands\+\_\+parser.\+c}!G\+E\+T\+\_\+\+O\+P\+T\+I\+M\+A\+L\+\_\+\+M\+E\+M\+\_\+\+P\+O\+O\+L\+\_\+\+B\+Y\+\_\+\+D\+A\+T\+A\+\_\+\+S\+I\+ZE@{G\+E\+T\+\_\+\+O\+P\+T\+I\+M\+A\+L\+\_\+\+M\+E\+M\+\_\+\+P\+O\+O\+L\+\_\+\+B\+Y\+\_\+\+D\+A\+T\+A\+\_\+\+S\+I\+ZE}}
+\index{G\+E\+T\+\_\+\+O\+P\+T\+I\+M\+A\+L\+\_\+\+M\+E\+M\+\_\+\+P\+O\+O\+L\+\_\+\+B\+Y\+\_\+\+D\+A\+T\+A\+\_\+\+S\+I\+ZE@{G\+E\+T\+\_\+\+O\+P\+T\+I\+M\+A\+L\+\_\+\+M\+E\+M\+\_\+\+P\+O\+O\+L\+\_\+\+B\+Y\+\_\+\+D\+A\+T\+A\+\_\+\+S\+I\+ZE}!commands\+\_\+parser.\+c@{commands\+\_\+parser.\+c}}
+\subsubsection[{\texorpdfstring{G\+E\+T\+\_\+\+O\+P\+T\+I\+M\+A\+L\+\_\+\+M\+E\+M\+\_\+\+P\+O\+O\+L\+\_\+\+B\+Y\+\_\+\+D\+A\+T\+A\+\_\+\+S\+I\+ZE}{GET_OPTIMAL_MEM_POOL_BY_DATA_SIZE}}]{\setlength{\rightskip}{0pt plus 5cm}\#define G\+E\+T\+\_\+\+O\+P\+T\+I\+M\+A\+L\+\_\+\+M\+E\+M\+\_\+\+P\+O\+O\+L\+\_\+\+B\+Y\+\_\+\+D\+A\+T\+A\+\_\+\+S\+I\+ZE(
+\begin{DoxyParamCaption}
+\item[{}]{n, }
+\item[{}]{unsused}
+\end{DoxyParamCaption}
+)}\hypertarget{commands__parser_8c_a2a26a70b487210f5b4d0061d3f43c7ef}{}\label{commands__parser_8c_a2a26a70b487210f5b4d0061d3f43c7ef}
+{\bfseries Value\+:}
+\begin{DoxyCode}
+\textcolor{keywordflow}{if}(MEM\_POOL\_TYPE\_##n##\_BLOCK\_SIZE > rcvDataSize) \{       \(\backslash\)
+         memPoolHandler = &g\_memPoolT##n##\_Handler;            \(\backslash\)
+      \}
+\end{DoxyCode}
+
+
+Macro para obtener mem pool de tamaño optimo de acuerdo al tamaño del frame. 
+
+\index{commands\+\_\+parser.\+c@{commands\+\_\+parser.\+c}!I\+N\+I\+T\+\_\+\+M\+E\+M\+\_\+\+P\+O\+OL@{I\+N\+I\+T\+\_\+\+M\+E\+M\+\_\+\+P\+O\+OL}}
+\index{I\+N\+I\+T\+\_\+\+M\+E\+M\+\_\+\+P\+O\+OL@{I\+N\+I\+T\+\_\+\+M\+E\+M\+\_\+\+P\+O\+OL}!commands\+\_\+parser.\+c@{commands\+\_\+parser.\+c}}
+\subsubsection[{\texorpdfstring{I\+N\+I\+T\+\_\+\+M\+E\+M\+\_\+\+P\+O\+OL}{INIT_MEM_POOL}}]{\setlength{\rightskip}{0pt plus 5cm}\#define I\+N\+I\+T\+\_\+\+M\+E\+M\+\_\+\+P\+O\+OL(
+\begin{DoxyParamCaption}
+\item[{}]{n, }
+\item[{}]{unused}
+\end{DoxyParamCaption}
+)}\hypertarget{commands__parser_8c_a87025230c8e4443aa99a3a7a0c6d3dcd}{}\label{commands__parser_8c_a87025230c8e4443aa99a3a7a0c6d3dcd}
+{\bfseries Value\+:}
+\begin{DoxyCode}
+\hyperlink{qmpool_8h_a19ce0f12f82dcf6825628ace98e980dc}{QMPool\_init}(&g\_memPoolT##n##\_Handler,           \(\backslash\)
+                     &g\_memPool[MEM\_POOL\_TYPE\_X\_SIZE*n], \(\backslash\)
+                     MEM\_POOL\_TYPE\_X\_SIZE,               \(\backslash\)
+                     MEM\_POOL\_TYPE\_##n##\_BLOCK\_SIZE);    \(\backslash\)
+\end{DoxyCode}
+
+
+Macro para inicializacion de un mem pool. 
+
+\index{commands\+\_\+parser.\+c@{commands\+\_\+parser.\+c}!M\+E\+M\+\_\+\+P\+O\+O\+L\+\_\+\+C\+O\+U\+NT@{M\+E\+M\+\_\+\+P\+O\+O\+L\+\_\+\+C\+O\+U\+NT}}
+\index{M\+E\+M\+\_\+\+P\+O\+O\+L\+\_\+\+C\+O\+U\+NT@{M\+E\+M\+\_\+\+P\+O\+O\+L\+\_\+\+C\+O\+U\+NT}!commands\+\_\+parser.\+c@{commands\+\_\+parser.\+c}}
+\subsubsection[{\texorpdfstring{M\+E\+M\+\_\+\+P\+O\+O\+L\+\_\+\+C\+O\+U\+NT}{MEM_POOL_COUNT}}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\+E\+M\+\_\+\+P\+O\+O\+L\+\_\+\+C\+O\+U\+NT~3}\hypertarget{commands__parser_8c_ada820ed5da2b3ecf1ed23f3c0d51f411}{}\label{commands__parser_8c_ada820ed5da2b3ecf1ed23f3c0d51f411}
+
+
+Cantidad de mem pools. 
+
+\begin{DoxyNote}{Note}
+Decimal $>$ 0 
+\end{DoxyNote}
+
+
+\subsection{Enumeration Type Documentation}
+\index{commands\+\_\+parser.\+c@{commands\+\_\+parser.\+c}!mem\+Pool\+\_\+block\+Size@{mem\+Pool\+\_\+block\+Size}}
+\index{mem\+Pool\+\_\+block\+Size@{mem\+Pool\+\_\+block\+Size}!commands\+\_\+parser.\+c@{commands\+\_\+parser.\+c}}
+\subsubsection[{\texorpdfstring{mem\+Pool\+\_\+block\+Size}{memPool_blockSize}}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf mem\+Pool\+\_\+block\+Size}}\hypertarget{commands__parser_8c_ab08e4c7d1321fb61d58716cee9608b79}{}\label{commands__parser_8c_ab08e4c7d1321fb61d58716cee9608b79}
+
+
+Definicion auto-\/completada de los handlers de los mem pools. 
+
+\begin{DoxyAttention}{Attention}
+NO M\+O\+D\+I\+F\+I\+C\+AR 
+\end{DoxyAttention}
+
+
+\subsection{Function Documentation}
+\index{commands\+\_\+parser.\+c@{commands\+\_\+parser.\+c}!commands\+Parser\+\_\+data\+Push@{commands\+Parser\+\_\+data\+Push}}
+\index{commands\+Parser\+\_\+data\+Push@{commands\+Parser\+\_\+data\+Push}!commands\+\_\+parser.\+c@{commands\+\_\+parser.\+c}}
+\subsubsection[{\texorpdfstring{commands\+Parser\+\_\+data\+Push(frame\+\_\+t $\ast$frame, bool\+\_\+t with\+Alloc\+Mem)}{commandsParser_dataPush(frame_t *frame, bool_t withAllocMem)}}]{\setlength{\rightskip}{0pt plus 5cm}bool\+\_\+t commands\+Parser\+\_\+data\+Push (
+\begin{DoxyParamCaption}
+\item[{{\bf frame\+\_\+t} $\ast$}]{frame, }
+\item[{bool\+\_\+t}]{with\+Alloc\+Mem}
+\end{DoxyParamCaption}
+)}\hypertarget{commands__parser_8c_aa33809d49ea4e21d422ebc0ee51decdb}{}\label{commands__parser_8c_aa33809d49ea4e21d422ebc0ee51decdb}
+
+
+Agregado de dato en la cola del parser. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em frame} & \+: Frame a ser agregado \\
+\hline
+{\em with\+Mem\+Alloc} & \+: Booleano que indica si los datos deben ser previamente alocados antes de ser agregados en la cola o no \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+bool\+\_\+t T\+R\+UE si pudo agregarse y/o alocarse el frame, F\+A\+L\+SE caso contrario 
+\end{DoxyReturn}
+\index{commands\+\_\+parser.\+c@{commands\+\_\+parser.\+c}!commands\+Parser\+\_\+get\+Mem\+Pool\+Block\+Size@{commands\+Parser\+\_\+get\+Mem\+Pool\+Block\+Size}}
+\index{commands\+Parser\+\_\+get\+Mem\+Pool\+Block\+Size@{commands\+Parser\+\_\+get\+Mem\+Pool\+Block\+Size}!commands\+\_\+parser.\+c@{commands\+\_\+parser.\+c}}
+\subsubsection[{\texorpdfstring{commands\+Parser\+\_\+get\+Mem\+Pool\+Block\+Size(const frame\+\_\+t $\ast$frame)}{commandsParser_getMemPoolBlockSize(const frame_t *frame)}}]{\setlength{\rightskip}{0pt plus 5cm}uint32\+\_\+t commands\+Parser\+\_\+get\+Mem\+Pool\+Block\+Size (
+\begin{DoxyParamCaption}
+\item[{const {\bf frame\+\_\+t} $\ast$}]{frame}
+\end{DoxyParamCaption}
+)}\hypertarget{commands__parser_8c_aa8b5b2568c2f63ad2b6da33c40bc9a6b}{}\label{commands__parser_8c_aa8b5b2568c2f63ad2b6da33c40bc9a6b}
+
+
+Obtencion del tamaño de bloque del mem pool del parser de acuerdo a la direccion de los datos del frame pasado. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em frame} & \+: Frame conteniendo los datos alocados en el mem pool \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+uint32\+\_\+t Tamaño de bloque del mem pool donde estan alojados los datos del frame pasado como parametros 
+\end{DoxyReturn}
+\index{commands\+\_\+parser.\+c@{commands\+\_\+parser.\+c}!commands\+Parser\+\_\+init@{commands\+Parser\+\_\+init}}
+\index{commands\+Parser\+\_\+init@{commands\+Parser\+\_\+init}!commands\+\_\+parser.\+c@{commands\+\_\+parser.\+c}}
+\subsubsection[{\texorpdfstring{commands\+Parser\+\_\+init(void)}{commandsParser_init(void)}}]{\setlength{\rightskip}{0pt plus 5cm}bool\+\_\+t commands\+Parser\+\_\+init (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\hypertarget{commands__parser_8c_aadb64eb287eace7af9f2c34ea663156b}{}\label{commands__parser_8c_aadb64eb287eace7af9f2c34ea663156b}
+
+
+Inicializacion del parser, mempool y driver de la U\+A\+RT. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Ninguno} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+bool\+\_\+t T\+R\+UE si la inicializacion fue correcta, F\+A\+L\+SE caso contrario. 
+\end{DoxyReturn}
+\index{commands\+\_\+parser.\+c@{commands\+\_\+parser.\+c}!commands\+Parser\+\_\+register\+Ind\+Handlers@{commands\+Parser\+\_\+register\+Ind\+Handlers}}
+\index{commands\+Parser\+\_\+register\+Ind\+Handlers@{commands\+Parser\+\_\+register\+Ind\+Handlers}!commands\+\_\+parser.\+c@{commands\+\_\+parser.\+c}}
+\subsubsection[{\texorpdfstring{commands\+Parser\+\_\+register\+Ind\+Handlers(const uint8\+\_\+t task\+Id, const commands\+\_\+cb\+Handlers\+\_\+t $\ast$observer\+Cb\+Handlers)}{commandsParser_registerIndHandlers(const uint8_t taskId, const commands_cbHandlers_t *observerCbHandlers)}}]{\setlength{\rightskip}{0pt plus 5cm}bool\+\_\+t commands\+Parser\+\_\+register\+Ind\+Handlers (
+\begin{DoxyParamCaption}
+\item[{const uint8\+\_\+t}]{task\+Id, }
+\item[{const {\bf commands\+\_\+cb\+Handlers\+\_\+t} $\ast$}]{observer\+Cb\+Handlers}
+\end{DoxyParamCaption}
+)}\hypertarget{commands__parser_8c_a477e2361652b5ba11c970b3d7881e1ed}{}\label{commands__parser_8c_a477e2361652b5ba11c970b3d7881e1ed}
+
+
+Registro de callback handlers para medicion de performance de paquetes. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em task\+Id} & \+: Id de la tarea que registra los callbacks \\
+\hline
+{\em observer\+Cb\+Handlers} & \+: Puntero a la estructura que contiene los distintos callbacks \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+bool\+\_\+t T\+R\+UE si fue posible registrarlos, F\+A\+L\+SE caso contrario. 
+\end{DoxyReturn}
+\index{commands\+\_\+parser.\+c@{commands\+\_\+parser.\+c}!get\+T\+A\+S\+K\+S\+Complete\+Msg@{get\+T\+A\+S\+K\+S\+Complete\+Msg}}
+\index{get\+T\+A\+S\+K\+S\+Complete\+Msg@{get\+T\+A\+S\+K\+S\+Complete\+Msg}!commands\+\_\+parser.\+c@{commands\+\_\+parser.\+c}}
+\subsubsection[{\texorpdfstring{get\+T\+A\+S\+K\+S\+Complete\+Msg(void)}{getTASKSCompleteMsg(void)}}]{\setlength{\rightskip}{0pt plus 5cm}static bool\+\_\+t get\+T\+A\+S\+K\+S\+Complete\+Msg (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\hypertarget{commands__parser_8c_a0daa09eba92c60cb41ea41e548f7f0e4}{}\label{commands__parser_8c_a0daa09eba92c60cb41ea41e548f7f0e4}
+
+
+Obtencion de datos procesados del procesador de cada comando  Ninguno. 
+
+\begin{DoxyReturn}{Returns}
+bool\+\_\+t T\+R\+UE si la obtencion de los datos fue correcta , F\+A\+L\+SE caso contrario. 
+\end{DoxyReturn}
+\index{commands\+\_\+parser.\+c@{commands\+\_\+parser.\+c}!process\+T\+A\+S\+K\+S\+Complete\+Msg@{process\+T\+A\+S\+K\+S\+Complete\+Msg}}
+\index{process\+T\+A\+S\+K\+S\+Complete\+Msg@{process\+T\+A\+S\+K\+S\+Complete\+Msg}!commands\+\_\+parser.\+c@{commands\+\_\+parser.\+c}}
+\subsubsection[{\texorpdfstring{process\+T\+A\+S\+K\+S\+Complete\+Msg(void)}{processTASKSCompleteMsg(void)}}]{\setlength{\rightskip}{0pt plus 5cm}static void process\+T\+A\+S\+K\+S\+Complete\+Msg (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\hypertarget{commands__parser_8c_a9cafcadae206fc9edbf5aae1a0f09345}{}\label{commands__parser_8c_a9cafcadae206fc9edbf5aae1a0f09345}
+
+
+Formateo y envio de paquete via U\+A\+RT  Ninguno. 
+
+\begin{DoxyReturn}{Returns}
+Nada 
+\end{DoxyReturn}

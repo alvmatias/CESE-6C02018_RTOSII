@@ -1,0 +1,100 @@
+\hypertarget{practica3__commands_8h}{}\section{inc/practica3\+\_\+commands.h File Reference}
+\label{practica3__commands_8h}\index{inc/practica3\+\_\+commands.\+h@{inc/practica3\+\_\+commands.\+h}}
+
+
+Definicion de los comandos de la practica 3.  
+
+
+{\ttfamily \#include \char`\"{}sapi\+\_\+datatypes.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}commands\+\_\+parser.\+h\char`\"{}}\\*
+Include dependency graph for practica3\+\_\+commands.\+h\+:
+% FIG 0
+This graph shows which files directly or indirectly include this file\+:
+% FIG 1
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{practica3__commands_8h_abbb1b08099892cc5a6fb32b00ed5a279}{Q\+U\+E\+U\+E\+\_\+\+E\+N\+T\+R\+I\+E\+S\+\_\+\+M\+AX}~10
+\begin{DoxyCompactList}\small\item\em Definicion del tamaño maximo de la cola. \end{DoxyCompactList}\item 
+\#define \hyperlink{practica3__commands_8h_afc278b0ed234c59743c2fd7cf030cd7a}{practica3\+Commands\+\_\+register\+Ind\+Handlers}(task\+Id,  ptr\+Task\+Cb\+Handlers)~\hyperlink{commands__parser_8c_a477e2361652b5ba11c970b3d7881e1ed}{commands\+Parser\+\_\+register\+Ind\+Handlers}(task\+Id, ptr\+Task\+Cb\+Handlers)\hypertarget{practica3__commands_8h_afc278b0ed234c59743c2fd7cf030cd7a}{}\label{practica3__commands_8h_afc278b0ed234c59743c2fd7cf030cd7a}
+
+\begin{DoxyCompactList}\small\item\em Re-\/definicion del registro de callback handlers del parser. \end{DoxyCompactList}\item 
+\#define \hyperlink{practica3__commands_8h_a6313f768b0df9c139abb5eecb3f2373d}{practica3\+Commands\+\_\+get\+Mem\+Pool\+Block\+Size}(frame)~\hyperlink{commands__parser_8c_aa8b5b2568c2f63ad2b6da33c40bc9a6b}{commands\+Parser\+\_\+get\+Mem\+Pool\+Block\+Size}(frame)\hypertarget{practica3__commands_8h_a6313f768b0df9c139abb5eecb3f2373d}{}\label{practica3__commands_8h_a6313f768b0df9c139abb5eecb3f2373d}
+
+\begin{DoxyCompactList}\small\item\em Re-\/definicion de la obtencion de tamaño del mem pool del parser. \end{DoxyCompactList}\item 
+\#define \hyperlink{practica3__commands_8h_a82952f3ea544970866c17f456e86885c}{practica3\+Commands\+\_\+data\+Push}(ptr\+Frame,  with\+Mem\+Alloc)~\hyperlink{commands__parser_8c_aa33809d49ea4e21d422ebc0ee51decdb}{commands\+Parser\+\_\+data\+Push}(ptr\+Frame, with\+Mem\+Alloc)\hypertarget{practica3__commands_8h_a82952f3ea544970866c17f456e86885c}{}\label{practica3__commands_8h_a82952f3ea544970866c17f456e86885c}
+
+\begin{DoxyCompactList}\small\item\em Re-\/definicion del agregado de datos en la cola del parser. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef \hyperlink{structframe__t}{frame\+\_\+t} {\bfseries practica3\+Frame\+\_\+t}\hypertarget{practica3__commands_8h_a095ebb40ae2b7441a0471de41cb60c45}{}\label{practica3__commands_8h_a095ebb40ae2b7441a0471de41cb60c45}
+
+\item 
+typedef \hyperlink{structcommands__cbHandlers__t}{commands\+\_\+cb\+Handlers\+\_\+t} {\bfseries practica3\+Cb\+Handlers\+\_\+t}\hypertarget{practica3__commands_8h_a24ec17fb3a1c9e256c29a138b968b96e}{}\label{practica3__commands_8h_a24ec17fb3a1c9e256c29a138b968b96e}
+
+\end{DoxyCompactItemize}
+\subsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \{ \\*
+{\bfseries P\+R\+A\+C\+T\+I\+C\+A\+\_\+3\+\_\+\+C\+M\+D\+\_\+\+I\+D\+\_\+\+T\+O\+\_\+\+M\+A\+Y\+US} = 0, 
+{\bfseries P\+R\+A\+C\+T\+I\+C\+A\+\_\+3\+\_\+\+C\+M\+D\+\_\+\+I\+D\+\_\+\+T\+O\+\_\+\+M\+I\+N\+US}, 
+{\bfseries P\+R\+A\+C\+T\+I\+C\+A\+\_\+3\+\_\+\+C\+M\+D\+\_\+\+I\+D\+\_\+\+S\+T\+A\+C\+K\+\_\+\+M\+I\+N\+I\+M\+UM}, 
+{\bfseries P\+R\+A\+C\+T\+I\+C\+A\+\_\+3\+\_\+\+C\+M\+D\+\_\+\+I\+D\+\_\+\+H\+E\+A\+P\+\_\+\+A\+V\+A\+I\+L\+A\+B\+LE}, 
+\\*
+{\bfseries P\+R\+A\+C\+T\+I\+C\+A\+\_\+3\+\_\+\+C\+M\+D\+\_\+\+I\+D\+\_\+\+S\+T\+A\+T\+U\+S\+\_\+\+M\+SG}, 
+{\bfseries P\+R\+A\+C\+T\+I\+C\+A\+\_\+3\+\_\+\+C\+M\+D\+\_\+\+I\+D\+\_\+\+T\+O\+\_\+\+M\+E\+A\+S\+\_\+\+P\+E\+R\+F\+O\+R\+M\+A\+N\+CE}, 
+{\bfseries P\+R\+A\+C\+T\+I\+C\+A\+\_\+3\+\_\+\+C\+M\+D\+\_\+\+I\+D\+\_\+\+B\+U\+T\+T\+O\+N\+\_\+\+E\+V\+E\+N\+TS}, 
+{\bfseries P\+R\+A\+C\+T\+I\+C\+A\+\_\+3\+\_\+\+C\+M\+D\+\_\+\+I\+D\+\_\+\+M\+AX}
+ \}\hypertarget{practica3__commands_8h_a06fc87d81c62e9abb8790b6e5713c55b}{}\label{practica3__commands_8h_a06fc87d81c62e9abb8790b6e5713c55b}
+
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+uint8\+\_\+t \hyperlink{practica3__commands_8h_ab3bfd955102fef7509e0ce1c61863617}{practica3\+Commands\+\_\+init} (void)
+\begin{DoxyCompactList}\small\item\em Inicializacion del parser. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Definicion de los comandos de la practica 3. 
+
+\begin{DoxyNote}{Note}
+Autores\+: Alvarez Matias -\/ Santarcangelo Marco -\/ Tirapegui Rodrigo Licencia\+: Fecha\+: 17/10/2018 
+\end{DoxyNote}
+
+
+\subsection{Macro Definition Documentation}
+\index{practica3\+\_\+commands.\+h@{practica3\+\_\+commands.\+h}!Q\+U\+E\+U\+E\+\_\+\+E\+N\+T\+R\+I\+E\+S\+\_\+\+M\+AX@{Q\+U\+E\+U\+E\+\_\+\+E\+N\+T\+R\+I\+E\+S\+\_\+\+M\+AX}}
+\index{Q\+U\+E\+U\+E\+\_\+\+E\+N\+T\+R\+I\+E\+S\+\_\+\+M\+AX@{Q\+U\+E\+U\+E\+\_\+\+E\+N\+T\+R\+I\+E\+S\+\_\+\+M\+AX}!practica3\+\_\+commands.\+h@{practica3\+\_\+commands.\+h}}
+\subsubsection[{\texorpdfstring{Q\+U\+E\+U\+E\+\_\+\+E\+N\+T\+R\+I\+E\+S\+\_\+\+M\+AX}{QUEUE_ENTRIES_MAX}}]{\setlength{\rightskip}{0pt plus 5cm}\#define Q\+U\+E\+U\+E\+\_\+\+E\+N\+T\+R\+I\+E\+S\+\_\+\+M\+AX~10}\hypertarget{practica3__commands_8h_abbb1b08099892cc5a6fb32b00ed5a279}{}\label{practica3__commands_8h_abbb1b08099892cc5a6fb32b00ed5a279}
+
+
+Definicion del tamaño maximo de la cola. 
+
+\begin{DoxyNote}{Note}
+Decimal $>$ 0 
+\end{DoxyNote}
+
+
+\subsection{Function Documentation}
+\index{practica3\+\_\+commands.\+h@{practica3\+\_\+commands.\+h}!practica3\+Commands\+\_\+init@{practica3\+Commands\+\_\+init}}
+\index{practica3\+Commands\+\_\+init@{practica3\+Commands\+\_\+init}!practica3\+\_\+commands.\+h@{practica3\+\_\+commands.\+h}}
+\subsubsection[{\texorpdfstring{practica3\+Commands\+\_\+init(void)}{practica3Commands_init(void)}}]{\setlength{\rightskip}{0pt plus 5cm}bool\+\_\+t practica3\+Commands\+\_\+init (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\hypertarget{practica3__commands_8h_ab3bfd955102fef7509e0ce1c61863617}{}\label{practica3__commands_8h_ab3bfd955102fef7509e0ce1c61863617}
+
+
+Inicializacion del parser. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Ninguno} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+bool\+\_\+t T\+R\+UE si la inicializacion fue correcta, F\+A\+L\+SE caso contrario. 
+\end{DoxyReturn}

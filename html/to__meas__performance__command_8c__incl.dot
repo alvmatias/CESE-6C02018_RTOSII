@@ -1,0 +1,37 @@
+digraph "src/to_meas_performance_command.c"
+{
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  Node1 [label="src/to_meas_performance\l_command.c",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black"];
+  Node1 -> Node2 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node2 [label="string.h",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled"];
+  Node1 -> Node3 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node3 [label="to_meas_performance\l_command.h",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$to__meas__performance__command_8h.html",tooltip="Implementacion del procesador del comando \"To Measure Performance\". "];
+  Node3 -> Node4 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node4 [label="sapi_datatypes.h",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled"];
+  Node3 -> Node5 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node5 [label="practica3_commands.h",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$practica3__commands_8h.html",tooltip="Definicion de los comandos de la practica 3. "];
+  Node5 -> Node4 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node5 -> Node6 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node6 [label="commands_parser.h",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$commands__parser_8h.html",tooltip="Implementacion del parser de los paquetes. "];
+  Node6 -> Node4 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node1 -> Node7 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node7 [label="qmpool.h",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$qmpool_8h.html",tooltip="QP native, platform-independent memory pool QMPool interface. "];
+  Node1 -> Node8 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node8 [label="timer_service.h",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$timer__service_8h.html",tooltip="Manejo de timer de hardware del lpc4337 y timers de software. "];
+  Node8 -> Node9 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node9 [label="sapi_peripheral_map.h",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled"];
+  Node1 -> Node10 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node10 [label="fsm.h",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$fsm_8h.html",tooltip="Implementacion de la maquina de estados finita. "];
+  Node10 -> Node4 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node1 -> Node11 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node11 [label="FreeRTOS.h",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled"];
+  Node1 -> Node12 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node12 [label="FreeRTOSConfig.h",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$FreeRTOSConfig_8h_source.html"];
+  Node12 -> Node13 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node13 [label="chip.h",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled"];
+  Node1 -> Node14 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node14 [label="task.h",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled"];
+  Node1 -> Node15 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node15 [label="semphr.h",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled"];
+}
